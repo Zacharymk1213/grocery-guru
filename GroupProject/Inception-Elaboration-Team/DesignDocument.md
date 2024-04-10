@@ -14,17 +14,17 @@
 We are attempting to create an application that will enable the user to keep track of his/her grocery lists. This will be generic and not associated with a particular store and will therefore allow the user to keep track of multiple lists. Suppose the following use case:
 
 Target:
-Pants
-Hershey's bar
+- Pants
+- Hershey's bar
 
 Walmart:
-Yogurt
+- Yogurt
 
 The user will be able to create two lists, one for Target and one for Walmart.
 
 Dependencies:
-Toast - to alert the user when required.
-Android Studio - To compile the app since it's used to create the GUI.
+- Toast: to alert the user when required.
+- Android Studio: To compile the app since it's used to create the GUI.
 
 
 
