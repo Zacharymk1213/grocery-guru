@@ -41,12 +41,13 @@ Welcome to the documentation for Listdroid, the premier Android Shopping List ap
 | Role                               | Assigned to               |
 |------------------------------------|---------------------------|
 | Junit Tester                       | Zachary Kleiman           |
-| Initial programmer                 | Atlantic                  |
+| Initial programmer (backend)       | Atlantic                  |
 | Assistant programmer (debugging)   | Zachary Kleiman           |
-| GUI Implementer                    |                           |
+| GUI Implementer (frontend)         | Atlantic                    |
 | UML Designer                       | Jessie                    |
 | Documentation writer               | Atlantic, Zachary         |
 | Use case                           | Jessie                    |
+| Project design                     | Jatin
 - *Team members' names*
 - *Roles, with a short description of each role*
 - *Table showing which team member(s) has which role(s)*
