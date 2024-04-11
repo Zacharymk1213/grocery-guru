@@ -35,17 +35,18 @@ Welcome to the documentation for Listdroid, the premier Android Shopping List ap
 4. GUI Implementer - Will implement the designed UML in terms of a GUI in Android Studio 
 5. UML Designer - Person who's in charge of the UML the team is using, keeping track of any changes made in the course of development etc.
 6. Documentation writer - Will be in charge of producing initial documentation. Documentation may be further modified by other team members.
-
+7. Use case - writing up use case documentation.
 ### Role Assignment
 
-| Role                 | Assigned to       |
-|----------------------|-------------------|
-| Junit Tester         | Zachary Kleiman   |
-| Initial programmer   |                   |
-| Assistant programmer | Zachary Kleiman   |
-| GUI Implementer      |                   |
-| UML Designer         |                   |
-| Documentation writer |                   |
+| Role                               | Assigned to               |
+|------------------------------------|---------------------------|
+| Junit Tester                       | Zachary Kleiman           |
+| Initial programmer                 | Atlantic                  |
+| Assistant programmer (debugging)   | Zachary Kleiman           |
+| GUI Implementer                    |                           |
+| UML Designer                       | Jessie                    |
+| Documentation writer               | Atlantic, Zachary         |
+| Use case                           | Jessie                    |
 - *Team members' names*
 - *Roles, with a short description of each role*
 - *Table showing which team member(s) has which role(s)*
