@@ -44,7 +44,7 @@ Welcome to the documentation for Listdroid, the premier Android Shopping List ap
 | Initial programmer (backend)       | Atlantic                  |
 | Assistant programmer (debugging)   | Zachary Kleiman           |
 | GUI Implementer (frontend)         | Atlantic                    |
-| UML Designer                       | Jessie                    |
+| UML Designer                       | Jessie, LingJie Shi       |
 | Documentation writer               | Atlantic, Zachary         |
 | Use case                           | Jessie                    |
 | Project design                     | Jatin
