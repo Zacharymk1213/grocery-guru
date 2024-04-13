@@ -1,28 +1,19 @@
 # Design Document
 
-*This is the template for your design document. The parts in italics are concise explanations of what should go in the corresponding sections and should not appear in the final document.*
 
-**Author**: Zachary Kleiman
+
+**Author**: Zachary Kleiman, Jatin K. Marwaha
 
 ## 1 Design Considerations
 
-*The subsections below describe the issues that need to be addressed or resolved prior to or while completing the design, as well as issues that may influence the design process.*
+
 
 ### 1.1 Assumptions
 
-*Describe any assumption, background, or dependencies of the software, its use, the operational environment, or significant project issues.*
-We are attempting to create an application that will enable the user to keep track of his/her grocery lists. This will be generic and not associated with a particular store and will therefore allow the user to keep track of multiple lists. Suppose the following use case:
 
-Target:
-- Pants
-- Hershey's bar
+We are creating an application that will enable the user to create , maintain and edit a grocery list. Assuming a User knows what products they want prior to shopping this would enable them to gain more utility from creating grocery lists.
 
-Walmart:
-- Yogurt
-
-The user will be able to create two lists, one for Target and one for Walmart.
-
-Dependencies:
+The Application will have the following Dependencies:
 - Toast: to alert the user when required.
 - Android Studio: To compile the app since it's used to create the GUI.
 
@@ -30,14 +21,11 @@ Dependencies:
 
 ### 1.2 Constraints
 
-*Describe any constraints on the system that have a significant impact on the design of the system.*
-The application must be targeted at API Level 31 or higher. Therefore, there is no need to consider compatibility with older devices (eg. old phones with significantly less RAM).
-
+The User should be able to add any product they desire to the system. which means the size of the database must expand to accommodate user entries. 
 ### 1.3 System Environment
 
 This application will be targeted at API Level 31 of Android. We are therefore targeting all phones that can run Android 12 and higher.
 
-*Describe the hardware and software that the system must operate in and interact with.*
 
 ## 2 Architectural Design
 
@@ -57,7 +45,7 @@ This application will be targeted at API Level 31 of Android. We are therefore t
 
 ### 3.1 Class Diagram
 
-*In the case of an OO design, the internal structure of a software component would typically be expressed as a UML class diagram that represents the static class structure for the component and their relationships.*
+![](../Design-Team/design-team.jpeg)
 
 ### 3.2 Other Diagrams
 

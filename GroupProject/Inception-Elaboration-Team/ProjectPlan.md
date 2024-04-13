@@ -1,13 +1,13 @@
 # Project Plan
 
-*This is the template for your project plan. The parts in italics are concise explanations of what should go in the corresponding sections and should not appear in the final document.*
 
-**Author**: Zachary Kleiman
+
+**Author**: Zachary Kleiman, Jatin K. Marwaha
 
 ## 1 Introduction
 
-Welcome to the documentation for Listdroid, the premier Android Shopping List app.
-*Here you introduce the product. Keep this  clean and simple, one or two sentences at most.*
+Welcome to the documentation for Grocery Guru, the definitive Android Shopping List app.
+This is a simple application which enables the user to create,edit and save shopping lists.
 
 ## 2 Process Description
 
@@ -20,7 +20,6 @@ Welcome to the documentation for Listdroid, the premier Android Shopping List ap
 
 ## 3 Team
 
-*Describe the team and their roles (there may be more roles than there are team members)*
 ### Team Members
 - Jatin Marwaha
 - LingJie Shi
@@ -29,13 +28,15 @@ Welcome to the documentation for Listdroid, the premier Android Shopping List ap
 - Zachary Kleiman
 
 ### Roles
-1. Junit Tester - Will run Junit tests for all code written
-2. Initial programmer - Will write the code for backend functions
-3. Assistant programmer - Will be consulted if initial programmer has issues or bugs
-4. GUI Implementer - Will implement the designed UML in terms of a GUI in Android Studio 
-5. UML Designer - Person who's in charge of the UML the team is using, keeping track of any changes made in the course of development etc.
-6. Documentation writer - Will be in charge of producing initial documentation. Documentation may be further modified by other team members.
-7. Use case - writing up use case documentation.
+1. Junit Tester - designs and runs Junit tests for all code written
+2. Initial programmer - Provides the code for backend functions
+3. Assistant programmer - Will assist the Inital Programmer in developing backend functions
+4. GUI Implementer - Implements the GUI as specified by the GUI mock-ups
+4. GUI Designer - Designs and updates the GUI mock-ups
+5. UML Designer - Designs and updates UML the team is using, keeping track of any changes made in the course of development etc
+6. Documentation writer - Produces and updates the documentation through the development of the application.
+7. Use case Designer - designs and updates the use-case documentation.
+8. Project Designer - facilitates communication and collaboration between team members while maintaining deadlines.  
 ### Role Assignment
 
 | Role                               | Assigned to               |
@@ -43,11 +44,8 @@ Welcome to the documentation for Listdroid, the premier Android Shopping List ap
 | Junit Tester                       | Zachary Kleiman           |
 | Initial programmer (backend)       | Atlantic                  |
 | Assistant programmer (debugging)   | Zachary Kleiman           |
-| GUI Implementer (frontend)         | Atlantic                    |
+| GUI Implementer (frontend)         | Atlantic                  |
 | UML Designer                       | Jessie, LingJie Shi       |
-| Documentation writer               | Atlantic, Zachary         |
+| Documentation writer               | Atlantic, Zachary, Jatin         |
 | Use case                           | Jessie                    |
-| Project design                     | Jatin
-- *Team members' names*
-- *Roles, with a short description of each role*
-- *Table showing which team member(s) has which role(s)*
+| Project design                     | Jatin K. Marwaha
