@@ -22,7 +22,7 @@ The use case diagram visually represents the interaction between customer (actor
   
 - Alternate: 1. User enters an existed name. 2. The system prompts user to enter a different name. 3. User gives a new name and the system creates the list.
    
-- Exceptional: 1. The user receives an error message. 2. The system encounters an issue while creating the list.
+- Exceptional: 1. The user receives an error message. 2. The system encounters an issue while creating the list.|
 
 ### Use Case 2:
 
@@ -36,7 +36,7 @@ The use case diagram visually represents the interaction between customer (actor
   
 - Alternate: 1. User cancels the deletion after confirmation prompt. 2. The system cancels the deletion and retains the list without changes.
    
-- Exceptional: 1. User confirms deletion, but the system encounters an error. 2. The system displays an error message. 3. The user is prompted to try again later or contact customer support for assistance.
+- Exceptional: 1. User confirms deletion, but the system encounters an error. 2. The system displays an error message. 3. The user is prompted to try again later or contact customer support for assistance. |
 
 ### Use Case 3:
 
@@ -50,7 +50,7 @@ The use case diagram visually represents the interaction between customer (actor
   
 - Alternate: 1. The user attemps to select a list but realizes they open the wrong one. 2. The user navigates back to the dashboard and selects the correct list.
    
-- Exceptional: 1. The user select a list but the list does not open or is active due to the system error. 2. The system informs the user of the error and suggests they try again. 3. If the problem cannot be solved, then the user is advised to contact support.
+- Exceptional: 1. The user select a list but the list does not open or is active due to the system error. 2. The system informs the user of the error and suggests they try again. 3. If the problem cannot be solved, then the user is advised to contact support.|
 
 
 ### Use Case 4:
@@ -65,7 +65,7 @@ The use case diagram visually represents the interaction between customer (actor
   
 - Alternate: 1. The user does not open the list after selecting it and returns to the list collection.
    
-- Exceptional: 1. The user click the open list option, but the system encounters a loading error. 2. The system displays an error message to inform the user try to open again. 3. If the error still exists, the user is advised to contact support.
+- Exceptional: 1. The user click the open list option, but the system encounters a loading error. 2. The system displays an error message to inform the user try to open again. 3. If the error still exists, the user is advised to contact support.|
   
 ### Use Case 5:
 
@@ -79,7 +79,7 @@ The use case diagram visually represents the interaction between customer (actor
   
 - Alternate: 1. If the new name is already exited, the system prompts the user to enter a different name. 2. The user input another name and the system retries the same process.
    
-- Exceptional: 1. The system encounters an issue when attempting to update the list's name. 2. The system displays an error message and suggests the user try again. 3. If the error still exists, the user is advised to contact customer support for further assistance.
+- Exceptional: 1. The system encounters an issue when attempting to update the list's name. 2. The system displays an error message and suggests the user try again. 3. If the error still exists, the user is advised to contact customer support for further assistance. |
 
 ### Use Case 6:
 
@@ -91,7 +91,7 @@ The use case diagram visually represents the interaction between customer (actor
 | Scenarios| 
 - Normal: 1. The user navigates to the database dashboard. 2. User selects the option to create a new database entry. 3. User enters required information needed for the new item type, such as name. 4. The system checks the uniqueness of the name. 5. The system adds the new item type to the database.
    
-- Exceptional: 1. The information user enters is not complete or incorrect, the system displays an error message and request the correct information. 2. If there is a system or database error during the process, the system prompts the user to try again. 
+- Exceptional: 1. The information user enters is not complete or incorrect, the system displays an error message and request the correct information. 2. If there is a system or database error during the process, the system prompts the user to try again. |
 
 ### Use Case 7:
 
@@ -103,7 +103,7 @@ The use case diagram visually represents the interaction between customer (actor
 | Scenarios| 
 - Normal: 1. The user navigates to the database dashboard. 2. User selects the option to create a new database entry. 3. User enters required information needed for the new item. 4. The system checks the information. 5. The system adds the new item to the database.
    
-- Exceptional: 1. The information user enters is not complete or incorrect, the system displays an error message and request the correct information. 2. If there is a system or database error during the process, the system prompts the user to try again. 
+- Exceptional: 1. The information user enters is not complete or incorrect, the system displays an error message and request the correct information. 2. If there is a system or database error during the process, the system prompts the user to try again. |
 
 
 ### Use Case 8:
@@ -118,7 +118,7 @@ The use case diagram visually represents the interaction between customer (actor
   
 - Alternate: If no items matches the search type, then the system informs the user and suggest user the similar type items or option to add the new item to the database.
    
-- Exceptional: 1. If the system is failed to retrieve items due to an error, then an error message will show to the user. 2. If the error is still existed after retring,  the system suggest the user to contact support.
+- Exceptional: 1. If the system is failed to retrieve items due to an error, then an error message will show to the user. 2. If the error is still existed after retring,  the system suggest the user to contact support. |
 
 ### Use Case 9:
 
@@ -132,7 +132,7 @@ The use case diagram visually represents the interaction between customer (actor
   
 - Alternate: If no items matches the search name, then the system informs the user and suggest user to add the new item to the database.
    
-- Exceptional: 1. The operation encounters an error due to system issues and the system prompt the user to try again later. 2. If the problem persists, the system advises the user to contact the support.
+- Exceptional: 1. The operation encounters an error due to system issues and the system prompt the user to try again later. 2. If the problem persists, the system advises the user to contact the support. |
 
 ### Use Case 10:
 
@@ -144,7 +144,7 @@ The use case diagram visually represents the interaction between customer (actor
 | Scenarios| 
 - Normal: 1. The user select the item that needs to be updated. 2. User enters the new quantity for the item. 3. The system validates the input and updates to the new quantity in the database. 
    
-- Exceptional: 1. The system encounters an error while updating the quantity. 2. The user is notified of the error and prompted to retry. 3. If the problem persists, the system advises the user to contact the technical support.
+- Exceptional: 1. The system encounters an error while updating the quantity. 2. The user is notified of the error and prompted to retry. 3. If the problem persists, the system advises the user to contact the technical support. |
   
 ### Use Case 11:
 
@@ -158,7 +158,7 @@ The use case diagram visually represents the interaction between customer (actor
   
 - Alternate: If no results was returned, then the system informs the user and suggest user to try again. If still no result found, then system suggests user to add the new item to the database.
    
-- Exceptional: 1. The operation encounters an error due to system issues and the system prompt the user to try again later. 2. If the problem persists, the system advises the user to contact the support.
+- Exceptional: 1. The operation encounters an error due to system issues and the system prompt the user to try again later. 2. If the problem persists, the system advises the user to contact the support. |
 
 ### Use Case 12:
 
@@ -172,7 +172,7 @@ The use case diagram visually represents the interaction between customer (actor
   
 - Alternate: If there is no items found, then the system informs the user and suggest the user to add a new item to the database or check other types.
    
-- Exceptional: 1. The system encounters an error while attempting to retrieve items by type. 2. The user is advised to retry the operation. 3. If the problem persists, the system advises the user to contact the support.
+- Exceptional: 1. The system encounters an error while attempting to retrieve items by type. 2. The user is advised to retry the operation. 3. If the problem persists, the system advises the user to contact the support. |
   
 ### Use Case 13:
 
@@ -184,7 +184,7 @@ The use case diagram visually represents the interaction between customer (actor
 | Scenarios| 
 - Normal: 1. The user selects items in the database. 2. User click the add selected to list option. 3. The system processes the request and adds selected items to the user's active list.
    
-- Exceptional: 1. The system encounters an issue while adding the selected items to the list. 2. The user is advised to retry the operation. 3. If the problem persists, the system advises the user to contact the support. 
+- Exceptional: 1. The system encounters an issue while adding the selected items to the list. 2. The user is advised to retry the operation. 3. If the problem persists, the system advises the user to contact the support. |
   
 ### Use Case 14:
 
@@ -198,7 +198,7 @@ The use case diagram visually represents the interaction between customer (actor
   
 - Alternate: User can deselect the items or select different item.
    
-- Exceptional: 1. The system encounters an issue while selecting the item. 2. The user is advised to retry the operation. 3. If the problem persists, the system advises the user to contact the support.
+- Exceptional: 1. The system encounters an issue while selecting the item. 2. The user is advised to retry the operation. 3. If the problem persists, the system advises the user to contact the support. |
 
 ### Use Case 15:
 
@@ -212,7 +212,7 @@ The use case diagram visually represents the interaction between customer (actor
   
 - Alternate: If the user attempts to add an item that already exists on the list, the system prompts them to update the existing item’s quantity instead of adding a duplicate.
    
-- Exceptional: 1. The system encounters an issue while adding the item. 2. The user is advised to retry the operation. 3. If the problem persists, the system advises the user to contact the support.
+- Exceptional: 1. The system encounters an issue while adding the item. 2. The user is advised to retry the operation. 3. If the problem persists, the system advises the user to contact the support. |
   
 ### Use Case 16:
 
@@ -224,7 +224,7 @@ The use case diagram visually represents the interaction between customer (actor
 | Scenarios| 
 - Normal: 1. The user views the items on their list and selects the item they wish to remove. 2. The user click the delete item option. 3. The system confirms the user's intent to delete the item. 4. The system removes the selected items.
    
-- Exceptional: 1. The system encounters an issue while deleting the item. 2. The user is advised to retry the operation. 3. If the problem persists, the system advises the user to contact the support.
+- Exceptional: 1. The system encounters an issue while deleting the item. 2. The user is advised to retry the operation. 3. If the problem persists, the system advises the user to contact the support. |
   
 ### Use Case 17:
 
@@ -236,7 +236,7 @@ The use case diagram visually represents the interaction between customer (actor
 | Scenarios| 
 - Normal: 1. The user views the items on their list and selects the item they wish to change the quantity. 2. The user enters a new quantity and click the change quantity option. 3. The system verifies the new quantity and updates the item's quantity on the list.
    
-- Exceptional: 1. The system encounters an issue while update the quantity. 2. The user is advised to retry the operation. 3. If the problem persists, the system advises the user to contact the support. 
+- Exceptional: 1. The system encounters an issue while update the quantity. 2. The user is advised to retry the operation. 3. If the problem persists, the system advises the user to contact the support. |
   
 ### Use Case 18:
 
@@ -248,7 +248,7 @@ The use case diagram visually represents the interaction between customer (actor
 | Scenarios| 
 - Normal: 1. The user views the items on their list and selects the item they wish to change the quantity. 2. The user enters a new quantity and click the change quantity option. 3. The system verifies the new quantity and updates the item's quantity on the list.
    
-- Exceptional: 1. The system encounters an issue while update the quantity. 2. The user is advised to retry the operation. 3. If the problem persists, the system advises the user to contact the support. 
+- Exceptional: 1. The system encounters an issue while update the quantity. 2. The user is advised to retry the operation. 3. If the problem persists, the system advises the user to contact the support. |
 
 ### Use Case 19:
 
@@ -260,7 +260,7 @@ The use case diagram visually represents the interaction between customer (actor
 | Scenarios| 
 - Normal: 1. The user select an item on their grocery list. 2. The user click the check off option to mark the selected item. 3. The system updates the item's status to "check off".
    
-- Exceptional: 1. The system encounters an issue while trying to mark the item. 2. The user is advised to retry the operation. 3. If the problem persists, the system advises the user to contact the support.
+- Exceptional: 1. The system encounters an issue while trying to mark the item. 2. The user is advised to retry the operation. 3. If the problem persists, the system advises the user to contact the support. |
 
 ### Use Case 20:
 
@@ -272,7 +272,7 @@ The use case diagram visually represents the interaction between customer (actor
 | Scenarios| 
 - Normal: 1. The user open the list that contains items marked as "check off". 2. User selects the marked items and invokes the clear check off method to remove the "check off" status. 3. The system updates the item's status.
   
-- Exceptional: 1. The system encounters an issue while trying to remove the "check off" status. 2. The user is advised to retry the operation. 3. If the problem persists, the system advises the user to contact the support. 
+- Exceptional: 1. The system encounters an issue while trying to remove the "check off" status. 2. The user is advised to retry the operation. 3. If the problem persists, the system advises the user to contact the support. |
 
 ### Use Case 21:
 
@@ -284,7 +284,7 @@ The use case diagram visually represents the interaction between customer (actor
 | Scenarios| 
 - Normal: 1. The user open a grocery list they wish to sort. 2. The user selects the sort by type option. 3. The system processes the list and rearranges the items.
    
-- Exceptional: 1. The system encounters an issue while trying to sort the list by type. 2. The user is advised to retry the operation. 3. If the problem persists, the system advises the user to contact the support.
+- Exceptional: 1. The system encounters an issue while trying to sort the list by type. 2. The user is advised to retry the operation. 3. If the problem persists, the system advises the user to contact the support. |
 
 ### Use Case 22:
 
@@ -296,4 +296,4 @@ The use case diagram visually represents the interaction between customer (actor
 | Scenarios| 
 - Normal: 1. The user makes any changes to their list. 2. User clicks the save list option. 3. The system processes the request and saves all changes to the database.
 
-- Exceptional: 1. The system encounters an issue while trying to save changes of the list. 2. The user is advised to retry the operation. 3. If the problem persists, the system advises the user to contact the support.
+- Exceptional: 1. The system encounters an issue while trying to save changes of the list. 2. The user is advised to retry the operation. 3. If the problem persists, the system advises the user to contact the support. |
