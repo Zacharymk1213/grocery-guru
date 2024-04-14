@@ -48,9 +48,8 @@ This application will be targeted at API Level 31 of Android. We are therefore t
 ![](../Design-Team/design-team.jpeg)
 
 ### 3.2 Other Diagrams
-
-*Describe some dynamic aspects of your system using one or more behavioral diagrams, such as sequence and state diagrams.*
-
+#### State Diagram 
+![](Diagrams/Team2%20State%20Diagram.png)
 ## 4 User Interface Design
 *For GUI-based systems, this section should provide the specific format/layout of the user interface of the system (e.g., in the form of graphical mockups).*
 
