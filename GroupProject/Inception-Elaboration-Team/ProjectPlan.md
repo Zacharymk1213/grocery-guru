@@ -63,7 +63,7 @@ A application that is well received and meets and hopefully excels past all requ
 | Initial programmer (backend)       | Atlantic                  |
 | Assistant programmer (debugging)   | Zachary Kleiman           |
 | GUI Implementer (frontend)         | Atlantic                  |
-| UML Designer                       | Jessie, LingJie Shi       |
+| UML Designer                       | Lijie Wan, LingJie Shi       |
 | Documentation writer               | Atlantic, Zachary, Jatin         |
-| Use case                           | Jessie                    |
+| Use case                           | Lijie Wan                    |
 | Project design                     | Jatin K. Marwaha
