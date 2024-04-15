@@ -69,7 +69,7 @@ The use case diagram visually represents the interaction between the user (actor
 
 | Use Case | Add Entry |
 |----|----| 
-| **Requirements** | User can add new item types to the system's database. | 
+| **Requirements** | User can add new items to the system's database. | 
 | **Pre-conditions** | User is able to modify the database. |
 | **Post-conditions** | The database is updated with new items. |
 | **Scenarios** | **Normal:**<br>1. The user navigates to the database dashboard.<br>2. The user selects the option to create a new database entry.<br>3. The user enters the required information needed for the new item.<br>4. The system checks the information.<br>5. The system adds the new item to the database.<br>**Exceptional:**<br>1. If the information the user enters is not complete or incorrect, the system displays an error message and requests the correct information.<br>2. If there is a system or database error during the process, the system prompts the user to try again.<br>|
