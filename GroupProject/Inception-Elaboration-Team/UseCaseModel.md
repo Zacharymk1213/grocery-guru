@@ -69,8 +69,6 @@ The use case diagram visually represents the interaction between the user (actor
 
 ### Use Case 7:
 
-<<<<<<< HEAD
-=======
 | Use Case | Add Entry |
 |----|----| 
 | **Requirements** | User can add new items to the system's database. | 
@@ -81,7 +79,6 @@ The use case diagram visually represents the interaction between the user (actor
 
 ### Use Case 8:
 
->>>>>>> d0b1e8607f5e81847cfcfd95d45e6cba45ddd12b
 | Use Case | Search Type |
 |----|----| 
 | **Requirements** | User should be able to search items based on their type in the database. | 
@@ -89,7 +86,7 @@ The use case diagram visually represents the interaction between the user (actor
 | **Post-conditions** | The list of items under the type that the user wishes to search is displayed on the dashboard. |
 | **Scenarios** | **Normal:**<br>1. The user accesses the search feature in the database.<br>2. The user enters the type and clicks the search type option.<br>3. The system retrieves all items matching the entered type.<br>4. The system displays the result on the dashboard.<br>**Alternate:**<br>If no items match the search type, then the system informs the user and suggests user similar type items or options to add the new item to the database.<br>**Exceptional:**<br>1. If the system fails to retrieve items due to an error, then an error message will show to the user.<br>2. If the error still exists after retiring,  the system suggests the user contact support.<br>|
 
-### Use Case 8:
+### Use Case 9:
 
 | Use Case | Search Name |
 |----|----| 
@@ -98,9 +95,6 @@ The use case diagram visually represents the interaction between the user (actor
 | **Post-conditions** | Search results match the search name. |
 | **Scenarios** | **Normal:**<br>1. The user accesses the item search interface in the database.<br>2. The user enters the name of the item and clicks the search type option.<br>3. The system processes the query.<br>4. The system displays the items that match the input name or partial name to the dashboard.<br>**Alternate:**<br>If no items match the search name, then the system informs the user and suggests user add the new item to the database.<br>**Exceptional:**<br>1. The operation encounters an error due to system issues and the system prompts the user to try again later.<br>2. If the problem persists, the system advises the user to contact the support.<br>|
 
-<<<<<<< HEAD
-```markdown
-=======
 ### Use Case 10:
 
 | Use Case | Update Entry Quantity |
@@ -217,4 +211,3 @@ The use case diagram visually represents the interaction between the user (actor
 | **Pre-conditions** | The User has an active list open with at least one change made that has not been saved. |
 | **Post-conditions** | The current status of the grocery list is saved in the user's account. |
 | **Scenarios** | **Normal:**<br>1. The user makes any changes to their list.<br>2. The user clicks the save list option.<br>3. The system processes the request and saves all changes to the database.<br>**Exceptional:**<br>1. The system encounters an issue while trying to save changes in the list.<br>2. The user is advised to retry the operation.<br>3. If the problem persists, the system advises the user to contact the support.<br>|
->>>>>>> d0b1e8607f5e81847cfcfd95d45e6cba45ddd12b
