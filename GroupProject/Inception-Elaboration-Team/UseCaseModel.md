@@ -160,10 +160,10 @@ The use case diagram visually represents the interaction between the user (actor
 
 | Use Case | Update Quantity |
 |----|----| 
-| **Requirements** | The User is allowed to modify the number of items on their grocery list. | 
-| **Pre-conditions** | The item whose quantity needs to be edited is selected, and the user has a grocery list that is active. |
-| **Post-conditions** | The quantity of the specified item is updated on the user's list. |
-| **Scenarios**| **Normal:**<br>1. The user views the items on their list and selects the item they wish to change the quantity.<br>2. The user enters a new quantity and clicks the change quantity option.<br>3. The system verifies the new quantity and updates the item's quantity on the list.<br>**Exceptional:**<br>1. The system encounters an issue while updating the quantity.<br>2. The user is advised to retry the operation.<br>3. If the problem persists, the system advises the user to contact the support.<br>|
+| **Requirements** | The User is allowed to modify the number of specific items. | 
+| **Pre-conditions** | The item whose quantity needs to be edited is selected. |
+| **Post-conditions** | The quantity of the specified item is updated. |
+| **Scenarios**| **Normal:**<br>1. The user selects the item that they wish to change the quantity.<br>2. The user enters a new quantity and clicks the update quantity option.<br>3. The system verifies the new quantity and updates the item's quantity.<br>**Exceptional:**<br>1. The system encounters an issue while updating the quantity.<br>2. The user is advised to retry the operation.<br>3. If the problem persists, the system advises the user to contact the support.<br>|
   
 ### Use Case 18:
 
