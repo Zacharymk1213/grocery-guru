@@ -31,7 +31,6 @@ All testing activities will be tracked using a test management tool, which will 
 
 ### 1.3 Adequacy Criterion
 
-*
 
 Coverage: Each use case should have at least one corresponding test case. This ensures that all functionality is tested.
 
