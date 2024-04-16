@@ -49,5 +49,5 @@ This application will be targeted at API Level 31 of Android. We are therefore t
 #### State Diagram 
 ![](Diagrams/Team2%20State%20Diagram.png)
 ## 4 User Interface Design
-![](Diagrams/Team2%20GUI%20Diagram.png)
+![](Diagrams/Team2%20GUI%20Diagram.PNG)
 
