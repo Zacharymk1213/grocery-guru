@@ -2,7 +2,7 @@
 
 
 
-**Author**: Zachary Kleiman, Jatin K. Marwaha
+**Author**: Zachary Kleiman, Jatin K. Marwaha, Jiafeng Lin
 
 ## 1 Design Considerations
 
@@ -29,19 +29,17 @@ This application will be targeted at API Level 31 of Android. We are therefore t
 
 ## 2 Architectural Design
 
-*The architecture provides the high-level design view of a system and provides a basis for more detailed design work. These subsections describe the top-level components of the system you are building and their relationships.*
+
 
 ### 2.1 Component Diagram
 
-*This section should provide and describe a diagram that shows the various components and how they are connected. This diagram shows the logical/functional components of the system, where each component represents a cluster of related functionality.*
+![](Diagrams/Team2%20Component%20Diagram.png)
 
 ### 2.2 Deployment Diagram
 
-*This section should describe how the different components will be deployed on actual hardware devices.*
+![](Diagrams/Team2%20Deployment%20Diagram.png)
 
 ## 3 Low-Level Design
-
-*Describe the low-level design for each of the system components identified in the previous section. For each component, you should provide details in the following UML diagrams to show its internal structure.*
 
 ### 3.1 Class Diagram
 
@@ -51,5 +49,5 @@ This application will be targeted at API Level 31 of Android. We are therefore t
 #### State Diagram 
 ![](Diagrams/Team2%20State%20Diagram.png)
 ## 4 User Interface Design
-*For GUI-based systems, this section should provide the specific format/layout of the user interface of the system (e.g., in the form of graphical mockups).*
+![](Diagrams/Team2%20GUI%20Diagram.png)
 

@@ -54,16 +54,18 @@ A application that is well received and meets and hopefully excels past all requ
 5. UML Designer - Designs and updates UML the team is using, keeping track of any changes made in the course of development etc
 6. Documentation writer - Produces and updates the documentation through the development of the application.
 7. Use case Designer - designs and updates the use-case documentation.
-8. Project Designer - facilitates communication and collaboration between team members while maintaining deadlines.  
+8. Project Manager - facilitates communication and collaboration between team members while maintaining deadlines.  
 ### Role Assignment
 
 | Role                               | Assigned to               |
 |------------------------------------|---------------------------|
 | Junit Tester                       | Zachary Kleiman           |
-| Initial programmer (backend)       | Atlantic                  |
+| Initial programmer (backend)       | Jiafeng Lin                |
 | Assistant programmer (debugging)   | Zachary Kleiman           |
-| GUI Implementer (frontend)         | Atlantic                  |
-| UML Designer                       | Lijie Wan, LingJie Shi       |
-| Documentation writer               | Atlantic, Zachary, Jatin         |
+| GUI Implementer (frontend)         | Jiafeng Lin                 |
+|GUI Designer                        |        Jiafeng Lin                   |
+| UML Designer                       | Lijie Wan, LingJie Shi ,Jatin K. Marwaha      |
+| Documentation writer               |  Zachary Kleiman, Jatin k. Marwaha       |
 | Use case                           | Lijie Wan                    |
-| Project design                     | Jatin K. Marwaha
+| Project Manager                     | Jatin K. Marwaha |
+

@@ -6,7 +6,7 @@
 
 The use case diagram visually represents the interaction between the user (actors) and the system (grocery list application). It includes the actor who is a customer in this case. The use cases connected to the actor illustrate all the functionalities such as "createList", "deleteList", "checkOff", "clearCheckOff", "addItem", and "updateQuantity".
 
-![](Diagrams/use_case_diagram.png)
+![](Diagrams/Team2%20Use-case%20Diagram.png)
 
 ## 2 Use Case Descriptions
 
