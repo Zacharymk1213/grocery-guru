@@ -41,3 +41,11 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 }
+tasks.register<Wrapper>("wrapper") {
+    gradleVersion = "8.4"
+}
+tasks.register("prepareKotlinBuildScriptModel") {
+    doLast {
+        println("Task executed")
+    }
+}
