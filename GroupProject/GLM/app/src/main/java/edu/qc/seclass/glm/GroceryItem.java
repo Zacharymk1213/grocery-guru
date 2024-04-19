@@ -1,7 +1,7 @@
 package edu.qc.seclass.glm;
 
 /**
- * a node class representing a grocery item
+ * GroceryItem represents a grocery item
  * @author Jiafeng Lin
  */
 public class GroceryItem {

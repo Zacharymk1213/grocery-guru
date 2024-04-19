@@ -3,7 +3,8 @@ package edu.qc.seclass.glm;
 import java.util.LinkedHashMap;
 
 /**
- * The grocery list uses a {@link LinkedHashMap } to store its set of grocery items
+ * The grocery list represents a user's list of to-buy groceries, it
+ * uses a {@link LinkedHashMap } to store its set of grocery items
  * @author Jiafeng Lin
  */
 public class GroceryList {
@@ -28,7 +29,6 @@ public class GroceryList {
     public void setName(String n) { name = n; }
 
     public boolean isSeleted() { return isSeleted; }
-    //this will work as checkOff(): simply setSeleted(true)
     public void setSeleted(boolean tf) { isSeleted = tf; }
 
     public LinkedHashMap<Integer, GroceryItem> getList() { return list; }
@@ -67,6 +67,14 @@ public class GroceryList {
      */
     public void changeQuanity(int itemID, int amount) {
         searchItem(itemID).updateQuanity(amount);
+    }
+
+    /**
+     * Mark the grocery item on list as checkedOff
+     * @param itemID
+     */
+    public void checkOff(int itemID) {
+        searchItem(itemID).setSeleted(true);
     }
 
     /**
