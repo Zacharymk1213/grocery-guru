@@ -7,17 +7,23 @@ import java.util.LinkedHashMap;
  * @author Jiafeng Lin
  */
 public class GroceryList {
+    private static int idCount;
+    private int id;
     private String name;
     private LinkedHashMap<Integer, GroceryItem> list;
     private boolean isSeleted = false;
 
     //constructor
     public GroceryList(String n) {
+        id = idCount++;
         name = n;
         list = new LinkedHashMap<Integer, GroceryItem>();
     }
 
     //access methods
+    public int getId() { return id; }
+    //setId() is an invalid operation
+
     public String getName() { return name; }
     public void setName(String n) { name = n; }
 
@@ -28,7 +34,7 @@ public class GroceryList {
     public LinkedHashMap<Integer, GroceryItem> getList() { return list; }
 
     /**
-     * get the item from grocery list if it exists
+     * Return the item from grocery list if it exists
      * @param id
      * @return the item of matching id
      */
@@ -37,7 +43,7 @@ public class GroceryList {
     }
 
     /**
-     * adds an item to the grocery list
+     * Adds an item to the grocery list
      * @param item
      */
     public void addItem(GroceryItem item) {
@@ -45,7 +51,7 @@ public class GroceryList {
     }
     
     /**
-     * removes item of ID from grocery list
+     * Removes item of ID from grocery list and returns it
      * @param itemID
      * @return the <b>item</b> deleted
      */
@@ -54,7 +60,7 @@ public class GroceryList {
     }
     
     /**
-     * change the quanity of item of ID;
+     * Change the quanity of item of ID;
      * postive <b>amount</b> to increase, negative <b>amount</b> to decrease
      * @param itemID
      * @param amount

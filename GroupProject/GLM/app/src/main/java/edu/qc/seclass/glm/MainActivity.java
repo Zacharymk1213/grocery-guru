@@ -24,10 +24,11 @@ public class MainActivity extends AppCompatActivity {
         //first, load from local drive and previous data into program
         //use relative path
         //user data and database should be on different save_file
+        loadAllData();
     }
 
     /**
-     * saves all user data, their grocery lists and database to drive.
+     * load all user data, their grocery lists and database from drive.
      * @return 0 if save is successful
      */
     public int loadAllData() {
