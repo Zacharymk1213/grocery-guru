@@ -1,7 +1,15 @@
 package edu.qc.seclass.glm;
 
 import android.os.Bundle;
+import android.util.Log;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.json.JSONException;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -32,14 +40,59 @@ public class MainActivity extends AppCompatActivity {
      * @return 0 if save is successful
      */
     public int loadAllData() {
-        
+        try (BufferedReader reader = new BufferedReader(new FileReader("user_data.json"))) {
+            StringBuilder jsonData = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                jsonData.append(line);
+            }
+
+            // Parse JSON data
+            JSONObject jsonObject = new JSONObject(jsonData.toString());
+
+            // Load user data
+            JSONObject userDataJson = jsonObject.getJSONObject("userData");
+            // Load other data like grocery lists and database
+
+            return 0; // Success
+        } catch (IOException e) {
+            // Handle IO exception
+            Log.e("LoadData", "Error reading JSON file: " + e.getMessage());
+        } catch (JSONException e) {
+            // Handle JSON exception
+            Log.e("LoadData", "Error parsing JSON: " + e.getMessage());
+        }
+        return -1; // Error
     }
 
     /**
      * saves all user data, their grocery lists and database to drive.
      * @return 0 if save is successful
      */
-    public int saveAllData() {
-        
-    }
+        public int saveAllData() {
+            try (FileWriter fileWriter = new FileWriter("user_data.json")) {
+                // Create JSON object for user data
+                JSONObject userDataJson = new JSONObject();
+                // Add user data fields to userDataJson
+                // For example: userDataJson.put("name", userName);
+
+                // Create JSON object for other data like grocery lists and database
+
+                // Create a main JSON object to hold all data
+                JSONObject mainJsonObject = new JSONObject();
+                mainJsonObject.put("userData", userDataJson);
+                // Add other data objects to mainJsonObject
+
+                // Write JSON data to file
+                fileWriter.write(mainJsonObject.toString());
+                return 0; // Success
+            } catch (IOException e) {
+                // Handle IO exception
+                Log.e("SaveData", "Error writing JSON file: " + e.getMessage());
+            } catch (JSONException e) {
+                // Handle JSON exception
+                Log.e("SaveData", "Error creating JSON: " + e.getMessage());
+            }
+            return -1; // Error
+        }
 }

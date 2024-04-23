@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Space for navigation at the top -->
+
+    <Button
+        android:id="@+id/Home"
+        android:layout_width="106dp"
+        android:layout_height="1dp"
+        android:layout_weight="1"
+        android:text="Home" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Search by Type"
+        android:textAlignment="center"
+        android:textSize="48sp" />
+
+    <!-- Grid layout for buttons -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:columnCount="3">
+
+        <!-- Button for Type 1 -->
+        <Button
+            android:id="@+id/btn_type_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:text="Type 1"/>
+
+        <!-- Button for Type 2 -->
+        <Button
+            android:id="@+id/btn_type_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:text="Type 2"/>
+
+        <!-- Button for Type 3 -->
+        <Button
+            android:id="@+id/btn_type_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:text="Type 3" />
+
+        <!-- Button for Type 4 -->
+        <Button
+            android:id="@+id/btn_type_4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:text="Type 4"/>
+
+        <!-- Button for Type 5 -->
+        <Button
+            android:id="@+id/btn_type_5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:text="Type 5"/>
+
+        <!-- Button for Type 6 -->
+        <Button
+            android:id="@+id/btn_type_6"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:text="Type 6"/>
+
+        <!-- Button for Type 7 -->
+        <Button
+            android:id="@+id/btn_type_7"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:text="Type 7"/>
+
+        <!-- Button for Type 8 -->
+        <Button
+            android:id="@+id/btn_type_8"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:text="Type 8"/>
+
+        <!-- Button for Type 9 -->
+        <Button
+            android:id="@+id/btn_type_9"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:text="Type 9"/>
+
+    </GridLayout>
+
+</LinearLayout>

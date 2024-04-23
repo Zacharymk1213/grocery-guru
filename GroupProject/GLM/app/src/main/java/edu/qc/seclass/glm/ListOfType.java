@@ -1,6 +1,7 @@
 package edu.qc.seclass.glm;
 
 import java.util.LinkedHashMap;
+import java.util.Set;
 
 /**
  * The ListOfType represents an shelf of grocery items of the same type, it
@@ -8,27 +9,24 @@ import java.util.LinkedHashMap;
  * @author Jiafeng Lin
  */
 public class ListOfType {
-    //id ommited since ListOfType is only temporary
-    //and only one will be opened at a time
     private String type;
     private LinkedHashMap<Integer, GroceryItem> items;
 
     //constructor
     public ListOfType(String t) {
         type = t;
-        items = new LinkedHashMap<Integer, GroceryItem>();
+        items = new LinkedHashMap<>();
     }
 
     //access methods
     public String getType() { return type; }
-    //setType() is illegal in this context
 
     /**
      * Adds an item to the this ListOfType
      * @param item
      */
     public void addItem(GroceryItem item) {
-        items.put(item.getID(), item);
+        items.put(item.getId(), item);
     }
 
     /**
@@ -36,27 +34,31 @@ public class ListOfType {
      * @param itemID
      */
     public void selectItem(int itemID) {
-        searchItem(itemID).setSeleted(true);
-    }
-
-    /**
-     * Adds all selected items in this ListOfType to <b>targetList</b>
-     * @param item
-     */
-    public void addSelectedToList(GroceryList targetList) {
-        Set<Integer> itemIDs = items.keySet();
-        for (int id : itemIDs) {
-            GroceryItem item = items.get(id);
-            if (item.isSeleted())
-                targetList.addItem(item);
+        GroceryItem item = items.get(itemID);
+        if (item != null) {
+            item.setSeleted(true);
         }
     }
 
     /**
-     * Adds the <i>clicked</i> item to <b>targetList</b>
+     * Adds all selected items in this ListOfType to targetList
+     * @param targetList
+     */
+    public void addSelectedToList(GroceryList targetList) {
+        for (GroceryItem item : items.values()) {
+            if (item.isSeleted()) {
+                targetList.addItem(item);
+            }
+        }
+    }
+
+    /**
+     * Adds the clicked item to targetList
      * @param item
+     * @param targetList
      */
     public void addItemToList(GroceryItem item, GroceryList targetList) {
         targetList.addItem(item);
     }
 }
+

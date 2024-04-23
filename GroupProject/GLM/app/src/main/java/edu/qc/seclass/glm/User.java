@@ -1,5 +1,4 @@
 package edu.qc.seclass.glm;
-
 import java.util.TreeMap;
 
 /**
@@ -7,14 +6,13 @@ import java.util.TreeMap;
  * @author Jiafeng Lin
  */
 public class User {
-    //userID ommited, we assume the app only has one user, which is the owner of device
     private String name;
     private TreeMap<Integer, GroceryList> lists;
 
     //constructor
     public User(String n) {
         name = n;
-        lists = new TreeMap<Integer, GroceryList>();
+        lists = new TreeMap<>();
     }
 
     //access methods
@@ -52,6 +50,11 @@ public class User {
      * @param listID
      */
     public void openList(int listID) {
+        // Implement opening GUI page for the grocery list with listID
+        // For example:
+        // Intent intent = new Intent(context, GroceryListActivity.class);
+        // intent.putExtra("listID", listID);
+        // context.startActivity(intent);
     }
 
     /**
@@ -68,24 +71,41 @@ public class User {
      * should only be called from inside lookUpItem() when no item is found
      * @param name
      * @param type
-     * @return the a copy of newly created item
+     * @return a copy of the newly created item
      */
     private GroceryItem createDatabaseEntry(String name, String type) {
+        // Implement creating and returning a new GroceryItem
+        // For example:
+        // GroceryItem newItem = new GroceryItem(name, type);
+        // return newItem;
+        return null; // Placeholder, replace with actual implementation
     }
 
     /**
      * Search <b>name</b> in database entries and get back items of similar name
+     * @param name
      * @return an array of grocery items with similar name
      */
     public GroceryItem[] lookUpItem(String name) {
+        // Implement searching the database for items with similar name
+        // For example:
+        // GroceryItem[] items = database.searchItemsByName(name);
+        // return items;
+        return null; // Placeholder, replace with actual implementation
     }
 
     /**
      * Get from the database a copied list of all entries of <b>type</b>;
      * open the GUI page for the new ListOfType
      * @param type
-     * @return
+     * @return a ListOfType containing all entries of the specified type
      */
     public ListOfType getListOfType(String type) {
+        // Implement fetching entries from the database and returning a ListOfType
+        // For example:
+        // ListOfType list = database.getListOfType(type);
+        // openList(list.getId());
+        // return list;
+        return null; // Placeholder, replace with actual implementation
     }
 }

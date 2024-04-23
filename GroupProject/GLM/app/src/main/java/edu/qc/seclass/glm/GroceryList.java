@@ -1,6 +1,7 @@
 package edu.qc.seclass.glm;
 
 import java.util.LinkedHashMap;
+import java.util.Set;
 
 /**
  * The grocery list represents a user's list of to-buy groceries, it
@@ -11,15 +12,17 @@ public class GroceryList {
     private static int idCount;
     private int id;
     private String name;
-    private LinkedHashMap<Integer, GroceryItem> list;
+    private static LinkedHashMap<Integer, GroceryItem> list;
     private boolean isSeleted = false;
 
     //constructor
     public GroceryList(String n) {
         id = idCount++;
         name = n;
-        list = new LinkedHashMap<Integer, GroceryItem>();
+        list = new LinkedHashMap<>();
+        // Assign the context
     }
+
 
     //access methods
     public int getId() { return id; }
@@ -38,7 +41,7 @@ public class GroceryList {
      * @param id
      * @return the item of matching id
      */
-    public GroceryItem searchItem(int id) {
+    public static GroceryItem searchItem(int id) {
         return list.get(id);
     }
 
@@ -47,7 +50,7 @@ public class GroceryList {
      * @param item
      */
     public void addItem(GroceryItem item) {
-        list.put(item.getID(), item);
+        list.put(item.getId(), item);
     }
     
     /**
@@ -74,8 +77,13 @@ public class GroceryList {
      * @param itemID
      */
     public void checkOff(int itemID) {
-        searchItem(itemID).setSeleted(true);
+        GroceryItem item = searchItem(itemID);
+        if (item != null) {
+            item.setSeleted(true);
+        }
+        // No toast message shown when the item is not found in the list
     }
+
 
     /**
      * Iterates through the entire list, clear off their selection
