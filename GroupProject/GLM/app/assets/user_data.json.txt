@@ -1,0 +1,46 @@
+{
+  "user": {
+    "name": "John Doe",
+    "lists": [
+      {
+        "id": 1,
+        "name": "Weekly Grocery List",
+        "items": [
+          {
+            "id": 1,
+            "name": "Apples",
+            "type": "Fruits",
+            "quantity": 2
+          },
+          {
+            "id": 2,
+            "name": "Bread",
+            "type": "Bakery",
+            "quantity": 1
+          }
+          // Add more items as needed
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Monthly Shopping",
+        "items": [
+          {
+            "id": 3,
+            "name": "Milk",
+            "type": "Dairy",
+            "quantity": 2
+          },
+          {
+            "id": 4,
+            "name": "Eggs",
+            "type": "Dairy",
+            "quantity": 1
+          }
+          // Add more items as needed
+        ]
+      }
+      // Add more lists as needed
+    ]
+  }
+}
