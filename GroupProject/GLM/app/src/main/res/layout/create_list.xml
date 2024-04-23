@@ -6,14 +6,21 @@
     android:padding="16dp">
 
     <!-- List Name EditText -->
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="319dp"
+        android:text="Back" />
+    <!-- Create List Button -->
     <EditText
         android:id="@+id/edit_text_list_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter list name"
-        android:inputType="text"/>
+        android:inputType="text" />
 
-    <!-- Create List Button -->
     <Button
         android:id="@+id/btn_create_list"
         android:layout_width="360dp"
