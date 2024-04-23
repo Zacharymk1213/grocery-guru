@@ -16,6 +16,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import android.view.View;
+import android.widget.Button;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -33,6 +36,34 @@ public class MainActivity extends AppCompatActivity {
         //use relative path
         //user data and database should be on different save_file
         loadAllData();
+
+        //main activity buttons
+        Button openListPage = (Button)findViewById(R.id.button4);
+        openListPage.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                setContentView(R.layout.mock_list);
+            }
+        });
+        Button createListPage = (Button)findViewById(R.id.button5);
+        createListPage.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                setContentView(R.layout.create_list);
+            }
+        });
+        Button searchName = (Button)findViewById(R.id.button3);
+        searchName.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                setContentView(R.layout.search_by_name);
+            }
+        });
+        Button searchType = (Button)findViewById(R.id.button6);
+        searchType.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                setContentView(R.layout.search_by_type);
+            }
+        });
+
+        //mock_list buttons
     }
 
     /**
