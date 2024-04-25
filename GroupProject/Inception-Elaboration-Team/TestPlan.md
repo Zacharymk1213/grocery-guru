@@ -19,10 +19,7 @@ Once individual components have been unit tested, we will perform integration te
 System testing will be performed by Zachary Kleiman. This involves testing the entire system to ensure that it meets the specified requirements. This includes functional testing to verify that the system does what it's supposed to do, as well as non-functional testing to check performance, usability, security, etc.
 
 ### Regression Testing
-Regression testing will be performed after each major update to ensure that existing functionality has not been broken. This will be done by Zachary, using automated testing tools where possible to rerun all previous tests.
-
-All testing activities will be tracked using a test management tool, which will allow us to track which tests have been run, their results, and any bugs that have been found. This will ensure that all necessary testing is performed and that any issues are addressed promptly.
-
+Regression testing will be performed after each major update to ensure that existing functionality has not been broken. This will be done by Zachary, using manual tests.
 
 ### 1.2 Test Selection
 
@@ -54,13 +51,11 @@ Traceability: Each test case should be traceable to its corresponding requiremen
 Bugs and Enhancement requests will be tracked  using Github's issue tracking system.
 ### 1.5 Technology
 
-We will use Junit to run testcases to check for bugs.
-https://developer.android.com/training/testing/instrumented-tests/ui-tests 
-Test the UI via Espresso
+Test Cases will be laid out manually in 2.
+
 ## 2 Test Cases
 
-
-
+**Before any of these test cases can be run, copy the local.properties file into the GLM directory from the app subdirectory. Otherwise, the app will not launch.**
 Fill in all possible bugs I can think of as this develops
 
 | Use Case | Test |
