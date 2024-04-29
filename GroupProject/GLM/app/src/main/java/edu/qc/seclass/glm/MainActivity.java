@@ -24,7 +24,9 @@ import androidx.core.view.WindowInsetsCompat;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -45,8 +47,14 @@ public class MainActivity extends AppCompatActivity {
         loadAllData();
         */
 
-        // Find the buttons by their IDs
+        // Get list items
         ListView myLists = findViewById(R.id.my_lists);
+        //ArrayAdapter<String> lists = new ArrayAdapter<String>(
+        //        this, android.R.layout.simple_spinner_item,
+        //        owner.getListNames());
+        //myLists.setAdapter(lists);
+        
+        // Find the buttons by their IDs
         Button btnCreateNewList = findViewById(R.id.btn_create_new_list);
         Button btnSearchItem = findViewById(R.id.btn_search_item);
         Button btnSearchType = findViewById(R.id.btn_search_type);
@@ -54,11 +62,9 @@ public class MainActivity extends AppCompatActivity {
         // Set click listener for list items
         myLists.setOnItemClickListener(new OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?>a, View v, int position){
-                ItemClicked item = a.getItemAtPosition(position);
-        
-                Intent intent = new Intent(Activity.this, listActivity.class);
-                startActivity(intent);
+            public void onItemClick(AdapterView<?>a, View v, int position, long id){
+                //Intent intent = new Intent(MainActivity.this, listActivity.class);
+                //startActivity(intent);
             }
         });
 
@@ -115,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
             JSONObject dbJson = new JSONObject(jsonData.toString());
 
             // Load database
-            database = new Database(); //GroceryDatabase class not yet written
+            database = new GroceryDatabase(); //GroceryDatabase class not yet written
             Iterator<String> entrys = dbJson.keys();
             while (entrys.hasNext()) {
                 JSONObject item = dbJson.getJSONObject(entrys.next());

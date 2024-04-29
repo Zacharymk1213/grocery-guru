@@ -26,6 +26,18 @@ public class User {
     public GroceryList getList(int listID) {
         return lists.get(listID);
     }
+    
+    /*
+     * Returns all lists
+     */
+    public String[] getListNames() {
+        String[] tem = new String[lists.size()];
+        int i = 0;
+        Set<Integer> listIDs = lists.keySet();
+        for (int id : listIDs)
+            tem[i++] = (lists.get(id)).getName();
+        return tem;
+    }
 
     /**
      * Adds a new grocery list for the user
