@@ -1,5 +1,8 @@
 package edu.qc.seclass.glm;
 
+import org.json.JSONObject;
+import org.json.JSONException;
+
 /**
  * GroceryItem represents a grocery item
  * @author Jiafeng Lin

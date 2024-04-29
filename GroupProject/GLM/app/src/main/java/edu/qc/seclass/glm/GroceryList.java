@@ -3,6 +3,9 @@ package edu.qc.seclass.glm;
 import java.util.LinkedHashMap;
 import java.util.Set;
 
+import org.json.JSONObject;
+import org.json.JSONException;
+
 /**
  * The grocery list represents a user's list of to-buy groceries, it
  * uses a {@link LinkedHashMap } to store its set of grocery items
@@ -12,7 +15,7 @@ public class GroceryList {
     private static int idCount;
     private int id;
     private String name;
-    private static LinkedHashMap<Integer, GroceryItem> list;
+    private LinkedHashMap<Integer, GroceryItem> list; //should not be static
     private boolean isSeleted = false;
 
     //constructor

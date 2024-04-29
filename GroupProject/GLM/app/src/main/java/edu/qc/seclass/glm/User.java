@@ -1,6 +1,9 @@
 package edu.qc.seclass.glm;
 import java.util.TreeMap;
 
+import org.json.JSONObject;
+import org.json.JSONException;
+
 /**
  * The User class utilizes a binary tree to store its grocery lists
  * @author Jiafeng Lin
