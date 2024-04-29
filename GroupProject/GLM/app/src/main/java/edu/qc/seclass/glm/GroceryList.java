@@ -51,7 +51,7 @@ public class GroceryList {
      * @param id
      * @return the item of matching id
      */
-    public static GroceryItem searchItem(int id) {
+    public GroceryItem searchItem(int id) {
         return list.get(id);
     }
 
@@ -73,13 +73,13 @@ public class GroceryList {
     }
     
     /**
-     * Change the quanity of item of ID;
+     * Change the quantity of item of ID;
      * postive <b>amount</b> to increase, negative <b>amount</b> to decrease
      * @param itemID
      * @param amount
      */
-    public void changeQuanity(int itemID, int amount) {
-        searchItem(itemID).updateQuanity(amount);
+    public void changeQuantity(int itemID, int amount) {
+        searchItem(itemID).updateQuantity(amount);
     }
 
     /**
@@ -114,7 +114,7 @@ public class GroceryList {
      * }
      * @return
      */
-    public JSONObject getJSONObject() {
+    public JSONObject getJSONObject() throws JSONException {
         JSONObject listJson = new JSONObject();
         listJson.put("id", id);
         listJson.put("name", name);

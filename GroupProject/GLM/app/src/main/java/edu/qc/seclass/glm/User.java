@@ -133,7 +133,7 @@ public class User {
      * }
      * @return
      */
-    public JSONObject getJSONObject() {
+    public JSONObject getJSONObject() throws JSONException {
         JSONObject userJson = new JSONObject();
         userJson.put("name", name);
         //put listObjects

@@ -33,7 +33,7 @@ public class GroceryDatabase {
      * @return the new list of type
      */
     public ListOfType getListOfType(String type) {
-        ListOfType typeList = new ListOfType();
+        ListOfType typeList = new ListOfType(type);
         Set<Integer> itemIDs = db.keySet();
         for (int id : itemIDs) {
             //get the item
@@ -51,11 +51,11 @@ public class GroceryDatabase {
      * "itemID" : itemObject
      * @return
      */
-    public getJSONObject() {
+    public JSONObject getJSONObject() throws JSONException {
         JSONObject dbJson = new JSONObject();
         Set<Integer> itemIDs = db.keySet();
         for (int id : itemIDs)
             dbJson.put(""+id, db.get(id).getJSONObject());
-        return listJson;
+        return dbJson;
     }
 }

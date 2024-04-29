@@ -21,6 +21,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -163,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject jItem = listItems.getJSONObject(items.next());
                     //this item better be in the database, or else something went wrong
                     GroceryItem gItem = database.copyItem(jItem.getInt("id"));
-                    gItem.updateQuanity(jItem.getInt("quantity"));
+                    gItem.updateQuantity(jItem.getInt("quantity"));
                     gItem.setSeleted(jList.getBoolean("isSeleted"));
                     gList.addItem(gItem);
                 }

@@ -65,7 +65,7 @@ public class GroceryItem {
      * "isSeleted" : false/true
      * @return
      */
-    public JSONObject getJSONObject() {
+    public JSONObject getJSONObject() throws JSONException {
         JSONObject itemJson = new JSONObject();
         itemJson.put("id", id);
         itemJson.put("name", name);
