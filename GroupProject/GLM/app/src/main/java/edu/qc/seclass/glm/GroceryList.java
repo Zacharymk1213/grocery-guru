@@ -22,7 +22,14 @@ public class GroceryList {
         list = new LinkedHashMap<>();
         // Assign the context
     }
-
+    //for cloning an old list from userdata; hence id is known
+    public GroceryList(int d, String n) {
+        if (d >= idCount)
+            idCount = d+1;
+        id = d;
+        name = n;
+        list = new LinkedHashMap<>();
+    }
 
     //access methods
     public int getId() { return id; }
@@ -84,7 +91,6 @@ public class GroceryList {
         // No toast message shown when the item is not found in the list
     }
 
-
     /**
      * Iterates through the entire list, clear off their selection
      */
@@ -92,5 +98,30 @@ public class GroceryList {
         Set<Integer> itemIDs = list.keySet();
         for (int id : itemIDs)
             list.get(id).setSeleted(false);
+    }
+
+    /**
+     * Returns a JSONObject containing list data such that <p>
+     * "id" : id <p>
+     * "name" : name <p>
+     * "isSeleted" : false/true <p>
+     * "list" : { <p>
+     *     "itemID" : itemObject <p>
+     *     "itemID" : itemObject <p>
+     * }
+     * @return
+     */
+    public JSONObject getJSONObject() {
+        JSONObject listJson = new JSONObject();
+        listJson.put("id", id);
+        listJson.put("name", name);
+        listJson.put("isSeleted", isSeleted);
+        JSONObject itemsJson = new JSONObject();
+        //put listObjects
+        Set<Integer> itemIDs = list.keySet();
+        for (int id : itemIDs)
+            itemsJson.put(""+id, list.get(id).getJSONObject());
+        listJson.put("list", itemsJson);
+        return listJson;
     }
 }

@@ -19,6 +19,10 @@ public class User {
     public String getName() { return name; }
     public void setName(String n) { name = n; }
 
+    public GroceryList getList(int listID) {
+        return lists.get(listID);
+    }
+
     /**
      * Adds a new grocery list for the user
      * @param listName
@@ -26,6 +30,14 @@ public class User {
     public void createList(String listName) {
         GroceryList l = new GroceryList(listName);
         lists.put(l.getId(), l);
+    }
+
+    /**
+     * Adds an existing list
+     * @param list
+     */
+    public void addList(GroceryList list) {
+        lists.put(list.getId(), list);
     }
 
     /**
@@ -107,5 +119,26 @@ public class User {
         // openList(list.getId());
         // return list;
         return null; // Placeholder, replace with actual implementation
+    }
+
+    /**
+     * Returns a JSONObject containing user name and all lists such that <p>
+     * "name" : name <p>
+     * "list" : { <p>
+     *     "listID" : listObject <p>
+     *     "listID" : listObject <p>
+     * }
+     * @return
+     */
+    public JSONObject getJSONObject() {
+        JSONObject userJson = new JSONObject();
+        userJson.put("name", name);
+        //put listObjects
+        JSONObject listJson = new JSONObject();
+        Set<Integer> listIDs = lists.keySet();
+        for (int id : listIDs)
+            listJson.put(""+id, lists.get(id).getJSONObject());
+        userJson.put("list", listJson);
+        return userJson;
     }
 }

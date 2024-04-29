@@ -9,7 +9,7 @@ public class GroceryItem {
     private int id;
     private String name;
     private String type;
-    private int quanity = 0;
+    private int quantity = 0;
     public boolean isSeleted = false;
 
     //constructor
@@ -21,6 +21,8 @@ public class GroceryItem {
     }
     //for cloning an old item from database; hence id is known
     public GroceryItem(int d, String n, String t) {
+        if (d >= idCount)
+            idCount = d+1;
         id = d;
         name = n;
         type = t;
@@ -43,11 +45,30 @@ public class GroceryItem {
      * Set postive <b>amount</b> to increase, negative <b>amount</b> to decrease
      * @param amount to be changed
      */
-    public void updateQuanity(int amount) {
-        quanity += amount;
+    public void updateQuantity(int amount) {
+        quantity += amount;
     }
 
     public String toString() {
-        return "{" + id + ", " + name + ", " + quanity + "}";
+        return "{" + id + ", " + name + ", " + quantity + "}";
+    }
+
+    /**
+     * Returns a JSONObject containing item data such that <p>
+     * "id" : id <p>
+     * "name" : name <p>
+     * "type" : type <p>
+     * "quantity" : quantity <p>
+     * "isSeleted" : false/true
+     * @return
+     */
+    public JSONObject getJSONObject() {
+        JSONObject itemJson = new JSONObject();
+        itemJson.put("id", id);
+        itemJson.put("name", name);
+        itemJson.put("type", type);
+        itemJson.put("quantity", quantity);
+        itemJson.put("isSeleted", isSeleted);
+        return itemJson;
     }
 }
