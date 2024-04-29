@@ -20,6 +20,25 @@ public class GroceryDatabase {
     }
 
     /**
+     * Return a copied instance of item with <b>id</b>
+     * @param itemID
+     * @return
+     */
+    public GroceryItem copyItem(int itemID) {
+        //get the item
+        GroceryItem original = db.get(itemID);
+        //copy a new instance of the item
+        return new GroceryItem(original.getId(), original.getName(), original.getType());
+    }
+
+    /**
+     * Puts a new entry of grocery into the database
+     */
+    public void putItem(GroceryItem entry) {
+        db.put(entry.getId(), entry);
+    }
+
+    /**
      * Search <b>name</b> in database entries and return items of similar name
      * @param name
      * @return an array of grocery items with similar name
@@ -35,12 +54,9 @@ public class GroceryDatabase {
     public ListOfType getListOfType(String type) {
         ListOfType typeList = new ListOfType(type);
         Set<Integer> itemIDs = db.keySet();
-        for (int id : itemIDs) {
-            //get the item
-            GroceryItem original = db.get(id);
+        for (int id : itemIDs)
             //copy a new instance of the item to list
-            typeList.addItem(new GroceryItem(original.getId(), original.getName(), original.getType()));
-        }
+            typeList.addItem(copyItem(id));
         return typeList;
     }
 
