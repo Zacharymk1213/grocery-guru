@@ -32,8 +32,6 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    private User owner;
-    private GroceryDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
             JSONObject dbJson = new JSONObject(jsonData.toString());
 
             // Load database
-            database = new GroceryDatabase(); //GroceryDatabase class not yet written
+            GroceryDatabase database = GroceryDatabase.getInstance();
             Iterator<String> entrys = dbJson.keys();
             while (entrys.hasNext()) {
                 JSONObject item = dbJson.getJSONObject(entrys.next());
@@ -157,7 +155,9 @@ public class MainActivity extends AppCompatActivity {
             JSONObject userDataJson = new JSONObject(jsonData.toString());
 
             // Load user data
-            owner = new User(userDataJson.getString("name"));
+            User owner = User.getInstance();
+            owner.setName(userDataJson.getString("name"));
+            GroceryDatabase database = GroceryDatabase.getInstance();
             // load the lists
             JSONObject userLists = userDataJson.getJSONObject("list");
             Iterator<String> lists = userLists.keys();
@@ -208,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
     public int saveDatabase() {
         try (FileWriter fileWriter = new FileWriter("item_database.json")) {
             // Create JSON object for database
-            JSONObject dbJson = database.getJSONObject();
+            JSONObject dbJson = GroceryDatabase.getInstance().getJSONObject();
             // Write JSON data to file
             fileWriter.write(dbJson.toString());
             return 0; // Success
@@ -229,7 +229,7 @@ public class MainActivity extends AppCompatActivity {
     public int saveUserData() {
         try (FileWriter fileWriter = new FileWriter("user_data.json")) {
             // Create JSON object for user data
-            JSONObject userDataJson = owner.getJSONObject();
+            JSONObject userDataJson = User.getInstance().getJSONObject();
             // Write JSON data to file
             fileWriter.write(userDataJson.toString());
             return 0; // Success

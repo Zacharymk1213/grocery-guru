@@ -8,16 +8,24 @@ import org.json.JSONObject;
 import org.json.JSONException;
 
 /**
- * The grocery database stores entries of GroceryItem using a {@link LinkedHashMap }
+ * The grocery database stores entries of GroceryItem using a {@link LinkedHashMap } <p>
+ * This is a singleton class: only static instance,
+ * so the sole dataabase object and its methods can be accessed in any activity
  * @author Jiafeng Lin
  */
 public class GroceryDatabase {
-    private static LinkedHashMap<Integer, GroceryItem> db; //should be static, well,
-        //there is only going to be one database anyway
-    
-    //constrcutor
-    public GroceryDatabase() {
+    private LinkedHashMap<Integer, GroceryItem> db;
+    private static GroceryDatabase instance = null;
+
+    //constructor
+    private GroceryDatabase() {
         db = new LinkedHashMap<Integer, GroceryItem>();
+    }
+    public static GroceryDatabase getInstance() {
+        if(instance == null) {
+            instance = new GroceryDatabase();
+        }
+        return instance;
     }
 
     /**
@@ -33,10 +41,16 @@ public class GroceryDatabase {
     }
 
     /**
-     * Puts a new entry of grocery into the database
+     * Puts a new entry of grocery into the database <p>
+     * @param name
+     * @param type
+     * @return a copy of the new item
      */
-    public void putItem(GroceryItem entry) {
+    public GroceryItem putItem(String name, String type) {
+        GroceryItem entry = new GroceryItem(name, type);
         db.put(entry.getId(), entry);
+        //copyItem() is a must to avoid change to the entry in database
+        return copyItem(entry.getId());
     }
 
     /**
@@ -49,8 +63,8 @@ public class GroceryDatabase {
         TreeMap<Double, GroceryItem> tem = new TreeMap<Double, GroceryItem>();
         Set<Integer> itemIDs = db.keySet();
         for (int id : itemIDs) {
-            GroceryItem thisItem = db.get(id);
-            double s = similarity(thisItem.getName(), name)
+            GroceryItem thisItem = copyItem(id); //again, must copyItem()
+            double s = similarity(thisItem.getName(), name);
             if (s > 0.4) //considerably similar
                 tem.put(s, thisItem);
         }

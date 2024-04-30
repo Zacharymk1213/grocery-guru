@@ -6,17 +6,26 @@ import org.json.JSONObject;
 import org.json.JSONException;
 
 /**
- * The User class utilizes a binary tree to store its grocery lists
+ * The User class utilizes a binary tree to store its grocery lists <p>
+ * This is a singleton class: only static instance,
+ * so the sole user object and its methods can be accessed in any activity
  * @author Jiafeng Lin
  */
 public class User {
     private String name;
     private TreeMap<Integer, GroceryList> lists;
+    private static User instance = null;
 
     //constructor
-    public User(String n) {
-        name = n;
+    private User() {
+        name = "";
         lists = new TreeMap<>();
+    }
+    public static User getInstance() {
+       if(instance == null) {
+          instance = new User();
+       }
+       return instance;
     }
 
     //access methods
@@ -101,12 +110,8 @@ public class User {
      * @param type
      * @return a copy of the newly created item
      */
-    private GroceryItem createDatabaseEntry(String name, String type) {
-        // Implement creating and returning a new GroceryItem
-        // For example:
-        // GroceryItem newItem = new GroceryItem(name, type);
-        // return newItem;
-        return null; // Placeholder, replace with actual implementation
+    private GroceryItem createDatabaseEntry(String name, String type, GroceryDatabase db) {
+        return db.putItem(name, type);
     }
 
     /**
@@ -114,12 +119,16 @@ public class User {
      * @param name
      * @return an array of grocery items with similar name
      */
-    public GroceryItem[] lookUpItem(String name) {
-        // Implement searching the database for items with similar name
-        // For example:
-        // GroceryItem[] items = database.searchItemsByName(name);
-        // return items;
-        return null; // Placeholder, replace with actual implementation
+    public GroceryItem[] lookUpItem(String name, GroceryDatabase db) {
+        //while user has a list page open
+        //listen for when user typed something into searchBarView
+        //get String n from searchBarView
+        //pass n into searchItemsByName(n)
+        //get items from database
+        GroceryItem[] items = db.searchItemsByName(name);
+        //display result to user in a searchResultDropList right below searchBarView
+        //if user click on an item in searchResultDropList
+        //add clicked item to *this* open list
     }
 
     /**
