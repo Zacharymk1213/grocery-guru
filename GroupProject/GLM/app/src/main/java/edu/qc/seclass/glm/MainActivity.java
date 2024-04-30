@@ -148,7 +148,6 @@ public class MainActivity extends AppCompatActivity {
                 int id = itemJson.getInt("id");
                 String name = itemJson.getString("name");
                 String type = itemJson.getString("type");
-                GroceryItem item = new GroceryItem(id, name, type);
                 database.putItem(id, name, type);
             }
 
@@ -172,8 +171,6 @@ public class MainActivity extends AppCompatActivity {
      * load all user data, including their grocery lists, from user_data.json
      * @return 0 if load is successful
      */
-
-
     public int loadUserData() {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(getAssets().open("user_data.json")))) {
             StringBuilder jsonData = new StringBuilder();

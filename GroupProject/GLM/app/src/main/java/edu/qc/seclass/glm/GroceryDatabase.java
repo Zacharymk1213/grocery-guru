@@ -47,13 +47,25 @@ public class GroceryDatabase {
 
 
     /**
+     * Will only put a existing item into database without returning the object <p>
+     * this should only be used to load json data into the database
+     * @param id
+     * @param name
+     * @param type
+     */
+    public void putItem(Int id, String name, String type) {
+        GroceryItem entry = new GroceryItem(id, name, type);
+        db.put(id, entry);
+    }
+    /**
      * Puts a new entry of grocery into the database <p>
+     * this should only be used in NewEntryActivity to add new database entry
      * @param name
      * @param type
      * @return a copy of the new item
      */
-    public GroceryItem putItem(int itemID,String name, String type) {
-        GroceryItem entry = new GroceryItem(itemID,name, type);
+    public GroceryItem putItem(String name, String type) {
+        GroceryItem entry = new GroceryItem(name, type);
         db.put(entry.getId(), entry);
         //copyItem() is a must to avoid change to the entry in database
         return copyItem(entry.getId());

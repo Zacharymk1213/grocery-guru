@@ -14,8 +14,9 @@ import java.util.ArrayList;
 public class SearchItemActivity extends AppCompatActivity {
 
     private EditText editTextSearch;
-    private Button btnSearch;
-    private Button btnBack;
+    private Button btnSearch,
+                btnBack,
+                btnAddEntry;
     private ListView listViewSearchResults;
 
     @Override
@@ -27,6 +28,7 @@ public class SearchItemActivity extends AppCompatActivity {
         editTextSearch = findViewById(R.id.et_search);
         btnSearch = findViewById(R.id.btn_search);
         btnBack = findViewById(R.id.btn_back);
+        btnAddEntry = findViewById(R.id.btn_add_entry);
         listViewSearchResults = findViewById(R.id.listView_search_results);
 
         // Set click listener for the search button
@@ -35,7 +37,7 @@ public class SearchItemActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Get the entered search query
                 String searchQuery = editTextSearch.getText().toString().trim();
-                if (!searchQuery.isEmpty()) {
+                if (!searchQuery.isBlank()) {
                     // Perform search operation (you can define your search logic here)
                     // For demonstration purposes, create a list of dummy search results
                     
@@ -52,7 +54,7 @@ public class SearchItemActivity extends AppCompatActivity {
                    //listViewSearchResults.setAdapter(adapter);
                 } else {
                     // Show an error message if search query is empty
-                    editTextSearch.setError("Search query cannot be empty");
+                    editTextSearch.setError("Search query cannot be blank");
                 }
             }
         });
@@ -63,6 +65,15 @@ public class SearchItemActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Finish the activity and go back to the previous screen
                 finish();
+            }
+        });
+
+        //set click listener to add new entry to database
+        btnAddEntry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to adding database entry activity
+                startActivity(new Intent(MainActivity.this, NewEntryActivity.class));
             }
         });
     }
