@@ -110,9 +110,9 @@ public class User {
      * @param type
      * @return a copy of the newly created item
      */
-    private GroceryItem createDatabaseEntry(int id,String name, String type, GroceryDatabase db) {
-        return db.putItem(id,name, type);
-    }
+    //private GroceryItem createDatabaseEntry(int id,String name, String type, GroceryDatabase db) {
+    //    return db.putItem(id,name, type);
+    //}
 
     /**
      * Search <b>name</b> in database entries and get back items of similar name

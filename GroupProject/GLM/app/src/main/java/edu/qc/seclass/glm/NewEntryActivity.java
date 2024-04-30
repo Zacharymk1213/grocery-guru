@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,7 +41,7 @@ public class NewEntryActivity extends AppCompatActivity {
                 if (itemName.isBlank())
                     editTextName.setError("Item name cannot be blank");
                 else if (type.isBlank())
-                    Toast.makeText(this, "Type not selected", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(NewEntryActivity.this, "Type not selected", Toast.LENGTH_SHORT).show();
                 else {
                     GroceryDatabase.getInstance().putItem(itemName, type);
                     finish();

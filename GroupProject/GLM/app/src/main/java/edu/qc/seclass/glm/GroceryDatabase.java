@@ -53,7 +53,7 @@ public class GroceryDatabase {
      * @param name
      * @param type
      */
-    public void putItem(Int id, String name, String type) {
+    public void putItem(int id, String name, String type) {
         GroceryItem entry = new GroceryItem(id, name, type);
         db.put(id, entry);
     }
