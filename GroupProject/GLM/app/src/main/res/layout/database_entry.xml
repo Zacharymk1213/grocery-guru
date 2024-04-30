@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <!-- Back button -->
-    <Button
-        android:id="@+id/btn_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Back"
-        android:layout_margin="16dp"/>
 
     <!-- EditText for entering item name -->
 
@@ -17,40 +13,76 @@
 
     <!-- Confirmation button -->
 
-    <EditText
-        android:id="@+id/et_item_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btn_back"
-        android:layout_marginTop="194dp"
-        android:hint="Enter item name"
-        android:inputType="text" />
-
-    <Spinner
-        android:id="@+id/spinner_item_type"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/et_item_name"
-        android:layout_marginTop="94dp" />
-
-    <Button
-        android:id="@+id/btn_confirm"
+    <TextView
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/spinner_item_type"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="213dp"
-        android:layout_marginEnd="154dp"
-        android:text="Confirm" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="90dp"
-        android:layout_height="37dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="321dp"
-        android:layout_marginBottom="476dp"
-        android:text="Item Name" />
+        android:layout_marginTop="16dp"
+        android:text="@string/new_entry"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</RelativeLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        tools:layout_editor_absoluteX="0dp">
+
+        <Button
+            android:id="@+id/btn_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/spinner_item_type"
+            android:layout_alignParentEnd="true"
+            android:text="Confirm"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.945"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_item_name"
+            app:layout_constraintVertical_bias="0.518" />
+
+        <EditText
+            android:id="@+id/et_item_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_back"
+            android:hint="Enter item name"
+            android:inputType="text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.118" />
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Back"
+            app:layout_constraintBottom_toTopOf="@+id/et_item_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spinner_item_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_item_name"
+            app:layout_constraintEnd_toEndOf="@+id/et_item_name"
+            app:layout_constraintStart_toStartOf="@+id/et_item_name"
+            app:layout_constraintTop_toBottomOf="@+id/et_item_name" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
