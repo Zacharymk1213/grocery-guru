@@ -34,11 +34,17 @@ public class GroceryDatabase {
      * @return
      */
     public GroceryItem copyItem(int itemID) {
-        //get the item
+        // Get the item from the database
         GroceryItem original = db.get(itemID);
-        //copy a new instance of the item
-        return new GroceryItem(original.getId(), original.getName(), original.getType());
+        if (original != null) {
+            // If the item exists, create a new instance of it
+            return new GroceryItem(original.getId(), original.getName(), original.getType());
+        } else {
+            // If the item does not exist, return null or handle the error accordingly
+            return null;
+        }
     }
+
 
     /**
      * Puts a new entry of grocery into the database <p>
@@ -46,8 +52,8 @@ public class GroceryDatabase {
      * @param type
      * @return a copy of the new item
      */
-    public GroceryItem putItem(String name, String type) {
-        GroceryItem entry = new GroceryItem(name, type);
+    public GroceryItem putItem(int itemID,String name, String type) {
+        GroceryItem entry = new GroceryItem(itemID,name, type);
         db.put(entry.getId(), entry);
         //copyItem() is a must to avoid change to the entry in database
         return copyItem(entry.getId());
@@ -180,4 +186,6 @@ public class GroceryDatabase {
             dbJson.put(""+id, db.get(id).getJSONObject());
         return dbJson;
     }
+
+
 }

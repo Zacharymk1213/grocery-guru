@@ -13,7 +13,7 @@ public class GroceryItem {
     private String name;
     private String type;
     private int quantity = 0;
-    public boolean isSeleted = false;
+    public boolean isSelected = false;
 
     //constructor
     //use this only for adding new entry into database
@@ -41,16 +41,23 @@ public class GroceryItem {
     public String getType() { return type; }
     public void setType(String t) { type = t; }
 
-    public boolean isSeleted() { return isSeleted; }
-    public void setSeleted(boolean tf) { isSeleted = tf; }
+    public boolean isSelected() { return isSelected; }
+    public void setSelected(boolean tf) { isSelected = tf; }
 
     /**
      * Set postive <b>amount</b> to increase, negative <b>amount</b> to decrease
      * @param amount to be changed
      */
     public void updateQuantity(int amount) {
-        quantity += amount;
+        if (this != null) {
+            quantity += amount;
+        } else {
+            // Handle the case where the GroceryItem object is null
+            // For example, you can log an error message
+            System.err.println("Error: Attempted to update quantity on a null GroceryItem object");
+        }
     }
+
 
     public String toString() {
         return "{" + id + ", " + name + ", " + quantity + "}";
@@ -71,7 +78,7 @@ public class GroceryItem {
         itemJson.put("name", name);
         itemJson.put("type", type);
         itemJson.put("quantity", quantity);
-        itemJson.put("isSeleted", isSeleted);
+        itemJson.put("isSelected", isSelected);
         return itemJson;
     }
 }

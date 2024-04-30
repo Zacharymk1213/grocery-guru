@@ -16,7 +16,7 @@ public class GroceryList {
     private int id;
     private String name;
     private LinkedHashMap<Integer, GroceryItem> list; //should not be static
-    private boolean isSeleted = false;
+    private boolean isSelected = false;
 
     //constructor
     public GroceryList(String n) {
@@ -41,8 +41,8 @@ public class GroceryList {
     public String getName() { return name; }
     public void setName(String n) { name = n; }
 
-    public boolean isSeleted() { return isSeleted; }
-    public void setSeleted(boolean tf) { isSeleted = tf; }
+    public boolean isSelected() { return isSelected; }
+    public void setSelected(boolean tf) { isSelected = tf; }
 
     public LinkedHashMap<Integer, GroceryItem> getList() { return list; }
 
@@ -89,7 +89,7 @@ public class GroceryList {
     public void checkOff(int itemID) {
         GroceryItem item = searchItem(itemID);
         if (item != null) {
-            item.setSeleted(true);
+            item.setSelected(true);
         }
         // No toast message shown when the item is not found in the list
     }
@@ -100,7 +100,7 @@ public class GroceryList {
     public void clearCheckOff() {
         Set<Integer> itemIDs = list.keySet();
         for (int id : itemIDs)
-            list.get(id).setSeleted(false);
+            list.get(id).setSelected(false);
     }
 
     /**
@@ -118,7 +118,7 @@ public class GroceryList {
         JSONObject listJson = new JSONObject();
         listJson.put("id", id);
         listJson.put("name", name);
-        listJson.put("isSeleted", isSeleted);
+        listJson.put("isSeleted", isSelected);
         JSONObject itemsJson = new JSONObject();
         //put listObjects
         Set<Integer> itemIDs = list.keySet();

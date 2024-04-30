@@ -1,0 +1,337 @@
+{
+  "1": {
+    "id": 1,
+    "name": "Apple",
+    "type": "Fruit"
+  },
+  "2": {
+    "id": 2,
+    "name": "Banana",
+    "type": "Fruit"
+  },
+  "3": {
+    "id": 3,
+    "name": "Carrot",
+    "type": "Vegetable"
+  },
+  "4": {
+    "id": 4,
+    "name": "Broccoli",
+    "type": "Vegetable"
+  },
+  "5": {
+    "id": 5,
+    "name": "Milk",
+    "type": "Dairy"
+  },
+  "6": {
+    "id": 6,
+    "name": "Cheese",
+    "type": "Dairy"
+  },
+  "7": {
+    "id": 7,
+    "name": "Bread",
+    "type": "Grains"
+  },
+  "8": {
+    "id": 8,
+    "name": "Rice",
+    "type": "Grains"
+  },
+  "9": {
+    "id": 9,
+    "name": "Chicken",
+    "type": "Meat"
+  },
+  "10": {
+    "id": 10,
+    "name": "Beef",
+    "type": "Meat"
+  },
+  "11": {
+    "id": 11,
+    "name": "Potato",
+    "type": "Vegetable"
+  },
+  "12": {
+    "id": 12,
+    "name": "Pasta",
+    "type": "Grains"
+  },
+  "13": {
+    "id": 13,
+    "name": "Eggs",
+    "type": "Dairy"
+  },
+  "14": {
+    "id": 14,
+    "name": "Lettuce",
+    "type": "Vegetable"
+  },
+  "15": {
+    "id": 15,
+    "name": "Fish",
+    "type": "Seafood"
+  },
+  "16": {
+    "id": 16,
+    "name": "Orange",
+    "type": "Fruit"
+  },
+  "17": {
+    "id": 17,
+    "name": "Yogurt",
+    "type": "Dairy"
+  },
+  "18": {
+    "id": 18,
+    "name": "Onion",
+    "type": "Vegetable"
+  },
+  "19": {
+    "id": 19,
+    "name": "Tomato",
+    "type": "Vegetable"
+  },
+  "20": {
+    "id": 20,
+    "name": "Cucumber",
+    "type": "Vegetable"
+  },
+  "21": {
+    "id": 21,
+    "name": "Grapes",
+    "type": "Fruit"
+  },
+  "22": {
+    "id": 22,
+    "name": "Spinach",
+    "type": "Vegetable"
+  },
+  "23": {
+    "id": 23,
+    "name": "Salmon",
+    "type": "Seafood"
+  },
+  "24": {
+    "id": 24,
+    "name": "Pineapple",
+    "type": "Fruit"
+  },
+  "25": {
+    "id": 25,
+    "name": "Pepper",
+    "type": "Vegetable"
+  },
+  "26": {
+    "id": 26,
+    "name": "Celery",
+    "type": "Vegetable"
+  },
+  "27": {
+    "id": 27,
+    "name": "Avocado",
+    "type": "Fruit"
+  },
+  "28": {
+    "id": 28,
+    "name": "Blueberries",
+    "type": "Fruit"
+  },
+  "29": {
+    "id": 29,
+    "name": "Corn",
+    "type": "Vegetable"
+  },
+  "30": {
+    "id": 30,
+    "name": "Strawberries",
+    "type": "Fruit"
+  },
+  "31": {
+    "id": 31,
+    "name": "Watermelon",
+    "type": "Fruit"
+  },
+  "32": {
+    "id": 32,
+    "name": "Lemon",
+    "type": "Fruit"
+  },
+  "33": {
+    "id": 33,
+    "name": "Peach",
+    "type": "Fruit"
+  },
+  "34": {
+    "id": 34,
+    "name": "Pear",
+    "type": "Fruit"
+  },
+  "35": {
+    "id": 35,
+    "name": "Kiwi",
+    "type": "Fruit"
+  },
+  "36": {
+    "id": 36,
+    "name": "Cabbage",
+    "type": "Vegetable"
+  },
+  "37": {
+    "id": 37,
+    "name": "Beets",
+    "type": "Vegetable"
+  },
+  "38": {
+    "id": 38,
+    "name": "Green beans",
+    "type": "Vegetable"
+  },
+  "39": {
+    "id": 39,
+    "name": "Cauliflower",
+    "type": "Vegetable"
+  },
+  "40": {
+    "id": 40,
+    "name": "Asparagus",
+    "type": "Vegetable"
+  },
+  "41": {
+    "id": 41,
+    "name": "Zucchini",
+    "type": "Vegetable"
+  },
+  "42": {
+    "id": 42,
+    "name": "Apricot",
+    "type": "Fruit"
+  },
+  "43": {
+    "id": 43,
+    "name": "Artichoke",
+    "type": "Vegetable"
+  },
+  "44": {
+    "id": 44,
+    "name": "Blackberries",
+    "type": "Fruit"
+  },
+  "45": {
+    "id": 45,
+    "name": "Cranberries",
+    "type": "Fruit"
+  },
+  "46": {
+    "id": 46,
+    "name": "Cherries",
+    "type": "Fruit"
+  },
+  "47": {
+    "id": 47,
+    "name": "Dragonfruit",
+    "type": "Fruit"
+  },
+  "48": {
+    "id": 48,
+    "name": "Eggplant",
+    "type": "Vegetable"
+  },
+  "49": {
+    "id": 49,
+    "name": "Figs",
+    "type": "Fruit"
+  },
+  "50": {
+    "id": 50,
+    "name": "Guava",
+    "type": "Fruit"
+  },
+  "51": {
+    "id": 51,
+    "name": "Kale",
+    "type": "Vegetable"
+  },
+  "52": {
+    "id": 52,
+    "name": "Mango",
+    "type": "Fruit"
+  },
+  "53": {
+    "id": 53,
+    "name": "Papaya",
+    "type": "Fruit"
+  },
+  "54": {
+    "id": 54,
+    "name": "Raspberry",
+    "type": "Fruit"
+  },
+  "55": {
+    "id": 55,
+    "name": "Tangerine",
+    "type": "Fruit"
+  },
+  "56": {
+    "id": 56,
+    "name": "Watercress",
+    "type": "Vegetable"
+  },
+  "57": {
+    "id": 57,
+    "name": "Squash",
+    "type": "Vegetable"
+  },
+  "58": {
+    "id": 58,
+    "name": "Radish",
+    "type": "Vegetable"
+  },
+  "59": {
+    "id": 59,
+    "name": "Pomegranate",
+    "type": "Fruit"
+  },
+  "60": {
+    "id": 60,
+    "name": "Plum",
+    "type": "Fruit"
+  },
+  "61": {
+    "id": 61,
+    "name": "Melon",
+    "type": "Fruit"
+  },
+  "62": {
+    "id": 62,
+    "name": "Lychee",
+    "type": "Fruit"
+  },
+  "63": {
+    "id": 63,
+    "name": "Parsnip",
+    "type": "Vegetable"
+  },
+  "64": {
+    "id": 64,
+    "name": "Rutabaga",
+    "type": "Vegetable"
+  },
+  "65": {
+    "id": 65,
+    "name": "Turnip",
+    "type": "Vegetable"
+  },
+  "66": {
+    "id": 66,
+    "name": "Beets",
+    "type": "Vegetable"
+  },
+  "67": {
+    "id": 67,
+    "name": "Olive",
+    "type": "Fruit"
+  }
+}

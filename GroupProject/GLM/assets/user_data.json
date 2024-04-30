@@ -20,7 +20,7 @@
           "isSelected": false,
           "quantity": 1
         }
-        // Add more items as needed
+        
       }
     },
     "1": {
@@ -42,9 +42,9 @@
           "isSelected": false,
           "quantity": 1
         }
-        // Add more items as needed
+        
       }
     }
-    // Add more lists as needed
+    
   }
 }

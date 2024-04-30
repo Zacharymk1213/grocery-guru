@@ -13,7 +13,7 @@ import org.json.JSONException;
  */
 public class User {
     private String name;
-    private TreeMap<Integer, GroceryList> lists;
+    private  TreeMap<Integer, GroceryList> lists;
     private static User instance = null;
 
     //constructor
@@ -39,7 +39,7 @@ public class User {
     /*
      * Returns all lists
      */
-    public String[] getListNames() {
+    public  String[] getListNames() {
         String[] tem = new String[lists.size()];
         int i = 0;
         Set<Integer> listIDs = lists.keySet();
@@ -79,7 +79,7 @@ public class User {
      * @param listID
      */
     public void selectList(int listID) {
-        lists.get(listID).setSeleted(true);
+        lists.get(listID).setSelected(true);
     }
 
     /**
@@ -110,8 +110,8 @@ public class User {
      * @param type
      * @return a copy of the newly created item
      */
-    private GroceryItem createDatabaseEntry(String name, String type, GroceryDatabase db) {
-        return db.putItem(name, type);
+    private GroceryItem createDatabaseEntry(int id,String name, String type, GroceryDatabase db) {
+        return db.putItem(id,name, type);
     }
 
     /**
@@ -119,17 +119,18 @@ public class User {
      * @param name
      * @return an array of grocery items with similar name
      */
-    public GroceryItem[] lookUpItem(String name, GroceryDatabase db) {
+    //public GroceryItem[] lookUpItem(String name, GroceryDatabase db) {
         //while user has a list page open
         //listen for when user typed something into searchBarView
         //get String n from searchBarView
         //pass n into searchItemsByName(n)
         //get items from database
-        GroceryItem[] items = db.searchItemsByName(name);
+     //   GroceryItem[] items = db.searchItemsByName(name);
         //display result to user in a searchResultDropList right below searchBarView
         //if user click on an item in searchResultDropList
         //add clicked item to *this* open list
-    }
+
+   // }
 
     /**
      * Get from the database a copied list of all entries of <b>type</b>;

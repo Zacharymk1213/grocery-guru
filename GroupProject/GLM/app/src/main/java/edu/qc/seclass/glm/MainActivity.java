@@ -1,7 +1,10 @@
 package edu.qc.seclass.glm;
 
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Iterator;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -20,7 +23,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -28,6 +31,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -41,16 +45,36 @@ public class MainActivity extends AppCompatActivity {
         //first, load from local drive and previous data into program
         //use relative path
         //user data and database should be on different save_file
-        /*
-        loadAllData();
-        */
+
 
         // Get list items
         ListView myLists = findViewById(R.id.my_lists);
-        //ArrayAdapter<String> lists = new ArrayAdapter<String>(
-        //        this, android.R.layout.simple_spinner_item,
-        //        owner.getListNames());
-        //myLists.setAdapter(lists);
+        // Load user data
+        int userDataLoadResult = loadAllData(getApplicationContext()); // Pass the context
+
+        if (userDataLoadResult == 0) {
+            // User data loaded successfully
+
+            // Get the instance of User
+            User user = User.getInstance();
+
+            // Get list names from the User instance
+            String[] listNames = user.getListNames();
+
+            // Create an ArrayAdapter with the list names
+            ArrayAdapter<String> listsAdapter = new ArrayAdapter<>(
+                    this, android.R.layout.simple_list_item_1, listNames);
+
+            // Set the adapter for the ListView
+            myLists.setAdapter(listsAdapter);
+        } else {
+            // Handle error while loading user data
+            // For example, display an error message to the user
+            Toast.makeText(this, "Error loading user data", Toast.LENGTH_SHORT).show();
+        }
+
+
+
         
         // Find the buttons by their IDs
         Button btnCreateNewList = findViewById(R.id.btn_create_new_list);
@@ -96,19 +120,29 @@ public class MainActivity extends AppCompatActivity {
      * user data and database should be stored in two separate files
      * @return 0 if load is successful
      */
-    public int loadAllData() {
-        //must load database before user data
-        int err = loadDatabase();
+    public int loadAllData(Context context) {
+        // Must load database before user data
+        int err = loadDatabase(context);
         err += loadUserData();
         return err;
     }
+
 
     /**
      * load all grocery item entries in database from item_database.json
      * @return 0 if load is successful
      */
-    public int loadDatabase() {
-        try (BufferedReader reader = new BufferedReader(new FileReader("item_database.json"))) {
+    public int loadDatabase(Context context) {
+        try {
+            // Get InputStream for the JSON file from the assets folder
+            AssetManager assetManager = context.getAssets();
+            InputStream inputStream = assetManager.open("item_database.json");
+
+            // Create a InputStreamReader and BufferedReader to read the JSON data
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+            BufferedReader reader = new BufferedReader(inputStreamReader);
+
+            // Read JSON data line by line and append to StringBuilder
             StringBuilder jsonData = new StringBuilder();
             String line;
             while ((line = reader.readLine()) != null) {
@@ -120,13 +154,21 @@ public class MainActivity extends AppCompatActivity {
 
             // Load database
             GroceryDatabase database = GroceryDatabase.getInstance();
-            Iterator<String> entrys = dbJson.keys();
-            while (entrys.hasNext()) {
-                JSONObject item = dbJson.getJSONObject(entrys.next());
-                database.putItem(new GroceryItem(item.getInt("id"),
-                    item.getString("name"),
-                    item.getString("type")));
+            Iterator<String> entries = dbJson.keys();
+            while (entries.hasNext()) {
+                String key = entries.next();
+                JSONObject itemJson = dbJson.getJSONObject(key);
+                int id = itemJson.getInt("id");
+                String name = itemJson.getString("name");
+                String type = itemJson.getString("type");
+                GroceryItem item = new GroceryItem(id, name, type);
+                database.putItem(id, name, type);
             }
+
+            // Close the streams
+            reader.close();
+            inputStreamReader.close();
+            inputStream.close();
 
             return 0; // Success
         } catch (IOException e) {
@@ -143,8 +185,10 @@ public class MainActivity extends AppCompatActivity {
      * load all user data, including their grocery lists, from user_data.json
      * @return 0 if load is successful
      */
+
+
     public int loadUserData() {
-        try (BufferedReader reader = new BufferedReader(new FileReader("user_data.json"))) {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(getAssets().open("user_data.json")))) {
             StringBuilder jsonData = new StringBuilder();
             String line;
             while ((line = reader.readLine()) != null) {
@@ -164,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
             while (lists.hasNext()) {
                 JSONObject jList = userLists.getJSONObject(lists.next());
                 GroceryList gList = new GroceryList(jList.getInt("id"), jList.getString("name"));
-                gList.setSeleted(jList.getBoolean("isSeleted"));
+                gList.setSelected(jList.getBoolean("isSelected"));
                 owner.addList(gList);
                 //load items of this list
                 JSONObject listItems = jList.getJSONObject("list");
@@ -174,8 +218,7 @@ public class MainActivity extends AppCompatActivity {
                     //this item better be in the database, or else something went wrong
                     GroceryItem gItem = database.copyItem(jItem.getInt("id"));
                     gItem.updateQuantity(jItem.getInt("quantity"));
-                    gItem.setSeleted(jList.getBoolean("isSeleted"));
-                    gList.addItem(gItem);
+                 gList.addItem(gItem);
                 }
             }
 
@@ -189,6 +232,9 @@ public class MainActivity extends AppCompatActivity {
         }
         return -1; // Error
     }
+
+
+
 
     /**
      * saves all user data, their grocery lists and database to drive. <p>

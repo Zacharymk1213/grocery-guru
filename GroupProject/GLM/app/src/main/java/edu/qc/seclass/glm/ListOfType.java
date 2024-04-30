@@ -36,7 +36,7 @@ public class ListOfType {
     public void selectItem(int itemID) {
         GroceryItem item = items.get(itemID);
         if (item != null) {
-            item.setSeleted(true);
+            item.setSelected(true);
         }
     }
 
@@ -46,7 +46,7 @@ public class ListOfType {
      */
     public void addSelectedToList(GroceryList targetList) {
         for (GroceryItem item : items.values()) {
-            if (item.isSeleted()) {
+            if (item.isSelected()) {
                 targetList.addItem(item);
             }
         }
