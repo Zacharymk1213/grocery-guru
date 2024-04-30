@@ -11,14 +11,14 @@
         android:layout_width="106dp"
         android:layout_height="1dp"
         android:layout_weight="1"
-        android:text="Back" />
+        android:text="@string/back" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Search by Type"
+        android:text="@string/search_by_type"
         android:textAlignment="center"
         android:textSize="48sp" />
 
@@ -36,7 +36,7 @@
             android:layout_height="0dp"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            android:text="Dairy"/>
+            android:text="@string/dairy"/>
 
         <!-- Button for Type 2 -->
         <Button
@@ -45,7 +45,7 @@
             android:layout_height="0dp"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            android:text="Produce"/>
+            android:text="@string/produce"/>
 
         <!-- Button for Type 3 -->
         <Button
@@ -54,7 +54,7 @@
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
-            android:text="Meat" />
+            android:text="@string/meat" />
 
         <!-- Button for Type 4 -->
         <Button
@@ -63,7 +63,7 @@
             android:layout_height="0dp"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            android:text="Seafood"/>
+            android:text="@string/seafood"/>
 
         <!-- Button for Type 5 -->
         <Button
@@ -72,7 +72,7 @@
             android:layout_height="0dp"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            android:text="Frozen"/>
+            android:text="@string/frozen"/>
 
         <!-- Button for Type 6 -->
         <Button
@@ -81,7 +81,7 @@
             android:layout_height="0dp"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            android:text="Deli"/>
+            android:text="@string/deli"/>
 
         <!-- Button for Type 7 -->
         <Button
@@ -90,7 +90,7 @@
             android:layout_height="0dp"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            android:text="Cereal"/>
+            android:text="@string/cereal"/>
 
         <!-- Button for Type 8 -->
         <Button
@@ -99,7 +99,7 @@
             android:layout_height="0dp"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            android:text="International"/>
+            android:text="@string/international"/>
 
         <!-- Button for Type 9 -->
         <Button
@@ -108,7 +108,7 @@
             android:layout_height="0dp"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            android:text="Bakery"/>
+            android:text="@string/bakery"/>
 
     </GridLayout>
 
