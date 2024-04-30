@@ -38,6 +38,11 @@ public class SearchItemActivity extends AppCompatActivity {
                 if (!searchQuery.isEmpty()) {
                     // Perform search operation (you can define your search logic here)
                     // For demonstration purposes, create a list of dummy search results
+                    
+                    //we can do this now, not sure how we would display GroceryItem[] though
+                    //what adapter do we use? I'm not particular experienced with this...
+                    GroceryItem[] items = GroceryDatabase.getInstance().searchItemsByName(searchQuery);
+                    
                     ArrayList<String> searchResults = new ArrayList<>();
                     for (int i = 0; i < 10; i++) {
                         searchResults.add("Search Result " + (i + 1));
