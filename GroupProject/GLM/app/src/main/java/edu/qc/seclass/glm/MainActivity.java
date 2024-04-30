@@ -45,8 +45,6 @@ public class MainActivity extends AppCompatActivity {
         //first, load from local drive and previous data into program
         //use relative path
         //user data and database should be on different save_file
-
-
         // Get list items
         ListView myLists = findViewById(R.id.my_lists);
         // Load user data
@@ -54,19 +52,8 @@ public class MainActivity extends AppCompatActivity {
 
         if (userDataLoadResult == 0) {
             // User data loaded successfully
-
-            // Get the instance of User
-            User user = User.getInstance();
-
-            // Get list names from the User instance
-            String[] listNames = user.getListNames();
-
-            // Create an ArrayAdapter with the list names
-            ArrayAdapter<String> listsAdapter = new ArrayAdapter<>(
-                    this, android.R.layout.simple_list_item_1, listNames);
-
-            // Set the adapter for the ListView
-            myLists.setAdapter(listsAdapter);
+            // display myLists
+            refreshList(myLists);
         } else {
             // Handle error while loading user data
             // For example, display an error message to the user
@@ -287,5 +274,20 @@ public class MainActivity extends AppCompatActivity {
             Log.e("SaveUserData", "Error creating JSON: " + e.getMessage());
         }
         return -1; // Error
+    }
+
+    /**
+     * Refreshes the display to show any changes made to user lists
+     */
+    public void refreshList(ListView lv) {
+        // Get the instance of User
+        User user = User.getInstance();
+        // Get list names from the User instance
+        String[] listNames = user.getListNames();
+        // Create an ArrayAdapter with the list names
+        ArrayAdapter<String> listsAdapter = new ArrayAdapter<>(
+                this, android.R.layout.simple_list_item_1, listNames);
+        // Set the adapter for the ListView
+        lv.setAdapter(listsAdapter);
     }
 }
