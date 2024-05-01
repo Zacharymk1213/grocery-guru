@@ -1,0 +1,50 @@
+{
+  "name": "John Doe",
+  "list": {
+    "0": {
+      "id": 0,
+      "name": "Weekly Grocery List",
+      "isSelected": false,
+      "list": {
+        "0": {
+          "id": 0,
+          "name": "Apples",
+          "type": "Fruits",
+          "isSelected": false,
+          "quantity": 2
+        },
+        "2": {
+          "id": 2,
+          "name": "Bread",
+          "type": "Bakery",
+          "isSelected": false,
+          "quantity": 1
+        }
+        
+      }
+    },
+    "1": {
+      "id": 1,
+      "name": "Monthly Shopping",
+      "isSelected": false,
+      "list": {
+        "1": {
+          "id": 1,
+          "name": "Milk",
+          "type": "Dairy",
+          "isSelected": false,
+          "quantity": 2
+        },
+        "4": {
+          "id": 4,
+          "name": "Eggs",
+          "type": "Dairy",
+          "isSelected": false,
+          "quantity": 1
+        }
+        
+      }
+    }
+    
+  }
+}
