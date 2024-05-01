@@ -3,10 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Back button -->
-
-    <!-- Delete button -->
-
     <Button
         android:id="@+id/btn_back"
         android:layout_width="wrap_content"
@@ -23,14 +19,6 @@
         android:layout_alignParentEnd="true"
         android:text="Delete"/>
 
-    <!-- Name TextView -->
-
-    <!-- Quantity TextView to display current quantity -->
-
-    <!-- SeekBar to update quantity -->
-
-    <!-- Save button -->
-
     <TextView
         android:id="@+id/tv_name"
         android:layout_width="wrap_content"
@@ -43,24 +31,24 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/tv_quantity"
+        android:id="@+id/tv_quantity_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_name"
         android:layout_marginTop="195dp"
-        android:text="Current Quantity: 0"
+        android:text="Enter Quantity:"
         android:textSize="16sp" />
 
-    <SeekBar
-        android:id="@+id/seekBar_quantity"
+    <EditText
+        android:id="@+id/editText_quantity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_quantity"
+        android:layout_below="@id/tv_quantity_label"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="34dp"
         android:layout_marginEnd="32dp"
-        android:max="100"
-        android:progress="0" />
+        android:inputType="number"
+        android:hint="0" />
 
     <Button
         android:id="@+id/btn_save"
@@ -74,3 +62,4 @@
         android:textSize="48sp" />
 
 </RelativeLayout>
+
