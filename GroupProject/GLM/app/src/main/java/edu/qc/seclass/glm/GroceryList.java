@@ -107,7 +107,7 @@ public class GroceryList {
      * Returns a JSONObject containing list data such that <p>
      * "id" : id <p>
      * "name" : name <p>
-     * "isSeleted" : false/true <p>
+     * "isSelected" : false/true <p>
      * "list" : { <p>
      *     "itemID" : itemObject <p>
      *     "itemID" : itemObject <p>
@@ -118,7 +118,7 @@ public class GroceryList {
         JSONObject listJson = new JSONObject();
         listJson.put("id", id);
         listJson.put("name", name);
-        listJson.put("isSeleted", isSelected);
+        listJson.put("isSelected", isSelected);
         JSONObject itemsJson = new JSONObject();
         //put listObjects
         Set<Integer> itemIDs = list.keySet();

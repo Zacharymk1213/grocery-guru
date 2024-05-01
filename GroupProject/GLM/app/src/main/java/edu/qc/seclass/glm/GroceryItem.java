@@ -69,7 +69,7 @@ public class GroceryItem {
      * "name" : name <p>
      * "type" : type <p>
      * "quantity" : quantity <p>
-     * "isSeleted" : false/true
+     * "isSelected" : false/true
      * @return
      */
     public JSONObject getJSONObject() throws JSONException {
