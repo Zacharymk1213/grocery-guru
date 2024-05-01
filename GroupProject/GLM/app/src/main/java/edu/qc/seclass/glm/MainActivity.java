@@ -89,8 +89,12 @@ public class MainActivity extends AppCompatActivity {
         myLists.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?>a, View v, int position, long id){
-                //Intent intent = new Intent(MainActivity.this, listActivity.class);
-                //startActivity(intent);
+                String clickedListName = (String) a.getItemAtPosition(position);
+
+                // Launch the MockListActivity with the clicked list name
+                Intent intent = new Intent(MainActivity.this, MockListActivity.class);
+                intent.putExtra("listName", clickedListName);
+                startActivity(intent);
             }
         });
 
@@ -145,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Refreshes the display to show any changes made to user lists
      */
+
     public void refreshList(ListView lv) {
         // Get the instance of User
         User user = User.getInstance();

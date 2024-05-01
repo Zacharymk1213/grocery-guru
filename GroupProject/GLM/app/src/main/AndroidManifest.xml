@@ -25,6 +25,8 @@
         <activity android:name=".SearchItemActivity" />
         <activity android:name=".NewEntryActivity" />
         <activity android:name=".SearchByTypeActivity" />
+        <activity android:name=".MockListActivity" />
+
     </application>
 
 </manifest>
