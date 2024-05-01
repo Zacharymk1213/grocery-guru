@@ -42,6 +42,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //test
+        GroceryDatabase db = GroceryDatabase.getInstance();
+        db.putItem(1, "Apple", "Fruit");
+        db.putItem(2, "Banana", "Fruit");
+        db.putItem(3, "Carrot", "Vegetable");
+        db.putItem(4, "Broccoli", "Vegetable");
+        db.putItem(5, "Milk", "Dairy");
+        User owner = User.getInstance();
+        GroceryList l1 = new GroceryList(1, "Grocery List 1");
+        l1.addItem(db.copyItem(1));
+        l1.addItem(db.copyItem(2));
+        GroceryList l2 = new GroceryList(2, "Grocery List 2");
+        l1.addItem(db.copyItem(5));
+        l1.addItem(db.copyItem(3));
+        owner.addList(l1);
+        owner.addList(l2);
+        if (saveAllData(getApplicationContext()) == 0) {
+            Toast.makeText(this, "Saved!", Toast.LENGTH_SHORT).show();
+        }
+        else
+            Toast.makeText(this, "Error saving data", Toast.LENGTH_SHORT).show();
+        //end
+
         //first, load from local drive and previous data into program
         //use relative path
         //user data and database should be on different save_file
@@ -57,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             // Handle error while loading user data
             // For example, display an error message to the user
-            Toast.makeText(this, "Error loading user data", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Error loading data", Toast.LENGTH_SHORT).show();
         }
 
 
