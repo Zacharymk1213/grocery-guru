@@ -1,5 +1,8 @@
 package edu.qc.seclass.glm;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.LinkedHashMap;
 import java.util.Set;
 
@@ -11,7 +14,7 @@ import org.json.JSONException;
  * uses a {@link LinkedHashMap } to store its set of grocery items
  * @author Jiafeng Lin
  */
-public class GroceryList {
+public class GroceryList implements Parcelable {
     private static int idCount;
     private int id;
     private String name;
@@ -126,5 +129,38 @@ public class GroceryList {
             itemsJson.put(""+id, list.get(id).getJSONObject());
         listJson.put("list", itemsJson);
         return listJson;
+    }
+
+    
+    //----------------Parcelable
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel out, int flags) {
+        out.writeInt(id);
+        out.writeString(name);
+        out.writeBoolean(isSelected);
+    }
+
+    public static final Parcelable.Creator<GroceryList> CREATOR = new Parcelable.Creator<GroceryList>() {
+        public GroceryList createFromParcel(Parcel in) {
+            return new GroceryList(in);
+        }
+
+        public GroceryList[] newArray(int size) {
+            return new GroceryList[size];
+        }
+    };
+
+    // constructor that takes a Parcel and gives you an object populated with it's values
+    private GroceryList(Parcel in) {
+        id = in.readInt();
+        name = in.readString();
+        list = User.getInstance().getGroceryList(id).getList();
+        isSelected = in.readBoolean();
     }
 }

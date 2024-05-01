@@ -45,7 +45,7 @@ public class User {
     public String getName() { return name; }
     public void setName(String n) { name = n; }
 
-    public GroceryList getList(int listID) {
+    public GroceryList getGroceryList(int listID) {
         return lists.get(listID);
     }
     
@@ -115,35 +115,6 @@ public class User {
     public void renameList(int listID, String listName) {
         lists.get(listID).setName(listName);
     }
-
-    /**
-     * Adds a new item entry to the database
-     * should only be called from inside lookUpItem() when no item is found
-     * @param name
-     * @param type
-     * @return a copy of the newly created item
-     */
-    //private GroceryItem createDatabaseEntry(int id,String name, String type, GroceryDatabase db) {
-    //    return db.putItem(id,name, type);
-    //}
-
-    /**
-     * Search <b>name</b> in database entries and get back items of similar name
-     * @param name
-     * @return an array of grocery items with similar name
-     */
-    //public GroceryItem[] lookUpItem(String name, GroceryDatabase db) {
-        //while user has a list page open
-        //listen for when user typed something into searchBarView
-        //get String n from searchBarView
-        //pass n into searchItemsByName(n)
-        //get items from database
-     //   GroceryItem[] items = db.searchItemsByName(name);
-        //display result to user in a searchResultDropList right below searchBarView
-        //if user click on an item in searchResultDropList
-        //add clicked item to *this* open list
-
-   // }
 
     /**
      * Get from the database a copied list of all entries of <b>type</b>;

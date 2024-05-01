@@ -1,5 +1,8 @@
 package edu.qc.seclass.glm;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import org.json.JSONObject;
 import org.json.JSONException;
 
@@ -7,7 +10,7 @@ import org.json.JSONException;
  * GroceryItem represents a grocery item
  * @author Jiafeng Lin
  */
-public class GroceryItem {
+public class GroceryItem implements Parcelable {
     private static int idCount;
     private int id;
     private String name;
@@ -80,5 +83,40 @@ public class GroceryItem {
         itemJson.put("quantity", quantity);
         itemJson.put("isSelected", isSelected);
         return itemJson;
+    }
+
+    //----------------Parcelable
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel out, int flags) {
+        out.writeInt(id);
+        out.writeString(name);
+        out.writeString(type);
+        out.writeInt(quantity);
+        out.writeBoolean(isSelected);
+    }
+
+    public static final Parcelable.Creator<GroceryItem> CREATOR = new Parcelable.Creator<GroceryItem>() {
+        public GroceryItem createFromParcel(Parcel in) {
+            return new GroceryItem(in);
+        }
+
+        public GroceryItem[] newArray(int size) {
+            return new GroceryItem[size];
+        }
+    };
+
+    // constructor that takes a Parcel and gives you an object populated with it's values
+    private GroceryItem(Parcel in) {
+        id = in.readInt();
+        name = in.readString();
+        type = in.readString();
+        quantity = in.readInt();
+        isSelected = in.readBoolean();
     }
 }

@@ -36,6 +36,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+    private static boolean loaded = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,9 +59,8 @@ public class MainActivity extends AppCompatActivity {
         //l1.addItem(db.copyItem(3));
         //owner.addList(l1);
         //owner.addList(l2);
-        //if (saveAllData(getApplicationContext()) == 0) {
+        //if (saveAllData(getApplicationContext()) == 0)
         //    Toast.makeText(this, "Saved!", Toast.LENGTH_SHORT).show();
-        //}
         //else
         //    Toast.makeText(this, "Error saving data", Toast.LENGTH_SHORT).show();
         //end
@@ -68,22 +68,16 @@ public class MainActivity extends AppCompatActivity {
         //first, load from local drive and previous data into program
         //use relative path
         //user data and database should be on different save_file
-        // Get list items
-        ListView myLists = findViewById(R.id.my_lists);
         // Load user data
-        int userDataLoadResult = loadAllData(getApplicationContext()); // Pass the context
-
-        if (userDataLoadResult == 0) {
-            // User data loaded successfully
-            // display myLists
-            refreshList(myLists);
-        } else {
+        if (!loaded && loadAllData(getApplicationContext()) != 0)
             // Handle error while loading user data
             // For example, display an error message to the user
             Toast.makeText(this, "Error loading data", Toast.LENGTH_SHORT).show();
-        }
 
-
+        // Get list items
+        ListView myLists = findViewById(R.id.my_lists);
+        // display myLists
+        refreshList(myLists);
 
         
         // Find the buttons by their IDs
