@@ -25,7 +25,6 @@
         <activity android:name=".SearchItemActivity" />
         <activity android:name=".NewEntryActivity" />
         <activity android:name=".SearchByTypeActivity" />
-        <activity android:name=".NewEntryActivity" />
     </application>
 
 </manifest>
