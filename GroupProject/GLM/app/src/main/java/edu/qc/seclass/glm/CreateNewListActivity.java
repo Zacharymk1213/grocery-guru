@@ -37,10 +37,10 @@ public class CreateNewListActivity extends AppCompatActivity {
                     User owner = User.getInstance();
                     owner.addList(newGroceryList);
                     owner.saveUserData(getApplicationContext());
-                    
-                    Intent resultIntent = new Intent();
-                    resultIntent.putExtra("newGroceryList", (Parcelable) newGroceryList);
-                    setResult(RESULT_OK, resultIntent);
+
+                    //Intent resultIntent = new Intent();
+                    //resultIntent.putExtra("newGroceryList", (Parcelable) newGroceryList);
+                    //setResult(RESULT_OK, resultIntent);
                     finish();
                 } else {
                     // Show an error message if list name is empty

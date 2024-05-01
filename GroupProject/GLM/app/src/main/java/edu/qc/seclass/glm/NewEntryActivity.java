@@ -43,7 +43,9 @@ public class NewEntryActivity extends AppCompatActivity {
                 else if (type.isEmpty())
                     Toast.makeText(NewEntryActivity.this, "Type not selected", Toast.LENGTH_SHORT).show();
                 else {
-                    GroceryDatabase.getInstance().putItem(itemName, type);
+                    GroceryDatabase db = GroceryDatabase.getInstance();
+                    db.putItem(itemName, type);
+                    db.saveDatabase(getApplicationContext());
                     finish();
                 }
             }

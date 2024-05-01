@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         //    Toast.makeText(this, "Saved!", Toast.LENGTH_SHORT).show();
         //}
         //else
-            Toast.makeText(this, "Error saving data", Toast.LENGTH_SHORT).show();
+        //    Toast.makeText(this, "Error saving data", Toast.LENGTH_SHORT).show();
         //end
 
         //first, load from local drive and previous data into program
