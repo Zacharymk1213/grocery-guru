@@ -6,84 +6,127 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/btn_back2"
+        android:id="@+id/btn_back_mocklist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:text="Back" />
+        android:layout_marginEnd="323dp"
+        android:layout_marginBottom="93dp"
+        android:text="Back"
+        app:layout_constraintBottom_toTopOf="@+id/btn_item_mocklist"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/tv_name_mocklist"
         android:layout_width="199dp"
         android:layout_height="56dp"
+        android:layout_marginStart="141dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="71dp"
+        android:layout_marginBottom="24dp"
         android:text=" Mock List #"
         android:textSize="34sp"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="56dp" />
+        app:layout_constraintBottom_toTopOf="@+id/btn_minus_mocklist"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/btn_search_item_mocklist"
         android:layout_width="176dp"
         android:layout_height="47dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="496dp"
+        android:layout_marginEnd="38dp"
         android:text="Search Item"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="40dp"
-        tools:layout_editor_absoluteY="699dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_search_type_mocklist"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_check_mocklist"
+        app:layout_constraintVertical_bias="0.15" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/btn_search_type_mocklist"
         android:layout_width="178dp"
         android:layout_height="51dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="510dp"
         android:text="Search Type"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="254dp"
-        tools:layout_editor_absoluteY="699dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_search_item_mocklist"
+        app:layout_constraintTop_toBottomOf="@+id/btn_minus_mocklist"
+        app:layout_constraintVertical_bias="0.082" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/btn_return_to_Homepage_mocklist"
         android:layout_width="290dp"
         android:layout_height="46dp"
+        android:layout_marginStart="118dp"
+        android:layout_marginTop="99dp"
+        android:layout_marginEnd="101dp"
+        android:layout_marginBottom="67dp"
         android:text="Return to Homepage"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="788dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_search_item_mocklist" />
 
     <Button
-        android:id="@+id/button18"
-        android:layout_width="148dp"
-        android:layout_height="47dp"
+        android:id="@+id/btn_item_mocklist"
+        android:layout_width="114dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="511dp"
         android:text="Item#"
-        tools:layout_editor_absoluteX="70dp"
-        tools:layout_editor_absoluteY="141dp" />
+        app:layout_constraintBottom_toTopOf="@+id/btn_search_item_mocklist"
+        app:layout_constraintEnd_toStartOf="@+id/btn_minus_mocklist"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btn_check_mocklist"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name_mocklist"
+        app:layout_constraintVertical_bias="0.005" />
 
     <Button
-        android:id="@+id/button19"
-        android:layout_width="56dp"
-        android:layout_height="53dp"
+        android:id="@+id/btn_minus_mocklist"
+        android:layout_width="50dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginBottom="533dp"
         android:text="-"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="226dp"
-        tools:layout_editor_absoluteY="136dp" />
+        app:layout_constraintBottom_toTopOf="@+id/btn_search_item_mocklist"
+        app:layout_constraintEnd_toStartOf="@+id/et_quantity_mocklist"
+        app:layout_constraintStart_toEndOf="@+id/btn_item_mocklist" />
 
     <Button
-        android:id="@+id/button20"
+        android:id="@+id/btn_plus_mocklist"
         android:layout_width="59dp"
         android:layout_height="52dp"
+        android:layout_marginStart="8dp"
         android:text="+"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="340dp"
+        app:layout_constraintStart_toEndOf="@+id/et_quantity_mocklist"
         tools:layout_editor_absoluteY="136dp" />
 
     <Button
-        android:id="@+id/button21"
+        android:id="@+id/btn_x_mocklist"
         android:layout_width="57dp"
         android:layout_height="50dp"
+        android:layout_marginStart="8dp"
         android:text="X"
-        tools:layout_editor_absoluteX="408dp"
-        tools:layout_editor_absoluteY="138dp" />
+        app:layout_constraintStart_toEndOf="@+id/btn_plus_mocklist"
+        tools:layout_editor_absoluteY="136dp" />
 
     <EditText
-        android:id="@+id/editTextText7"
+        android:id="@+id/et_quantity_mocklist"
         android:layout_width="41dp"
         android:layout_height="50dp"
         android:ems="10"
@@ -93,7 +136,7 @@
         tools:layout_editor_absoluteY="136dp" />
 
     <Button
-        android:id="@+id/button22"
+        android:id="@+id/btn_check_mocklist"
         android:layout_width="63dp"
         android:layout_height="47dp"
         android:text="C"
