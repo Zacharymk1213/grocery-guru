@@ -216,22 +216,21 @@ public class GroceryDatabase {
      * @return 0 if save is successful
      */
     public int saveDatabase(Context context) {
-        try {
-            OutputStream outStream = context.openFileOutput("item_database.json", 0);
-            OutputStreamWriter outStreamWriter = new OutputStreamWriter(outStream);
-            BufferedWriter out = new BufferedWriter(outStreamWriter);
-            // Create JSON object for database
-            JSONObject dbJson = getJSONObject();
+        try (BufferedWriter out = new BufferedWriter(
+                new OutputStreamWriter(context.openFileOutput("item_database.json", 0))
+        )) {
+            // Create JSON object for user data
+            JSONObject userDataJson = getJSONObject();
             // Write JSON data to file
-            out.write(dbJson.toString());
+            out.write(userDataJson.toString());
             out.close();
             return 0; // Success
         } catch (IOException e) {
             // Handle IO exception
-            Log.e("SaveDatabase", "Error writing JSON file: " + e.getMessage());
+            Log.e("SaveUserData", "Error writing JSON file: " + e.getMessage());
         } catch (JSONException e) {
             // Handle JSON exception
-            Log.e("SaveDatabase", "Error creating JSON: " + e.getMessage());
+            Log.e("SaveUserData", "Error creating JSON: " + e.getMessage());
         }
         return -1; // Error
     }
@@ -241,15 +240,9 @@ public class GroceryDatabase {
      * @return 0 if load is successful
      */
     public int loadDatabase(Context context) {
-        try {
-            // Get InputStream for the JSON file from the app folder
-            InputStream inStream = context.openFileInput("item_database.json");
-
-            // Create a InputStreamReader and BufferedReader to read the JSON data
-            InputStreamReader inStreamReader = new InputStreamReader(inStream);
-            BufferedReader reader = new BufferedReader(inStreamReader);
-
-            // Read JSON data line by line and append to StringBuilder
+        try (BufferedReader reader = new BufferedReader(
+                new InputStreamReader(context.openFileInput("item_database.json"))
+        )) {
             StringBuilder jsonData = new StringBuilder();
             String line;
             while ((line = reader.readLine()) != null) {
@@ -258,7 +251,6 @@ public class GroceryDatabase {
 
             // Parse JSON data
             JSONObject dbJson = new JSONObject(jsonData.toString());
-
             // Load database
             //GroceryDatabase database = GroceryDatabase.getInstance();
             Iterator<String> entries = dbJson.keys();
@@ -273,8 +265,7 @@ public class GroceryDatabase {
 
             // Close the streams
             reader.close();
-            inStreamReader.close();
-            inStream.close();
+
 
             return 0; // Success
         } catch (IOException e) {
