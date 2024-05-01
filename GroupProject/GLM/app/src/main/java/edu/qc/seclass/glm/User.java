@@ -68,7 +68,7 @@ public class User {
      */
     public GroceryList createList(String listName) {
         GroceryList l = new GroceryList(listName);
-        lists.put(l.getId(), l);
+        return lists.put(l.getId(), l);
     }
 
     /**
