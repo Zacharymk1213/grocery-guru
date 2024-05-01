@@ -1,5 +1,6 @@
 package edu.qc.seclass.glm;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -39,12 +40,19 @@ public class MockListActivity extends AppCompatActivity {
     private void setupListeners() {
         btnBackMocklist.setOnClickListener(v -> finish());
 
-        btnSearchItemMocklist.setOnClickListener(v -> {
-            // TODO: search item
+        btnSearchItemMocklist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to Search Item activity
+                startActivity(new Intent(MockListActivity.this, SearchItemActivity.class));
+            }
         });
-
-        btnSearchTypeMocklist.setOnClickListener(v -> {
-            // TODO: search type
+        btnSearchTypeMocklist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to Search Type activity
+                startActivity(new Intent(MockListActivity.this, SearchByTypeActivity.class));
+            }
         });
 
         btnReturnToHomepageMocklist.setOnClickListener(v -> {
