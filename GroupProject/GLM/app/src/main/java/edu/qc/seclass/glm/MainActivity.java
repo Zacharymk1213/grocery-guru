@@ -69,10 +69,15 @@ public class MainActivity extends AppCompatActivity {
         //use relative path
         //user data and database should be on different save_file
         // Load user data
-        if (!loaded && loadAllData(getApplicationContext()) != 0)
-            // Handle error while loading user data
-            // For example, display an error message to the user
-            Toast.makeText(this, "Error loading data", Toast.LENGTH_SHORT).show();
+        if (!loaded) {
+            int r = loadAllData(getApplicationContext());
+            if (r == 0)
+                loaded = true;
+            else
+                // Handle error while loading user data
+                // For example, display an error message to the user
+                Toast.makeText(this, "Error loading data", Toast.LENGTH_SHORT).show();
+        }
 
         // Get list items
         ListView myLists = findViewById(R.id.my_lists);
