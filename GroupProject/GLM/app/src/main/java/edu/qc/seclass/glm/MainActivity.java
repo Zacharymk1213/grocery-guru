@@ -43,25 +43,25 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //test
-        GroceryDatabase db = GroceryDatabase.getInstance();
-        db.putItem(1, "Apple", "Fruit");
-        db.putItem(2, "Banana", "Fruit");
-        db.putItem(3, "Carrot", "Vegetable");
-        db.putItem(4, "Broccoli", "Vegetable");
-        db.putItem(5, "Milk", "Dairy");
-        User owner = User.getInstance();
-        GroceryList l1 = new GroceryList(1, "Grocery List 1");
-        l1.addItem(db.copyItem(1));
-        l1.addItem(db.copyItem(2));
-        GroceryList l2 = new GroceryList(2, "Grocery List 2");
-        l1.addItem(db.copyItem(5));
-        l1.addItem(db.copyItem(3));
-        owner.addList(l1);
-        owner.addList(l2);
-        if (saveAllData(getApplicationContext()) == 0) {
-            Toast.makeText(this, "Saved!", Toast.LENGTH_SHORT).show();
-        }
-        else
+        //GroceryDatabase db = GroceryDatabase.getInstance();
+        //db.putItem(1, "Apple", "Fruit");
+        //db.putItem(2, "Banana", "Fruit");
+        //db.putItem(3, "Carrot", "Vegetable");
+        //db.putItem(4, "Broccoli", "Vegetable");
+        //db.putItem(5, "Milk", "Dairy");
+        //User owner = User.getInstance();
+        //GroceryList l1 = new GroceryList(1, "Test 1");
+        //l1.addItem(db.copyItem(1));
+        //l1.addItem(db.copyItem(2));
+        //GroceryList l2 = new GroceryList(2, "Uh this is list 2");
+        //l1.addItem(db.copyItem(5));
+        //l1.addItem(db.copyItem(3));
+        //owner.addList(l1);
+        //owner.addList(l2);
+        //if (saveAllData(getApplicationContext()) == 0) {
+        //    Toast.makeText(this, "Saved!", Toast.LENGTH_SHORT).show();
+        //}
+        //else
             Toast.makeText(this, "Error saving data", Toast.LENGTH_SHORT).show();
         //end
 
