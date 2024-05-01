@@ -35,12 +35,12 @@ public class NewEntryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //get name and type
-                String itemName = editTextName.getText().toString();
-                String type = spinnerType.getSelectedItem().toString();
+                String itemName = editTextName.getText().toString().trim();
+                String type = spinnerType.getSelectedItem().toString().trim();
                 //try add entry
-                if (itemName.isBlank())
-                    editTextName.setError("Item name cannot be blank");
-                else if (type.isBlank())
+                if (itemName.isEmpty())
+                    editTextName.setError("Item name cannot be empty");
+                else if (type.isEmpty())
                     Toast.makeText(NewEntryActivity.this, "Type not selected", Toast.LENGTH_SHORT).show();
                 else {
                     GroceryDatabase.getInstance().putItem(itemName, type);

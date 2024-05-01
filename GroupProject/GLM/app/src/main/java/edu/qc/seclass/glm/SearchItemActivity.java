@@ -38,7 +38,7 @@ public class SearchItemActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Get the entered search query
                 String searchQuery = editTextSearch.getText().toString().trim();
-                if (!searchQuery.isBlank()) {
+                if (!searchQuery.isEmpty()) {
                     // Perform search operation (you can define your search logic here)
                     // For demonstration purposes, create a list of dummy search results
                     
@@ -55,7 +55,7 @@ public class SearchItemActivity extends AppCompatActivity {
                    //listViewSearchResults.setAdapter(adapter);
                 } else {
                     // Show an error message if search query is empty
-                    editTextSearch.setError("Search query cannot be blank");
+                    editTextSearch.setError("Search query cannot be empty");
                 }
             }
         });
