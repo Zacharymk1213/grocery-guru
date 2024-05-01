@@ -1,115 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <!-- Space for navigation at the top -->
+    <!-- Back button -->
 
-    <Button
-        android:id="@+id/btn_back"
-        android:layout_width="106dp"
-        android:layout_height="1dp"
-        android:layout_weight="1"
-        android:text="@string/back" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/btn_search_constraint_box"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title">
 
-    <TextView
-        android:id="@+id/textView3"
+        <!-- EditText for entering search query -->
+
+        <!-- Search button -->
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ListView
+        android:id="@+id/listView_search_results"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_alignParentBottom="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_search_constraint_box" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
         android:text="@string/search_by_type"
-        android:textAlignment="center"
-        android:textSize="48sp" />
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Grid layout for buttons -->
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3"
-        android:columnCount="3">
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-        <!-- Button for Type 1 -->
-        <Button
-            android:id="@+id/btn_type_1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:text="@string/dairy"/>
-
-        <!-- Button for Type 2 -->
-        <Button
-            android:id="@+id/btn_type_2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:text="@string/produce"/>
-
-        <!-- Button for Type 3 -->
-        <Button
-            android:id="@+id/btn_type_3"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:text="@string/meat" />
-
-        <!-- Button for Type 4 -->
-        <Button
-            android:id="@+id/btn_type_4"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:text="@string/seafood"/>
-
-        <!-- Button for Type 5 -->
-        <Button
-            android:id="@+id/btn_type_5"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:text="@string/frozen"/>
-
-        <!-- Button for Type 6 -->
-        <Button
-            android:id="@+id/btn_type_6"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:text="@string/deli"/>
-
-        <!-- Button for Type 7 -->
-        <Button
-            android:id="@+id/btn_type_7"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:text="@string/cereal"/>
-
-        <!-- Button for Type 8 -->
-        <Button
-            android:id="@+id/btn_type_8"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:text="@string/international"/>
-
-        <!-- Button for Type 9 -->
-        <Button
-            android:id="@+id/btn_type_9"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:text="@string/bakery"/>
-
-    </GridLayout>
-
-</LinearLayout>

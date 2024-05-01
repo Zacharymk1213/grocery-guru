@@ -24,6 +24,7 @@
         <activity android:name=".CreateNewListActivity" />
         <activity android:name=".SearchItemActivity" />
         <activity android:name=".SearchByTypeActivity" />
+        <activity android:name=".NewEntryActivity" />
     </application>
 
 </manifest>
