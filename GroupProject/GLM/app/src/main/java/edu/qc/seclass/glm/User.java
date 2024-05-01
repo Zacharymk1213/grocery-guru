@@ -223,7 +223,7 @@ public class User {
             JSONObject userDataJson = new JSONObject(jsonData.toString());
 
             // Load user data
-            // User owner = User.getInstance();
+            //User owner = User.getInstance();
             this.setName(userDataJson.getString("name"));
             GroceryDatabase database = GroceryDatabase.getInstance();
             // load the lists
@@ -242,7 +242,7 @@ public class User {
                     //this item better be in the database, or else something went wrong
                     GroceryItem gItem = database.copyItem(jItem.getInt("id"));
                     gItem.updateQuantity(jItem.getInt("quantity"));
-                 gList.addItem(gItem);
+                    gList.addItem(gItem);
                 }
             }
 
