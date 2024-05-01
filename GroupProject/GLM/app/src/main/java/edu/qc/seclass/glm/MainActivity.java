@@ -109,168 +109,20 @@ public class MainActivity extends AppCompatActivity {
      */
     public int loadAllData(Context context) {
         // Must load database before user data
-        int err = loadDatabase(context);
-        err += loadUserData();
+        int err = GroceryDatabase.getInstance().loadDatabase(context);
+        err += User.getInstance().loadUserData(context);
         return err;
     }
-
-
-    /**
-     * load all grocery item entries in database from item_database.json
-     * @return 0 if load is successful
-     */
-    public int loadDatabase(Context context) {
-        try {
-            // Get InputStream for the JSON file from the assets folder
-            AssetManager assetManager = context.getAssets();
-            InputStream inputStream = assetManager.open("item_database.json");
-
-            // Create a InputStreamReader and BufferedReader to read the JSON data
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-            BufferedReader reader = new BufferedReader(inputStreamReader);
-
-            // Read JSON data line by line and append to StringBuilder
-            StringBuilder jsonData = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                jsonData.append(line);
-            }
-
-            // Parse JSON data
-            JSONObject dbJson = new JSONObject(jsonData.toString());
-
-            // Load database
-            GroceryDatabase database = GroceryDatabase.getInstance();
-            Iterator<String> entries = dbJson.keys();
-            while (entries.hasNext()) {
-                String key = entries.next();
-                JSONObject itemJson = dbJson.getJSONObject(key);
-                int id = itemJson.getInt("id");
-                String name = itemJson.getString("name");
-                String type = itemJson.getString("type");
-                database.putItem(id, name, type);
-            }
-
-            // Close the streams
-            reader.close();
-            inputStreamReader.close();
-            inputStream.close();
-
-            return 0; // Success
-        } catch (IOException e) {
-            // Handle IO exception
-            Log.e("LoadDatabase", "Error reading JSON file: " + e.getMessage());
-        } catch (JSONException e) {
-            // Handle JSON exception
-            Log.e("LoadDatabase", "Error parsing JSON: " + e.getMessage());
-        }
-        return -1; // Error
-    }
-
-    /**
-     * load all user data, including their grocery lists, from user_data.json
-     * @return 0 if load is successful
-     */
-    public int loadUserData() {
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(getAssets().open("user_data.json")))) {
-            StringBuilder jsonData = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                jsonData.append(line);
-            }
-
-            // Parse JSON data
-            JSONObject userDataJson = new JSONObject(jsonData.toString());
-
-            // Load user data
-            User owner = User.getInstance();
-            owner.setName(userDataJson.getString("name"));
-            GroceryDatabase database = GroceryDatabase.getInstance();
-            // load the lists
-            JSONObject userLists = userDataJson.getJSONObject("list");
-            Iterator<String> lists = userLists.keys();
-            while (lists.hasNext()) {
-                JSONObject jList = userLists.getJSONObject(lists.next());
-                GroceryList gList = new GroceryList(jList.getInt("id"), jList.getString("name"));
-                gList.setSelected(jList.getBoolean("isSelected"));
-                owner.addList(gList);
-                //load items of this list
-                JSONObject listItems = jList.getJSONObject("list");
-                Iterator<String> items = listItems.keys();
-                while (items.hasNext()) {
-                    JSONObject jItem = listItems.getJSONObject(items.next());
-                    //this item better be in the database, or else something went wrong
-                    GroceryItem gItem = database.copyItem(jItem.getInt("id"));
-                    gItem.updateQuantity(jItem.getInt("quantity"));
-                 gList.addItem(gItem);
-                }
-            }
-
-            return 0; // Success
-        } catch (IOException e) {
-            // Handle IO exception
-            Log.e("LoadUserData", "Error reading JSON file: " + e.getMessage());
-        } catch (JSONException e) {
-            // Handle JSON exception
-            Log.e("LoadUserData", "Error parsing JSON: " + e.getMessage());
-        }
-        return -1; // Error
-    }
-
-
-
 
     /**
      * saves all user data, their grocery lists and database to drive. <p>
      * user data and database should be stored in two separate files
      * @return 0 if save is successful
      */
-    public int saveAllData() {
-        int err = saveDatabase();
-        err += saveUserData();
+    public int saveAllData(Context context) {
+        int err = GroceryDatabase.getInstance().saveDatabase(context);
+        err += User.getInstance().saveUserData(context);
         return err;
-    }
-    
-    /**
-     * save all grocery item entries in database to item_database.json
-     * @return 0 if save is successful
-     */
-    public int saveDatabase() {
-        try (FileWriter fileWriter = new FileWriter("item_database.json")) {
-            // Create JSON object for database
-            JSONObject dbJson = GroceryDatabase.getInstance().getJSONObject();
-            // Write JSON data to file
-            fileWriter.write(dbJson.toString());
-            return 0; // Success
-        } catch (IOException e) {
-            // Handle IO exception
-            Log.e("SaveDatabase", "Error writing JSON file: " + e.getMessage());
-        } catch (JSONException e) {
-            // Handle JSON exception
-            Log.e("SaveDatabase", "Error creating JSON: " + e.getMessage());
-        }
-        return -1; // Error
-    }
-
-    /**
-     * save all user data, including their grocery lists, to user_data.json
-     * @return 0 if save is successful
-     */
-    public int saveUserData() {
-        try (FileWriter fileWriter = new FileWriter("user_data.json")) {
-            // Create JSON object for user data
-            JSONObject userDataJson = User.getInstance().getJSONObject();
-            // Write JSON data to file
-            fileWriter.write(userDataJson.toString());
-            return 0; // Success
-        } catch (IOException e) {
-            // Handle IO exception
-            Log.e("SaveUserData", "Error writing JSON file: " + e.getMessage());
-        } catch (JSONException e) {
-            // Handle JSON exception
-            Log.e("SaveUserData", "Error creating JSON: " + e.getMessage());
-        }
-        return -1; // Error
     }
 
     /**

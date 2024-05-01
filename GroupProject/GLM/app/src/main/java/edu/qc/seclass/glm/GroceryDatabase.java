@@ -1,11 +1,23 @@
 package edu.qc.seclass.glm;
 
-import java.util.TreeMap;
-import java.util.LinkedHashMap;
-import java.util.Set;
+import java.io.BufferedWriter;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.util.Iterator;
+
+import android.content.Context;
+import android.util.Log;
 
 import org.json.JSONObject;
 import org.json.JSONException;
+import java.io.IOException;
+
+import java.util.TreeMap;
+import java.util.LinkedHashMap;
+import java.util.Set;
 
 /**
  * The grocery database stores entries of GroceryItem using a {@link LinkedHashMap } <p>
@@ -198,6 +210,80 @@ public class GroceryDatabase {
             dbJson.put(""+id, db.get(id).getJSONObject());
         return dbJson;
     }
+    
+    /**
+     * save all grocery item entries in database to item_database.json
+     * @return 0 if save is successful
+     */
+    public int saveDatabase(Context context) {
+        try {
+            OutputStream outStream = context.openFileOutput("item_database.json", 0);
+            OutputStreamWriter outStreamWriter = new OutputStreamWriter(outStream);
+            BufferedWriter out = new BufferedWriter(outStreamWriter);
+            // Create JSON object for database
+            JSONObject dbJson = getJSONObject();
+            // Write JSON data to file
+            out.write(dbJson.toString());
+            out.close();
+            return 0; // Success
+        } catch (IOException e) {
+            // Handle IO exception
+            Log.e("SaveDatabase", "Error writing JSON file: " + e.getMessage());
+        } catch (JSONException e) {
+            // Handle JSON exception
+            Log.e("SaveDatabase", "Error creating JSON: " + e.getMessage());
+        }
+        return -1; // Error
+    }
 
+    /**
+     * load all grocery item entries in database from item_database.json
+     * @return 0 if load is successful
+     */
+    public int loadDatabase(Context context) {
+        try {
+            // Get InputStream for the JSON file from the app folder
+            InputStream inStream = context.openFileInput("item_database.json");
 
+            // Create a InputStreamReader and BufferedReader to read the JSON data
+            InputStreamReader inStreamReader = new InputStreamReader(inStream);
+            BufferedReader reader = new BufferedReader(inStreamReader);
+
+            // Read JSON data line by line and append to StringBuilder
+            StringBuilder jsonData = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                jsonData.append(line);
+            }
+
+            // Parse JSON data
+            JSONObject dbJson = new JSONObject(jsonData.toString());
+
+            // Load database
+            //GroceryDatabase database = GroceryDatabase.getInstance();
+            Iterator<String> entries = dbJson.keys();
+            while (entries.hasNext()) {
+                String key = entries.next();
+                JSONObject itemJson = dbJson.getJSONObject(key);
+                int id = itemJson.getInt("id");
+                String name = itemJson.getString("name");
+                String type = itemJson.getString("type");
+                this.putItem(id, name, type);
+            }
+
+            // Close the streams
+            reader.close();
+            inStreamReader.close();
+            inStream.close();
+
+            return 0; // Success
+        } catch (IOException e) {
+            // Handle IO exception
+            Log.e("LoadDatabase", "Error reading JSON file: " + e.getMessage());
+        } catch (JSONException e) {
+            // Handle JSON exception
+            Log.e("LoadDatabase", "Error parsing JSON: " + e.getMessage());
+        }
+        return -1; // Error
+    }
 }

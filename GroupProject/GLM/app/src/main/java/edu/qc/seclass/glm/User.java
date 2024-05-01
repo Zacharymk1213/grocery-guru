@@ -1,9 +1,22 @@
 package edu.qc.seclass.glm;
-import java.util.TreeMap;
-import java.util.Set;
+
+import java.io.BufferedWriter;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.util.Iterator;
+
+import android.content.Context;
+import android.util.Log;
 
 import org.json.JSONObject;
 import org.json.JSONException;
+import java.io.IOException;
+
+import java.util.TreeMap;
+import java.util.Set;
 
 /**
  * The User class utilizes a binary tree to store its grocery lists <p>
@@ -166,5 +179,84 @@ public class User {
             listJson.put(""+id, lists.get(id).getJSONObject());
         userJson.put("list", listJson);
         return userJson;
+    }
+
+    /**
+     * save all user data, including their grocery lists, to user_data.json
+     * @return 0 if save is successful
+     */
+    public int saveUserData(Context context) {
+        try (BufferedWriter out = new BufferedWriter(
+                new OutputStreamWriter(context.openFileOutput("user_data.json", 0))
+                )) {
+            // Create JSON object for user data
+            JSONObject userDataJson = getJSONObject();
+            // Write JSON data to file
+            out.write(userDataJson.toString());
+            out.close();
+            return 0; // Success
+        } catch (IOException e) {
+            // Handle IO exception
+            Log.e("SaveUserData", "Error writing JSON file: " + e.getMessage());
+        } catch (JSONException e) {
+            // Handle JSON exception
+            Log.e("SaveUserData", "Error creating JSON: " + e.getMessage());
+        }
+        return -1; // Error
+    }
+
+    /**
+     * load all user data, including their grocery lists, from user_data.json
+     * @return 0 if load is successful
+     */
+    public int loadUserData(Context context) {
+        try (BufferedReader reader = new BufferedReader(
+                new InputStreamReader(context.openFileInput("user_data.json"))
+                )) {
+            StringBuilder jsonData = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                jsonData.append(line);
+            }
+
+            // Parse JSON data
+            JSONObject userDataJson = new JSONObject(jsonData.toString());
+
+            // Load user data
+            // User owner = User.getInstance();
+            this.setName(userDataJson.getString("name"));
+            GroceryDatabase database = GroceryDatabase.getInstance();
+            // load the lists
+            JSONObject userLists = userDataJson.getJSONObject("list");
+            Iterator<String> lists = userLists.keys();
+            while (lists.hasNext()) {
+                JSONObject jList = userLists.getJSONObject(lists.next());
+                GroceryList gList = new GroceryList(jList.getInt("id"), jList.getString("name"));
+                gList.setSelected(jList.getBoolean("isSelected"));
+                this.addList(gList);
+                //load items of this list
+                JSONObject listItems = jList.getJSONObject("list");
+                Iterator<String> items = listItems.keys();
+                while (items.hasNext()) {
+                    JSONObject jItem = listItems.getJSONObject(items.next());
+                    //this item better be in the database, or else something went wrong
+                    GroceryItem gItem = database.copyItem(jItem.getInt("id"));
+                    gItem.updateQuantity(jItem.getInt("quantity"));
+                 gList.addItem(gItem);
+                }
+            }
+
+            // Close the streams
+            reader.close();
+
+            return 0; // Success
+        } catch (IOException e) {
+            // Handle IO exception
+            Log.e("LoadUserData", "Error reading JSON file: " + e.getMessage());
+        } catch (JSONException e) {
+            // Handle JSON exception
+            Log.e("LoadUserData", "Error parsing JSON: " + e.getMessage());
+        }
+        return -1; // Error
     }
 }
