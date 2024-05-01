@@ -33,10 +33,9 @@ public class CreateNewListActivity extends AppCompatActivity {
                 String listName = editTextListName.getText().toString().trim();
                 if (!listName.isEmpty()) {
                     // Create a new grocery list with the stored context and pass it back to MainActivity
-                    GroceryList newGroceryList = new GroceryList(listName);
-                    User owner = User.getInstance();
-                    owner.addList(newGroceryList);
-                    owner.saveUserData(getApplicationContext());
+                    User user = User.getInstance();
+                    GroceryList newGroceryList = user.createList(listName);
+                    user.saveUserData(getApplicationContext());
 
                     Intent resultIntent = new Intent();
                     resultIntent.putExtra("newGroceryList", (Parcelable) newGroceryList);

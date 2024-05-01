@@ -64,8 +64,9 @@ public class User {
     /**
      * Adds a new grocery list for the user
      * @param listName
+     * @return the list created
      */
-    public void createList(String listName) {
+    public GroceryList createList(String listName) {
         GroceryList l = new GroceryList(listName);
         lists.put(l.getId(), l);
     }
