@@ -29,9 +29,6 @@ public class MockListActivity extends AppCompatActivity {
         btnSearchTypeMocklist = findViewById(R.id.btn_search_type_mocklist);
         btnReturnToHomepageMocklist = findViewById(R.id.btn_return_to_Homepage_mocklist);
         btnItemMocklist = findViewById(R.id.btn_item_mocklist);
-        btnMinusMocklist = findViewById(R.id.btn_minus_mocklist);
-        btnPlusMocklist = findViewById(R.id.btn_plus_mocklist);
-        btnXMocklist = findViewById(R.id.btn_x_mocklist);
         btnCheckMocklist = findViewById(R.id.btn_check_mocklist);
         tvNameMocklist = findViewById(R.id.tv_name_mocklist);
         etQuantityMocklist = findViewById(R.id.et_quantity_mocklist);
