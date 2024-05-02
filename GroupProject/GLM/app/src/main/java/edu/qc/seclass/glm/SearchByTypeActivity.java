@@ -1,7 +1,9 @@
 package edu.qc.seclass.glm;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -33,9 +35,23 @@ public class SearchByTypeActivity extends AppCompatActivity {
             }
         });
 
-        //display types
+        // Set item click listener for the listViewTypes
+        listViewTypes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String clickedListName = (String) parent.getItemAtPosition(position);
+
+                // Launch the MockListActivity with the clicked list name
+                Intent intent = new Intent(SearchByTypeActivity.this, ListByTypeActivity.class);
+                intent.putExtra("listName", clickedListName);
+                startActivity(intent);
+            }
+        });
+
+        // Display types
         refreshTypeList();
     }
+
 
     //called automatically when user returns to this activity
     @Override
