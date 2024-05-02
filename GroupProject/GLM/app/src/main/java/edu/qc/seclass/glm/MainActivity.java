@@ -36,8 +36,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    private static boolean loaded = false;
-
     //GUI components
     ListView myLists;
     Button btnCreateNewList, btnSearchItem, btnSearchType;
@@ -75,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Load user data
         // important: check loaded before calling loadAllData()
-        if (!loaded && loadAllData(getApplicationContext()) != 0)
+        if (loadAllData(getApplicationContext()) != 0)
             // load failed, handle error
             Toast.makeText(this, "Error loading data", Toast.LENGTH_SHORT).show();
 
@@ -128,12 +126,14 @@ public class MainActivity extends AppCompatActivity {
 
     //called automatically when user moved away from main activity
     //(i.e. homepage is not on the screen any more)
+    @Override
     protected void onPause() {
         //user might've exited app, save data!
         saveAllData(getApplicationContext());
     }
 
     //called automatically when user returns to main activity
+    @Override
     protected void onResume() {
         //refresh myLists
         displayList(myLists);
