@@ -95,16 +95,19 @@ public class GroceryDatabase {
         for (int id : itemIDs) {
             GroceryItem thisItem = copyItem(id); //again, must copyItem()
             double s = similarity(thisItem.getName(), name);
-            if (s > 0.4) //considerably similar
-                tem.put(s, thisItem);
+            //put into tree with similarity as key to sort
+            //reduce s slightly until it is not a duplicate key
+            while (tem.containsKey(s))
+                s -= 0.0000001; //I think sufficient enough
+            tem.put(s, thisItem);
         }
         //transfer top 10 from temporary to result array
         GroceryItem[] result = new GroceryItem[10];
         int i = 0;
-        GroceryItem item = tem.remove(tem.lastKey()); //get the most similar
-        while (i < 10 && item != null) {
+        GroceryItem item;
+        while (i < 10 && tem.size() > 0) {
+            item = tem.remove(tem.lastKey()); //get the most similar
             result[i++] = item;
-            item = tem.remove(tem.lastKey()); //get the next
         }
         return result;
     }
