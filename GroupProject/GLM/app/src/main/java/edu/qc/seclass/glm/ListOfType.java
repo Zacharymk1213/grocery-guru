@@ -16,13 +16,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.LinkedHashMap;
-import java.util.Set;
-
 public class ListOfType {
     private String type;
     private LinkedHashMap<Integer, GroceryItem> items;
@@ -86,29 +79,29 @@ public class ListOfType {
      * @param context The context to access file resources
      * @return A set of types loaded from the file
      */
-    public static Set<String> loadTypesFromJSON(Context context) {
-        Set<String> typesSet = new HashSet<>();
-        try {
-            // Read JSON data from file
-            FileInputStream fis = context.openFileInput("item_database.json");
-            BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
-            StringBuilder jsonData = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                jsonData.append(line);
-            }
-            reader.close();
+    //public static Set<String> loadTypesFromJSON(Context context) {
+    //    Set<String> typesSet = new HashSet<>();
+    //    try {
+    //        // Read JSON data from file
+    //        FileInputStream fis = context.openFileInput("item_database.json");
+    //        BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
+    //        StringBuilder jsonData = new StringBuilder();
+    //        String line;
+    //        while ((line = reader.readLine()) != null) {
+    //            jsonData.append(line);
+    //        }
+    //        reader.close();
 
             // Parse JSON data and extract types
-            JSONObject dbJson = new JSONObject(jsonData.toString());
-            for (Iterator<String> it = dbJson.keys(); it.hasNext(); ) {
-                String key = it.next();
-                JSONObject itemJson = dbJson.getJSONObject(key);
-                typesSet.add(itemJson.getString("type"));
-            }
-        } catch (IOException | JSONException e) {
-            e.printStackTrace(); // Handle exceptions appropriately
-        }
-        return typesSet;
-    }
+    //        JSONObject dbJson = new JSONObject(jsonData.toString());
+    //        for (Iterator<String> it = dbJson.keys(); it.hasNext(); ) {
+    //            String key = it.next();
+    //            JSONObject itemJson = dbJson.getJSONObject(key);
+    //            typesSet.add(itemJson.getString("type"));
+    //        }
+    //    } catch (IOException | JSONException e) {
+    //        e.printStackTrace(); // Handle exceptions appropriately
+    //    }
+    //    return typesSet;
+    //} no longer needed
 }

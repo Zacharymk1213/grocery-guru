@@ -33,20 +33,21 @@ public class SearchByTypeActivity extends AppCompatActivity {
             }
         });
 
-        // Load types from the database
-        loadTypes();
+        // get types from the database
+        getTypesInDatabase();
 
         // Set up the ListView
-        ArrayAdapter<String> typesAdapter = new ArrayAdapter<>(
+        ArrayAdapter<String> typesAdapter = new ArrayAdapter<String>(
                 this, android.R.layout.simple_list_item_1, new ArrayList<>(typesSet));
         listViewTypes.setAdapter(typesAdapter);
     }
 
     /**
-     * Load types from the database
+     * get types from the database
      */
-    private void loadTypes() {
-        typesSet = ListOfType.loadTypesFromJSON(getApplicationContext());
+    private void getTypesInDatabase() {
+        //typesSet = ListOfType.loadTypesFromJSON(getApplicationContext());
+        typesSet = GroceryDatabase.getInstance().getTypes(); //avoid I/O as much as possible
     }
 }
 
