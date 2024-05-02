@@ -2,8 +2,14 @@
     <string name="app_name">GroceryListManager</string>
 
     <!-- general -->
+        <!-- buttons -->
     <string name="back">Back</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+
+        <!-- input prompts -->
     <string name="enter_item_name">Enter Item Name</string>
+    <string name="number_zero">0</string>
 
     <!-- homepage -->
     <string name="grocery_guru">Grocery Guru</string>string>
@@ -33,5 +39,15 @@
     <string name="bakery">Bakery</string>
 
     <!-- List Page -->
+
+
+
+    <!-- List Entry(Grocery Item) Page -->
+    <string name="item_name">insert_name</string>
+    <string name="quantity">Quantity: </string>
+
+    <string name="type_intro">"This item is a "</string>
+    <string name="item_type">insert_type</string>
+    <string name="type_product">" product."</string>
 
 </resources>

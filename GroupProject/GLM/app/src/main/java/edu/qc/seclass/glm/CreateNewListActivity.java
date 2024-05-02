@@ -61,12 +61,4 @@ public class CreateNewListActivity extends AppCompatActivity {
             }
         });
     }
-
-    //called automatically when user move away from activity
-    //such as having started another activity
-    @Override
-    protected void onStop() {
-        super.onStop();
-        //nothing yet
-    }
 }
