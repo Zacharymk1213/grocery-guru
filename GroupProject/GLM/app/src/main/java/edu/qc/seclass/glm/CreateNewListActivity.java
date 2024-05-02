@@ -65,6 +65,7 @@ public class CreateNewListActivity extends AppCompatActivity {
     //such as having started another activity
     @Override
     protected void onStop() {
+        super.onStop();
         //we just finished creating a list, save user data!
         User.getInstance().saveUserData(getApplicationContext());
     }

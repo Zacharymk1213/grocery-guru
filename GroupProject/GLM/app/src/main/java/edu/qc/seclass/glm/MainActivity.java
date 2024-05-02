@@ -128,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
     //(i.e. homepage is not on the screen any more)
     @Override
     protected void onPause() {
+        super.onPause();
         //user might've exited app, save data!
         saveAllData(getApplicationContext());
     }
@@ -135,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
     //called automatically when user returns to main activity
     @Override
     protected void onResume() {
+        super.onResume();
         //refresh myLists
         displayList(myLists);
     }
