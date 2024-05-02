@@ -98,18 +98,20 @@ public class GroceryDatabase {
             double s = similarity(thisItem.getName(), name);
             //put into tree with similarity as key to sort
             //reduce s slightly until it is not a duplicate key
-            while (tem.containsKey(s))
-                s -= 0.0000001; //I think sufficient enough
-            tem.put(s, thisItem);
+            if (s > 0) {
+                while (tem.containsKey(s))
+                    s -= 0.0000001; //I think sufficient enough
+                tem.put(s, thisItem);
+            }
         }
         //transfer top 10 from temporary to result array
-        GroceryItem[] result = new GroceryItem[10];
+        int resultSize = tem.size();
+        if (resultSize > 10)
+            resultSize = 10;
+        GroceryItem[] result = new GroceryItem[resultSize];
         int i = 0;
-        GroceryItem item;
-        while (i < 10 && tem.size() > 0) {
-            item = tem.remove(tem.lastKey()); //get the most similar
-            result[i++] = item;
-        }
+        while (i < resultSize)
+            result[i++] = tem.remove(tem.lastKey()); //get the most similar
         return result;
     }
     /**
@@ -153,7 +155,7 @@ public class GroceryDatabase {
             perfect += l*overlap;
         }
         //find actual score
-        int score = 0, consec = 0, graced = 0, start;
+        int score = 0, consec = 0, start;
         for (int l = 0; l < longer.length(); l++) {
             start = l;
             for (int s = 0; s < shorter.length() && start+consec < longer.length(); s++) {
@@ -165,19 +167,12 @@ public class GroceryDatabase {
                     if (consec > overlap/2) //probably not a coincidence
                         l = start+consec; //move l along
                     score += consec;
-                    //reduce graced
-                    if (graced > 0)
-                        graced--;
                 }
                 else if (consec > 0) { //failed, reset!
                     start = l;
                     consec = 0;
                 }
             }
-            if (graced < overlap/2)
-                graced++;
-            else
-                score--;
         }
         double p = score/(double)perfect;
         if (p > 1.0)

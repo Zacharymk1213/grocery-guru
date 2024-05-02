@@ -44,9 +44,17 @@ public class SearchItemActivity extends AppCompatActivity {
                     // For demonstration purposes, create a list of dummy search results
                     
                     // Search database
-                    GroceryItem[] items = GroceryDatabase.getInstance().searchItemsByName(searchQuery);
+                    GroceryItem[] result = GroceryDatabase.getInstance().searchItemsByName(searchQuery);
+                    
                     // Display search results in a ListView (you can customize this part)
-                    displaySearchResults(listViewSearchResults, items);
+                    try {
+                        displaySearchResults(listViewSearchResults, result);
+                    }
+                    catch (Exception NullPointerException) {
+                        editTextSearch.setError("null pointer reference");
+                    }
+                    
+                    displaySearchResults(listViewSearchResults, result);
                 } else {
                     // Show an error message if search query is empty
                     editTextSearch.setError("Search query cannot be empty");
@@ -79,8 +87,10 @@ public class SearchItemActivity extends AppCompatActivity {
      * @param result
      */
     private void displaySearchResults(ListView lView, GroceryItem[] result) {
+        if (result == null)
+            throw new NullPointerException();
         String[] itemNames;
-        if (result[0] == null) {
+        if (result.length == 0) {
             itemNames = new String[1];
             itemNames[0] = "No Results Found";
         }
