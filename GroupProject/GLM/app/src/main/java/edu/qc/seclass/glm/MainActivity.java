@@ -36,9 +36,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+
+    private GroceryList[] userLists;
+
     //GUI components
-    ListView myLists;
-    Button btnCreateNewList, btnSearchItem, btnSearchType;
+    private ListView myLists;
+    private Button btnCreateNewList, btnSearchItem, btnSearchType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Get list items
         myLists = findViewById(R.id.my_lists);
+        userLists = User.getInstance().getLists();
         displayList(myLists);
         
         // Find the buttons by their IDs
@@ -88,12 +92,16 @@ public class MainActivity extends AppCompatActivity {
         // Set click listener for list items
         myLists.setOnItemClickListener(new OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?>a, View v, int position, long id){
-                String clickedListName = (String) a.getItemAtPosition(position);
+            public void onItemClick(AdapterView<?>a, View v, int position, long id) {
+                GroceryList clickedList = userLists[position];
 
                 // Launch the ListActivity with the clicked list name
                 Intent intent = new Intent(MainActivity.this, ListActivity.class);
-                intent.putExtra("listName", clickedListName);
+                // pass data to Intent
+                Bundle clickedData = new Bundle(); //make a bundle for our data
+                clickedData.putParcelable("groceryList", clickedList); //give it data
+                intent.putExtras(clickedData); //pass the bundle along
+
                 startActivity(intent);
             }
         });
@@ -137,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         //refresh myLists
+        userLists = User.getInstance().getLists();
         displayList(myLists);
     }
 
@@ -168,10 +177,10 @@ public class MainActivity extends AppCompatActivity {
      * @param lView
      */
     private void displayList(ListView lView) {
-        // Get the instance of User
-        User user = User.getInstance();
-        // Get list names from the User instance
-        String[] listNames = user.getListNames();
+        // Get list names from userLists
+        String[] listNames = new String[userLists.length];
+        for (int i = 0; i < userLists.length; i++)
+            listNames[i] = userLists[i].getName();
         // Create an ArrayAdapter with the list names
         ArrayAdapter<String> listsAdapter = new ArrayAdapter<String>(
             MainActivity.this, android.R.layout.simple_list_item_1, listNames);

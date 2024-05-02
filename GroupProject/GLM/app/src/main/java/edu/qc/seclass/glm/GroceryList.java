@@ -64,7 +64,7 @@ public class GroceryList implements Parcelable {
     public GroceryItem[] getItems() {
         GroceryItem[] items = new GroceryItem[list.size()];
         Set<Integer> itemIDs = list.keySet();
-        i = 0;
+        int i = 0;
         for (int id : itemIDs)
             items[i++] = list.get(id);
         return items;
@@ -116,6 +116,10 @@ public class GroceryList implements Parcelable {
         Set<Integer> itemIDs = list.keySet();
         for (int id : itemIDs)
             list.get(id).setSelected(false);
+    }
+
+    public String toString() {
+        return "{" + id + ", " + name + ", " + isSelected + "}";
     }
 
     /**

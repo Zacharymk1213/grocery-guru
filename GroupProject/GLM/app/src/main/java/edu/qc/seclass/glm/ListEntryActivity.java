@@ -20,9 +20,7 @@ public class ListEntryActivity extends AppCompatActivity {
         //get passed data
         Bundle extras = getIntent().getExtras();
         if (extras != null)
-            thisItem = extras.getString("groceryItem");
-            //key must match what was put in other activity
-        displayItems();
+            thisItem = extras.getParcelable("groceryItem"); //key must match what was put in other activity
 
         // Initialize the UI components
         btnBack = findViewById(R.id.btn_back);

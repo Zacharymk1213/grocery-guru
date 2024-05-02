@@ -52,12 +52,12 @@ public class User {
     /*
      * Returns all lists
      */
-    public  String[] getListNames() {
-        String[] tem = new String[lists.size()];
+    public  GroceryList[] getLists() {
+        GroceryList[] tem = new GroceryList[lists.size()];
         int i = 0;
         Set<Integer> listIDs = lists.keySet();
         for (int id : listIDs)
-            tem[i++] = (lists.get(id)).getName();
+            tem[i++] = (lists.get(id));
         return tem;
     }
 
@@ -98,39 +98,12 @@ public class User {
     }
 
     /**
-     * Open the GUI page of a grocery list
-     * @param listID
-     */
-    public void openList(int listID) {
-        // Implement opening GUI page for the grocery list with listID
-        // For example:
-        // Intent intent = new Intent(context, GroceryListActivity.class);
-        // intent.putExtra("listID", listID);
-        // context.startActivity(intent);
-    }
-
-    /**
      * Rename the list of matching ID to <b>listName</b>
      * @param listID
      * @param listName
      */
     public void renameList(int listID, String listName) {
         lists.get(listID).setName(listName);
-    }
-
-    /**
-     * Get from the database a copied list of all entries of <b>type</b>;
-     * open the GUI page for the new ListOfType
-     * @param type
-     * @return a ListOfType containing all entries of the specified type
-     */
-    public ListOfType getListOfType(String type) {
-        // Implement fetching entries from the database and returning a ListOfType
-        // For example:
-        // ListOfType list = database.getListOfType(type);
-        // openList(list.getId());
-        // return list;
-        return null; // Placeholder, replace with actual implementation
     }
 
     /**

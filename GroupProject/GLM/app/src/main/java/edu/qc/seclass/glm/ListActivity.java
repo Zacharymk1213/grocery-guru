@@ -3,13 +3,19 @@ package edu.qc.seclass.glm;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ListActivity extends AppCompatActivity {
     private GroceryList thisList;
+    private GroceryItem[] thisListItems;
+
+    //GUI components
     private Button btnBackMocklist, btnSearchItemMocklist, btnSearchTypeMocklist;
     private TextView tvNameMocklist;
     private ListView listItems;
@@ -22,7 +28,8 @@ public class ListActivity extends AppCompatActivity {
         //get passed data
         Bundle extras = getIntent().getExtras();
         if (extras != null)
-            thisList = extras.getString("groceryList"); //key must match what was put in other activity
+            thisList = extras.getParcelable("groceryList"); //key must match what was put in other activity
+        thisListItems = thisList.getItems();
         displayItems();
 
         initializeUI();
@@ -59,14 +66,17 @@ public class ListActivity extends AppCompatActivity {
         });
 
         //listener for each item
-        listItems.setOnItemClickListener(new OnItemClickListener() {
+        listItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?>adapter, View v, int position, long id){
-                GroceryItem clickedListName = (GroceryItem) adapter.getItemAtPosition(position);
+                GroceryItem clickedItem = thisListItems[position];
 
                 // Launch the ListActivity with the clicked list name
                 Intent intent = new Intent(ListActivity.this, ListEntryActivity.class);
-                intent.putExtra("groceryItem", clickedListName); //key to be used in ListEntryActivity
+                // pass data to Intent
+                Bundle clickedData = new Bundle(); //make a bundle for our data
+                clickedData.putParcelable("groceryItem", clickedItem); //key to be used in ListEntryActivity
+                intent.putExtras(clickedData); //pass the bundle along
                 startActivity(intent);
             }
         });
@@ -84,16 +94,21 @@ public class ListActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         //refresh myLists
+        thisListItems = thisList.getItems();
         displayItems();
     }
 
     private void displayItems() {
         if (thisList == null)
             return;
-        // Create an ArrayAdapter with the list names
-        ArrayAdapter<GroceryItem> listAdapter = new ArrayAdapter<GroceryItem>(
-            ListActivity.this, android.R.layout.simple_list_item_1, thisList.getItems());
-        // Set the adapter for the ListView
+        // Get item names from thisListItems
+        String[] itemNames = new String[thisListItems.length];
+        for (int i = 0; i < thisListItems.length; i++)
+            itemNames[i] = thisListItems[i].getName();
+        // Create an ArrayAdapter with the item names
+        ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(
+            ListActivity.this, android.R.layout.simple_list_item_1, itemNames);
+        // Set the adapter
         listItems.setAdapter(listAdapter);
     }
 }
