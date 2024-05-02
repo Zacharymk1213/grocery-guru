@@ -38,6 +38,10 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
     private static boolean loaded = false;
 
+    //GUI components
+    ListView myLists;
+    Button btnCreateNewList, btnSearchItem, btnSearchType;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,27 +72,21 @@ public class MainActivity extends AppCompatActivity {
         //first, load from local drive and previous data into program
         //use relative path
         //user data and database should be on different save_file
+
         // Load user data
-        if (!loaded) {
-            int r = loadAllData(getApplicationContext());
-            if (r == 0)
-                loaded = true;
-            else
-                // Handle error while loading user data
-                // For example, display an error message to the user
-                Toast.makeText(this, "Error loading data", Toast.LENGTH_SHORT).show();
-        }
+        // important: check loaded before calling loadAllData()
+        if (!loaded && loadAllData(getApplicationContext()) != 0)
+            // load failed, handle error
+            Toast.makeText(this, "Error loading data", Toast.LENGTH_SHORT).show();
 
         // Get list items
-        ListView myLists = findViewById(R.id.my_lists);
-        // display myLists
-        refreshList(myLists);
-
+        myLists = findViewById(R.id.my_lists);
+        displayList(myLists);
         
         // Find the buttons by their IDs
-        Button btnCreateNewList = findViewById(R.id.btn_create_new_list);
-        Button btnSearchItem = findViewById(R.id.btn_search_item);
-        Button btnSearchType = findViewById(R.id.btn_search_type);
+        btnCreateNewList = findViewById(R.id.btn_create_new_list);
+        btnSearchItem = findViewById(R.id.btn_search_item);
+        btnSearchType = findViewById(R.id.btn_search_type);
 
         // Set click listener for list items
         myLists.setOnItemClickListener(new OnItemClickListener() {
@@ -128,6 +126,19 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //called automatically when user moved away from main activity
+    //(i.e. homepage is not on the screen any more)
+    protected void onPause() {
+        //user might've exited app, save data!
+        saveAllData(getApplicationContext());
+    }
+
+    //called automatically when user returns to main activity
+    protected void onResume() {
+        //refresh myLists
+        displayList(myLists);
+    }
+
     /**
      * load all user data, their grocery lists, and database from drive. <p>
      * user data and database should be stored in two separate files
@@ -152,10 +163,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Refreshes the display to show any changes made to user lists
+     * Display any changes made to user lists to <b>listView</b>
      */
-
-    public void refreshList(ListView lv) {
+    public void displayList(ListView lView) {
         // Get the instance of User
         User user = User.getInstance();
         // Get list names from the User instance
@@ -164,6 +174,6 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> listsAdapter = new ArrayAdapter<>(
                 this, android.R.layout.simple_list_item_1, listNames);
         // Set the adapter for the ListView
-        lv.setAdapter(listsAdapter);
+        lView.setAdapter(listsAdapter);
     }
 }

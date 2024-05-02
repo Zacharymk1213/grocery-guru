@@ -32,11 +32,11 @@ public class CreateNewListActivity extends AppCompatActivity {
                 // Get the entered list name
                 String listName = editTextListName.getText().toString().trim();
                 if (!listName.isEmpty()) {
-                    // Create a new grocery list with the stored context and pass it back to MainActivity
+                    // Create a new grocery list with the stored context
                     User user = User.getInstance();
                     GroceryList newGroceryList = user.createList(listName);
-                    user.saveUserData(getApplicationContext());
 
+                    //pass it back to MainActivity
                     Intent resultIntent = new Intent();
                     resultIntent.putExtra("newGroceryList", (Parcelable) newGroceryList);
                     setResult(RESULT_OK, resultIntent);
@@ -59,5 +59,12 @@ public class CreateNewListActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    //called automatically when user move away from activity
+    //such as having started another activity
+    protected void onStop() {
+        //we just finished creating a list, save user data!
+        User.getInstance().saveUserData(getApplicationContext());
     }
 }
