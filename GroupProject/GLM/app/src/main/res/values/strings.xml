@@ -6,9 +6,11 @@
     <string name="back">Back</string>
     <string name="save">Save</string>
     <string name="delete">Delete</string>
+    <string name="confirm">Confirm</string>
 
         <!-- input prompts -->
     <string name="enter_item_name">Enter Item Name</string>
+    <string name="enter_item_type">Enter Item Type</string>
     <string name="number_zero">0</string>
 
     <!-- homepage -->
@@ -25,8 +27,10 @@
 
     <!-- Add new entry Page -->
     <string name="new_entry">New Entry</string>
-    <string name="confirm">Confirm</string>
+    <string name="is_new_type">Other:</string>
 
+
+    <!-- Search Type Page -->
     <string name="search_by_type">Search By Type</string>
     <string name="dairy">Dairy</string>
     <string name="produce">Produce</string>

@@ -44,7 +44,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.945"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_item_name"
+            app:layout_constraintTop_toBottomOf="@+id/et_new_type"
             app:layout_constraintVertical_bias="0.518" />
 
         <EditText
@@ -83,6 +83,31 @@
             app:layout_constraintEnd_toEndOf="@+id/et_item_name"
             app:layout_constraintStart_toStartOf="@+id/et_item_name"
             app:layout_constraintTop_toBottomOf="@+id/et_item_name" />
+
+
+        <TextView
+            android:id="@+id/tv_new_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/is_new_type"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/et_new_type"
+            app:layout_constraintStart_toStartOf="@+id/btn_back"
+            app:layout_constraintTop_toTopOf="@+id/et_new_type" />
+
+        <EditText
+            android:id="@+id/et_new_type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_back"
+            android:layout_marginTop="16dp"
+            android:hint="@string/enter_item_type"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="@+id/btn_confirm"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tv_new_type"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_item_type" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

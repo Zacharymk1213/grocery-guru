@@ -33,9 +33,20 @@ public class SearchByTypeActivity extends AppCompatActivity {
             }
         });
 
+        //display types
+        refreshTypeList();
+    }
+
+    //called automatically when user returns to this activity
+    @Override
+    protected void onResume() {
+        super.onResume();
+        refreshTypeList();
+    }
+
+    private void refreshTypeList() {
         // get types from the database
         getTypesInDatabase();
-
         // Set up the ListView
         ArrayAdapter<String> typesAdapter = new ArrayAdapter<String>(
                 this, android.R.layout.simple_list_item_1, new ArrayList<>(typesSet));
