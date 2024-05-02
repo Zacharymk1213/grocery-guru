@@ -47,7 +47,6 @@ public class GroceryItem implements Parcelable {
     public boolean isSelected() { return isSelected; }
     public void setSelected(boolean tf) { isSelected = tf; }
     
-=
     /**
      * Set <b>quantity</b> to <b>amount</b> given
      * @param amount to be changed
