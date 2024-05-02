@@ -47,20 +47,20 @@ public class MainActivity extends AppCompatActivity {
 
         //test
         GroceryDatabase db = GroceryDatabase.getInstance(); //enable these lines to reset app data
-        //db.putItem(1, "Apple", "Fruit");
-        //db.putItem(2, "Banana", "Fruit");
-        //db.putItem(3, "Carrot", "Vegetable");
-        //db.putItem(4, "Broccoli", "Vegetable");
-        //db.putItem(5, "Milk", "Dairy");
+        db.putItem(1, "Apple", "Fruit");
+        db.putItem(2, "Banana", "Fruit");
+        db.putItem(3, "Carrot", "Vegetable");
+        db.putItem(4, "Broccoli", "Vegetable");
+        db.putItem(5, "Milk", "Dairy");
         User owner = User.getInstance(); //enable
-        //GroceryList l1 = new GroceryList(1, "Test List 1");
-        //l1.addItem(db.copyItem(1));
-        //l1.addItem(db.copyItem(2));
-        //GroceryList l2 = new GroceryList(2, "Mylist 2");
-        //l1.addItem(db.copyItem(5));
-        //l1.addItem(db.copyItem(3));
-        //owner.addList(l1);
-        //owner.addList(l2);
+        GroceryList l1 = new GroceryList(1, "Test List 1");
+        l1.addItem(db.copyItem(1));
+        l1.addItem(db.copyItem(2));
+        GroceryList l2 = new GroceryList(2, "Mylist 2");
+        l1.addItem(db.copyItem(5));
+        l1.addItem(db.copyItem(3));
+        owner.addList(l1);
+        owner.addList(l2);
         if (saveAllData(getApplicationContext()) == 0) //enable
             Toast.makeText(this, "Saved!", Toast.LENGTH_SHORT).show(); //enable
         else //enable
@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
      * user data and database should be stored in two separate files
      * @return 0 if load is successful
      */
-    public int loadAllData(Context context) {
+    private int loadAllData(Context context) {
         // Must load database before user data
         int err = GroceryDatabase.getInstance().loadDatabase(context);
         err += User.getInstance().loadUserData(context);
@@ -157,23 +157,24 @@ public class MainActivity extends AppCompatActivity {
      * user data and database should be stored in two separate files
      * @return 0 if save is successful
      */
-    public int saveAllData(Context context) {
+    private int saveAllData(Context context) {
         int err = GroceryDatabase.getInstance().saveDatabase(context);
         err += User.getInstance().saveUserData(context);
         return err;
     }
 
     /**
-     * Display any changes made to user lists to <b>listView</b>
+     * Display any changes made to user lists to <b>lView</b>
+     * @param lView
      */
-    public void displayList(ListView lView) {
+    private void displayList(ListView lView) {
         // Get the instance of User
         User user = User.getInstance();
         // Get list names from the User instance
         String[] listNames = user.getListNames();
         // Create an ArrayAdapter with the list names
-        ArrayAdapter<String> listsAdapter = new ArrayAdapter<>(
-                this, android.R.layout.simple_list_item_1, listNames);
+        ArrayAdapter<String> listsAdapter = new ArrayAdapter<String>(
+            MainActivity.this, android.R.layout.simple_list_item_1, listNames);
         // Set the adapter for the ListView
         lView.setAdapter(listsAdapter);
     }
