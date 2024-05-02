@@ -9,77 +9,39 @@
         android:id="@+id/btn_back_mocklist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="323dp"
         android:text="Back"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_name_mocklist"
-        android:layout_width="199dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="71dp"
-        android:text=" Mock List #"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Mock List #"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_search_item_mocklist"
-        android:layout_width="176dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="36dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:text="Search Item"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/btn_search_type_mocklist"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name_mocklist" />
 
     <Button
         android:id="@+id/btn_search_type_mocklist"
-        android:layout_width="178dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="36dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:text="Search Type"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_search_item_mocklist" />
-
-    <TableLayout
-        android:layout_width="409dp"
-        android:layout_height="494dp"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="105dp">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </TableLayout>
+        app:layout_constraintStart_toEndOf="@+id/btn_search_item_mocklist"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name_mocklist" />
 
     <Button
         android:id="@+id/button_check"
@@ -93,11 +55,20 @@
         android:id="@+id/Add_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
         android:text="Add Item"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_search_type_mocklist" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+

@@ -31,28 +31,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TableLayout
+    <ListView
         android:layout_width="409dp"
-        android:layout_height="494dp"
-        android:orientation="horizontal"
+        android:layout_height="740dp"
         tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="105dp">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </TableLayout>
+        tools:layout_editor_absoluteY="105dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
