@@ -8,17 +8,6 @@ This manual provides instructions on how to use the GLM application to make groc
 ## Getting Started
 To begin using GLM, you need to have an account. If you do not have one, you have to create a new account.
 
-## Logging In
-- **Open the Application**: Launch the app.
-- **Enter Credentials**: Input your username and password in the login fields.
-- **Access**: Click the "Login" button to access your lists.
-
-## Creating an Account
-- **Start Page**: Open the application.
-- **Sign Up**: If you do not have an account, click on the "Sign up for an Account" link.
-- **Details**: Enter your username, and password.
-- **Submit**: Click the "Submit" button to register.
-
 ## Homepage Overview
 - **Navigation**: The homepage provides quick access to all your lists and the option to create new ones.
 - **Quick Actions**: Use quick action buttons to search items by type or name.
