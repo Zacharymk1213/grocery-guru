@@ -91,8 +91,8 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?>a, View v, int position, long id){
                 String clickedListName = (String) a.getItemAtPosition(position);
 
-                // Launch the MockListActivity with the clicked list name
-                Intent intent = new Intent(MainActivity.this, MockListActivity.class);
+                // Launch the ListActivity with the clicked list name
+                Intent intent = new Intent(MainActivity.this, ListActivity.class);
                 intent.putExtra("listName", clickedListName);
                 startActivity(intent);
             }

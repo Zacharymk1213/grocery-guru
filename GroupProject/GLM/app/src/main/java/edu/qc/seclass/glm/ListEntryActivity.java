@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ListEntryActivity extends AppCompatActivity {
+    private GroceryItem thisItem;
     private Button btnBack, btnSave, btnDelete;
     private TextView tvName;
     private EditText editTextQuantity;
@@ -16,6 +17,12 @@ public class ListEntryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_entry);
+        //get passed data
+        Bundle extras = getIntent().getExtras();
+        if (extras != null)
+            thisItem = extras.getString("groceryItem");
+            //key must match what was put in other activity
+        displayItems();
 
         // Initialize the UI components
         btnBack = findViewById(R.id.btn_back);
@@ -43,7 +50,7 @@ public class ListEntryActivity extends AppCompatActivity {
 
     private void saveItem() {
         int quantity = Integer.parseInt(editTextQuantity.getText().toString().trim());
-        // TODO
+        thisItem.setQuantity(quantity);
     }
 
     private void deleteItem() {

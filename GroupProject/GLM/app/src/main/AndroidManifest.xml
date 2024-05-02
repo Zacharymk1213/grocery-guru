@@ -25,7 +25,8 @@
         <activity android:name=".SearchItemActivity" />
         <activity android:name=".NewEntryActivity" />
         <activity android:name=".SearchByTypeActivity" />
-        <activity android:name=".MockListActivity" />
+        <activity android:name=".ListActivity" />
+        <activity android:name=".ListEntryActivity" />
         <activity android:name=".ListByTypeActivity"/>
 
     </application>

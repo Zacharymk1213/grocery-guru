@@ -41,7 +41,7 @@ public class SearchByTypeActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String clickedListName = (String) parent.getItemAtPosition(position);
 
-                // Launch the MockListActivity with the clicked list name
+                // Launch the ListActivity with the clicked list name
                 Intent intent = new Intent(SearchByTypeActivity.this, ListByTypeActivity.class);
                 intent.putExtra("listName", clickedListName);
                 startActivity(intent);

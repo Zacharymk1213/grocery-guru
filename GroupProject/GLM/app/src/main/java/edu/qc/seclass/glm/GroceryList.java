@@ -54,8 +54,20 @@ public class GroceryList implements Parcelable {
      * @param id
      * @return the item of matching id
      */
-    public GroceryItem searchItem(int id) {
+    public GroceryItem getItem(int id) {
         return list.get(id);
+    }
+
+    /**
+     * @return all the items in list through an array
+     */
+    public GroceryItem[] getItems() {
+        GroceryItem[] items = new GroceryItem[list.size()];
+        Set<Integer> itemIDs = list.keySet();
+        i = 0;
+        for (int id : itemIDs)
+            items[i++] = list.get(id);
+        return items;
     }
 
     /**
@@ -82,7 +94,7 @@ public class GroceryList implements Parcelable {
      * @param amount
      */
     public void changeQuantity(int itemID, int amount) {
-        searchItem(itemID).updateQuantity(amount);
+        getItem(itemID).updateQuantity(amount);
     }
 
     /**
@@ -90,7 +102,7 @@ public class GroceryList implements Parcelable {
      * @param itemID
      */
     public void checkOff(int itemID) {
-        GroceryItem item = searchItem(itemID);
+        GroceryItem item = getItem(itemID);
         if (item != null) {
             item.setSelected(true);
         }
