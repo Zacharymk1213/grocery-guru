@@ -184,6 +184,7 @@ public class User {
                     //this item better be in the database, or else something went wrong
                     GroceryItem gItem = database.copyItem(jItem.getInt("id"));
                     gItem.updateQuantity(jItem.getInt("quantity"));
+                    gItem.setSelected(jItem.getBoolean("isSelected"));
                     gList.addItem(gItem);
                 }
             }
