@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class ListEntryActivity extends AppCompatActivity {
     private GroceryItem thisItem;
     private Button btnBack, btnSave, btnDelete;
-    private TextView tvName;
+    private TextView tvName, tvType;
     private EditText editTextQuantity;
 
     @Override
@@ -27,9 +27,14 @@ public class ListEntryActivity extends AppCompatActivity {
         btnSave = findViewById(R.id.btn_save);
         btnDelete = findViewById(R.id.btn_delete);
         tvName = findViewById(R.id.tv_name);
+        tvType = findViewById(R.id.tv_type);
         editTextQuantity = findViewById(R.id.editText_quantity);
 
         setupListeners();
+
+        //set item textViews
+        tvName.setText(thisItem.getName());
+        tvType.setText(thisItem.getType());
     }
 
     private void setupListeners() {
