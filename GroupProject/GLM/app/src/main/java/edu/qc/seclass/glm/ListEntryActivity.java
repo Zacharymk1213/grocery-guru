@@ -34,7 +34,7 @@ public class ListEntryActivity extends AppCompatActivity {
 
         //set item textViews
         tvName.setText(thisItem.getName());
-        tvType.setText(thisItem.getType());
+        tvType.setText(thisItem.getType().toLowerCase());
     }
 
     private void setupListeners() {
