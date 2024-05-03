@@ -15,6 +15,7 @@ import org.json.JSONObject;
 import org.json.JSONException;
 import java.io.IOException;
 
+import java.util.ArrayList;
 import java.util.TreeMap;
 import java.util.Set;
 
@@ -52,13 +53,8 @@ public class User {
     /*
      * Returns all lists
      */
-    public  GroceryList[] getLists() {
-        GroceryList[] tem = new GroceryList[lists.size()];
-        int i = 0;
-        Set<Integer> listIDs = lists.keySet();
-        for (int id : listIDs)
-            tem[i++] = (lists.get(id));
-        return tem;
+    public ArrayList<GroceryList> getLists() {
+        return new ArrayList<GroceryList>(lists.values());
     }
 
     /**

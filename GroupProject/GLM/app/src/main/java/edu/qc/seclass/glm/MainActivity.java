@@ -3,6 +3,7 @@ package edu.qc.seclass.glm;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Iterator;
+import java.util.ArrayList;
 
 import android.content.Context;
 import android.content.Intent;
@@ -37,7 +38,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private GroceryList[] userLists;
+    private ArrayList<GroceryList> userLists;
 
     //GUI components
     private ListView myLists;
@@ -81,8 +82,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Get list items
         myLists = findViewById(R.id.my_lists);
-        userLists = User.getInstance().getLists();
-        displayList(myLists);
         
         // Find the buttons by their IDs
         btnCreateNewList = findViewById(R.id.btn_create_new_list);
@@ -92,8 +91,8 @@ public class MainActivity extends AppCompatActivity {
         // Set click listener for list items
         myLists.setOnItemClickListener(new OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?>a, View v, int position, long id) {
-                GroceryList clickedList = userLists[position];
+            public void onItemClick(AdapterView<?>adapter, View v, int position, long id) {
+                GroceryList clickedList = userLists.get(position);
 
                 // Launch the ListActivity with the clicked list name
                 Intent intent = new Intent(MainActivity.this, ListActivity.class);
@@ -129,6 +128,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, SearchByTypeActivity.class));
             }
         });
+
+        //must be called after myLists is initialized
+        displayList();
     }
 
     //called automatically when user moved away from main activity
@@ -145,8 +147,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         //refresh myLists
-        userLists = User.getInstance().getLists();
-        displayList(myLists);
+        displayList();
     }
 
     /**
@@ -173,18 +174,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Display any changes made to user lists to <b>lView</b>
-     * @param lView
+     * Display any changes made to user lists to <b>myLists</b>
      */
-    private void displayList(ListView lView) {
-        // Get list names from userLists
-        String[] listNames = new String[userLists.length];
-        for (int i = 0; i < userLists.length; i++)
-            listNames[i] = userLists[i].getName();
-        // Create an ArrayAdapter with the list names
-        ArrayAdapter<String> listsAdapter = new ArrayAdapter<String>(
-            MainActivity.this, android.R.layout.simple_list_item_1, listNames);
+    private void displayList() {
+        if (myLists == null)
+            return;
+        userLists = User.getInstance().getLists();
+        // Create an GroceryListAdapter
+        GroceryListAdapter listsAdapter = new GroceryListAdapter(MainActivity.this, userLists);
         // Set the adapter for the ListView
-        lView.setAdapter(listsAdapter);
+        myLists.setAdapter(listsAdapter);
     }
 }

@@ -3,6 +3,7 @@ package edu.qc.seclass.glm;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Set;
 
@@ -61,13 +62,8 @@ public class GroceryList implements Parcelable {
     /**
      * @return all the items in list through an array
      */
-    public GroceryItem[] getItems() {
-        GroceryItem[] items = new GroceryItem[list.size()];
-        Set<Integer> itemIDs = list.keySet();
-        int i = 0;
-        for (int id : itemIDs)
-            items[i++] = list.get(id);
-        return items;
+    public ArrayList<GroceryItem> getItems() {
+        return new ArrayList<GroceryItem>(list.values());
     }
 
     /**

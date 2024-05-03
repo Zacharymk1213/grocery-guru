@@ -1,5 +1,7 @@
 package edu.qc.seclass.glm;
 
+import java.util.ArrayList;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class ListActivity extends AppCompatActivity {
     private GroceryList thisList;
-    private GroceryItem[] thisListItems;
+    private ArrayList<GroceryItem> thisListItems;
 
     //GUI components
     private Button btnBackMocklist, btnSearchItemMocklist, btnSearchTypeMocklist;
@@ -29,12 +31,13 @@ public class ListActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null)
             thisList = extras.getParcelable("groceryList"); //key must match what was put in other activity
-        thisListItems = thisList.getItems();
-        displayItems();
 
         initializeUI();
 
         setupListeners();
+
+        //must be after initializeUI()
+        displayItems();
     }
 
     private void initializeUI() {
@@ -69,7 +72,7 @@ public class ListActivity extends AppCompatActivity {
         listItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?>adapter, View v, int position, long id){
-                GroceryItem clickedItem = thisListItems[position];
+                GroceryItem clickedItem = thisListItems.get(position);
 
                 // Launch the ListActivity with the clicked list name
                 Intent intent = new Intent(ListActivity.this, ListEntryActivity.class);
@@ -94,21 +97,16 @@ public class ListActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         //refresh myLists
-        thisListItems = thisList.getItems();
         displayItems();
     }
 
     private void displayItems() {
-        if (thisList == null)
+        if (thisList == null || listItems == null)
             return;
-        // Get item names from thisListItems
-        String[] itemNames = new String[thisListItems.length];
-        for (int i = 0; i < thisListItems.length; i++)
-            itemNames[i] = thisListItems[i].getName();
-        // Create an ArrayAdapter with the item names
-        ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(
-            ListActivity.this, android.R.layout.simple_list_item_1, itemNames);
-        // Set the adapter
-        listItems.setAdapter(listAdapter);
+        thisListItems = thisList.getItems();
+        // Create an GroceryItemAdapter
+        GroceryItemAdapter listsAdapter = new GroceryItemAdapter(ListActivity.this, thisListItems);
+        // Set the adapter for the ListView
+        listItems.setAdapter(listsAdapter);
     }
 }
