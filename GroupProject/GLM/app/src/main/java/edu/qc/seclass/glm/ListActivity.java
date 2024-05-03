@@ -16,10 +16,11 @@ import androidx.appcompat.app.AppCompatActivity;
 public class ListActivity extends AppCompatActivity {
     private GroceryList thisList;
     private ArrayList<GroceryItem> thisListItems;
+    private boolean checkedAll = false;
 
     //GUI components
-    private Button btnBackMocklist, btnSearchItemMocklist, btnSearchTypeMocklist;
-    private TextView tvNameMocklist;
+    private Button btnBackList, btnSearchItemList, btnSearchTypeList, btnCheckAll;
+    private TextView tvNameList;
     private ListView listItems;
 
 
@@ -37,34 +38,57 @@ public class ListActivity extends AppCompatActivity {
         setupListeners();
 
         //must be after initializeUI()
+        thisListItems = thisList.getItems();
         displayItems();
+        tvNameList.setText(thisList.getName());
+        btnCheckAll.setText("Check All");
     }
 
     private void initializeUI() {
-        btnBackMocklist = findViewById(R.id.btn_back_mocklist);
-        btnSearchItemMocklist = findViewById(R.id.btn_search_item_mocklist);
-        btnSearchTypeMocklist = findViewById(R.id.btn_search_type_mocklist);
+        btnBackList = findViewById(R.id.btn_back_List);
+        btnSearchItemList = findViewById(R.id.btn_search_item_List);
+        btnSearchTypeList = findViewById(R.id.btn_search_type_List);
+        btnCheckAll  = findViewById(R.id.button_check);
         listItems = findViewById(R.id.list_of_items);
 
-        tvNameMocklist = findViewById(R.id.tv_name_mocklist);
+        tvNameList = findViewById(R.id.tv_name_List);
 
     }
 
     private void setupListeners() {
-        btnBackMocklist.setOnClickListener(v -> finish());
+        btnBackList.setOnClickListener(v -> finish());
 
-        btnSearchItemMocklist.setOnClickListener(new View.OnClickListener() {
+        btnSearchItemList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Navigate to Search Item activity
                 startActivity(new Intent(ListActivity.this, SearchItemActivity.class));
             }
         });
-        btnSearchTypeMocklist.setOnClickListener(new View.OnClickListener() {
+        btnSearchTypeList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Navigate to Search Type activity
                 startActivity(new Intent(ListActivity.this, SearchByTypeActivity.class));
+            }
+        });
+        btnCheckAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (checkedAll) { //uncheck everything
+                    for (int i = 0; i < thisListItems.size(); i++)
+                        thisListItems.get(i).setSelected(false);
+                    btnCheckAll.setText("Check All");
+                    checkedAll = false;
+                }
+                else { //check everything
+                    for (int i = 0; i < thisListItems.size(); i++)
+                        thisListItems.get(i).setSelected(true);
+                    btnCheckAll.setText("Uncheck All");
+                    checkedAll = true;
+                }
+                //refresh
+                displayItems();
             }
         });
 
@@ -90,6 +114,8 @@ public class ListActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
+        //save user data! User only!
+        User.getInstance().saveUserData(getApplicationContext());
     }
 
     //called automatically when user returns to this activity
@@ -97,13 +123,13 @@ public class ListActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         //refresh myLists
+        thisListItems = thisList.getItems();
         displayItems();
     }
 
     private void displayItems() {
-        if (thisList == null || listItems == null)
+        if (thisListItems == null || listItems == null)
             return;
-        thisListItems = thisList.getItems();
         // Create an GroceryItemAdapter
         GroceryItemAdapter listsAdapter = new GroceryItemAdapter(ListActivity.this, thisListItems);
         // Set the adapter for the ListView

@@ -20,6 +20,10 @@
     <string name="search_item">Search Item</string>string>
     <string name="search_type">Browse Type</string>string>
 
+    <!-- List Page -->
+    <string name="list_name">insert_name</string>
+    <string name="check_uncheck">Check/Uncheck ALL</string>
+
     <!-- Search Item Page -->
     <string name="search_by_name">Search By Name</string>
     <string name="search">Search</string>
@@ -41,10 +45,6 @@
     <string name="cereal">Cereal</string>
     <string name="international">International</string>
     <string name="bakery">Bakery</string>
-
-    <!-- List Page -->
-
-
 
     <!-- List Entry(Grocery Item) Page -->
     <string name="item_name">insert_name</string>
