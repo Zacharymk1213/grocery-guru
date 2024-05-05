@@ -13,6 +13,10 @@ import java.util.ArrayList;
 import java.util.Set;
 
 public class SearchByTypeActivity extends AppCompatActivity {
+    
+    private GroceryList openedList;
+
+    //GUI components
     private Button btnBack;
     private ListView listViewTypes;
     private Set<String> typesSet;
@@ -21,6 +25,12 @@ public class SearchByTypeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_by_type);
+
+        //get the open list if we have one
+        Bundle extras = getIntent().getExtras();
+        if (extras != null)
+            //string key must match what was put in other activity
+            openedList = extras.getParcelable("openedList");
 
         // Initialize views
         btnBack = findViewById(R.id.btn_back);
@@ -39,11 +49,13 @@ public class SearchByTypeActivity extends AppCompatActivity {
         listViewTypes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String clickedListName = (String) parent.getItemAtPosition(position);
+                String clickedType = (String) parent.getItemAtPosition(position);
 
                 // Launch the ListActivity with the clicked list name
                 Intent intent = new Intent(SearchByTypeActivity.this, ListByTypeActivity.class);
-                intent.putExtra("listName", clickedListName);
+                intent.putExtra("listType", clickedType); //pass the type
+                if (openedList != null) //pass the opened list if there is one
+                    intent.putExtra("openedList", openedList);
                 startActivity(intent);
             }
         });

@@ -201,8 +201,9 @@ public class GroceryDatabase {
         ListOfType typeList = new ListOfType(type);
         Set<Integer> itemIDs = db.keySet();
         for (int id : itemIDs)
-            //copy a new instance of the item to list
-            typeList.addItem(copyItem(id));
+            //copy a new instance of the item to list if type matches
+            if (db.get(id).getType().equals(type))
+                typeList.addItem(copyItem(id));
         return typeList;
     }
 

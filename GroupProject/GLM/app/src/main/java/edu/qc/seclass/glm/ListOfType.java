@@ -2,6 +2,7 @@ package edu.qc.seclass.glm;
 
 import android.content.Context;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -28,6 +29,13 @@ public class ListOfType {
 
     //access methods
     public String getType() { return type; }
+
+    /**
+     * @return all the items in list through an array
+     */
+    public ArrayList<GroceryItem> getItems() {
+        return new ArrayList<GroceryItem>(items.values());
+    }
 
     /**
      * Adds an item to this ListOfType
@@ -72,36 +80,4 @@ public class ListOfType {
     public void addItemToList(GroceryItem item, GroceryList targetList) {
         targetList.addItem(item);
     }
-
-    /**
-     * Loads types from the item_database.json file
-     *
-     * @param context The context to access file resources
-     * @return A set of types loaded from the file
-     */
-    //public static Set<String> loadTypesFromJSON(Context context) {
-    //    Set<String> typesSet = new HashSet<>();
-    //    try {
-    //        // Read JSON data from file
-    //        FileInputStream fis = context.openFileInput("item_database.json");
-    //        BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
-    //        StringBuilder jsonData = new StringBuilder();
-    //        String line;
-    //        while ((line = reader.readLine()) != null) {
-    //            jsonData.append(line);
-    //        }
-    //        reader.close();
-
-            // Parse JSON data and extract types
-    //        JSONObject dbJson = new JSONObject(jsonData.toString());
-    //        for (Iterator<String> it = dbJson.keys(); it.hasNext(); ) {
-    //            String key = it.next();
-    //            JSONObject itemJson = dbJson.getJSONObject(key);
-    //            typesSet.add(itemJson.getString("type"));
-    //        }
-    //    } catch (IOException | JSONException e) {
-    //        e.printStackTrace(); // Handle exceptions appropriately
-    //    }
-    //    return typesSet;
-    //} no longer needed
 }

@@ -97,9 +97,7 @@ public class MainActivity extends AppCompatActivity {
                 // Launch the ListActivity with the clicked list name
                 Intent intent = new Intent(MainActivity.this, ListActivity.class);
                 // pass data to Intent
-                Bundle clickedData = new Bundle(); //make a bundle for our data
-                clickedData.putParcelable("groceryList", clickedList); //give it data
-                intent.putExtras(clickedData); //pass the bundle along
+                intent.putExtra("groceryList", clickedList); //pass the bundle along
 
                 startActivity(intent);
             }

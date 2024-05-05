@@ -19,7 +19,7 @@ public class ListActivity extends AppCompatActivity {
     //GUI components
     private Button btnBackList, btnSearchItemList, btnSearchTypeList, btnCheckAll;
     private TextView tvNameList;
-    private ListView listItems;
+    private ListView lvListItems;
 
 
     @Override
@@ -47,7 +47,7 @@ public class ListActivity extends AppCompatActivity {
         btnSearchItemList = findViewById(R.id.btn_search_item_List);
         btnSearchTypeList = findViewById(R.id.btn_search_type_List);
         btnCheckAll  = findViewById(R.id.button_check);
-        listItems = findViewById(R.id.list_of_items);
+        lvListItems = findViewById(R.id.list_of_items);
 
         tvNameList = findViewById(R.id.tv_name_List);
 
@@ -60,14 +60,18 @@ public class ListActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Navigate to Search Item activity
-                startActivity(new Intent(ListActivity.this, SearchItemActivity.class));
+                Intent intent = new Intent(ListActivity.this, SearchItemActivity.class);
+                intent.putExtra("openedList", thisList); // pass the list
+                startActivity(intent);
             }
         });
         btnSearchTypeList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Navigate to Search Type activity
-                startActivity(new Intent(ListActivity.this, SearchByTypeActivity.class));
+                Intent intent = new Intent(ListActivity.this, SearchByTypeActivity.class);
+                intent.putExtra("openedList", thisList); // pass the list
+                startActivity(intent);
             }
         });
         btnCheckAll.setOnClickListener(new View.OnClickListener() {
@@ -91,7 +95,7 @@ public class ListActivity extends AppCompatActivity {
         });
 
         //listener for each item
-        listItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lvListItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?>adapter, View v, int position, long id){
                 GroceryItem clickedItem = thisListItems.get(position);
@@ -99,9 +103,8 @@ public class ListActivity extends AppCompatActivity {
                 // Launch the ListActivity with the clicked list name
                 Intent intent = new Intent(ListActivity.this, ListEntryActivity.class);
                 // pass data to Intent
-                Bundle clickedData = new Bundle(); //make a bundle for our data
-                clickedData.putParcelable("groceryItem", clickedItem); //key to be used in ListEntryActivity
-                intent.putExtras(clickedData); //pass the bundle along
+                // string key to be used in ListEntryActivity
+                intent.putExtra("groceryItem", clickedItem); //pass the bundle along
                 startActivity(intent);
             }
         });
@@ -126,11 +129,11 @@ public class ListActivity extends AppCompatActivity {
     }
 
     private void displayItems() {
-        if (thisListItems == null || listItems == null)
+        if (thisListItems == null || lvListItems == null)
             return;
         // Create an GroceryItemAdapter
         GroceryItemAdapter listsAdapter = new GroceryItemAdapter(ListActivity.this, thisListItems);
         // Set the adapter for the ListView
-        listItems.setAdapter(listsAdapter);
+        lvListItems.setAdapter(listsAdapter);
     }
 }
