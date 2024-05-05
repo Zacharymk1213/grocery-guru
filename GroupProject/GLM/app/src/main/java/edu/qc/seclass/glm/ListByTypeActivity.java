@@ -78,9 +78,13 @@ public class ListByTypeActivity extends AppCompatActivity {
                             openedList.addItem(thisItem);
                         }
                     }
-                    if (anySelected)
+                    if (anySelected) {
                         // change has been made, save!
                         User.getInstance().saveUserData(getApplicationContext());
+                        Toast.makeText(ListByTypeActivity.this,
+                            "Added Successfully",
+                            Toast.LENGTH_SHORT).show();
+                    }
                     else
                         Toast.makeText(ListByTypeActivity.this,
                             "No item selected",

@@ -107,9 +107,13 @@ public class SearchItemActivity extends AppCompatActivity {
                         Toast.makeText(SearchItemActivity.this,
                             "No item selected",
                             Toast.LENGTH_SHORT).show();
-                    if (anyAdded)
+                    if (anyAdded) {
                         // change has been made, save!
                         User.getInstance().saveUserData(getApplicationContext());
+                        Toast.makeText(SearchItemActivity.this,
+                            "Added Successfully",
+                            Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
         }
