@@ -74,6 +74,7 @@ public class ListByTypeActivity extends AppCompatActivity {
                         GroceryItem thisItem = thisTypeItems.get(i);
                         if(thisItem.isSelected()) {
                             anySelected = true;
+                            thisItem.setSelected(false);
                             openedList.addItem(thisItem);
                         }
                     }
