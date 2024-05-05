@@ -16,6 +16,7 @@ import org.json.JSONObject;
 import org.json.JSONException;
 import java.io.IOException;
 
+import java.util.ArrayList;
 import java.util.TreeMap;
 import java.util.LinkedHashMap;
 import java.util.Set;
@@ -89,7 +90,7 @@ public class GroceryDatabase {
      * @param name
      * @return an array of grocery items with similar name
      */
-    public GroceryItem[] searchItemsByName(String name) {
+    public ArrayList<GroceryItem> searchItemsByName(String name) {
         //find items of similar name
         TreeMap<Double, GroceryItem> tem = new TreeMap<Double, GroceryItem>();
         Set<Integer> itemIDs = db.keySet();
@@ -108,10 +109,10 @@ public class GroceryDatabase {
         int resultSize = tem.size();
         if (resultSize > 10)
             resultSize = 10;
-        GroceryItem[] result = new GroceryItem[resultSize];
+        ArrayList<GroceryItem> result = new ArrayList<GroceryItem>();
         int i = 0;
         while (i < resultSize)
-            result[i++] = tem.remove(tem.lastKey()); //get the most similar
+            result.add(i++, tem.remove(tem.lastKey())); //get the most similar
         return result;
     }
     /**

@@ -15,8 +15,13 @@ import java.util.ArrayList;
 
 public class SearchItemActivity extends AppCompatActivity {
 
+    private GroceryList openedList;
+    private ArrayList<GroceryItem> result;
+
+    //GUI components
     private EditText editTextSearch;
     private Button btnSearch,
+                btnAddSelected,
                 btnBack,
                 btnAddEntry;
     private ListView listViewSearchResults;
@@ -26,12 +31,25 @@ public class SearchItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_by_name);
 
+        //get the open list if we have one
+        Bundle extras = getIntent().getExtras();
+        if (extras != null)
+            //string key must match what was put in other activity
+            openedList = extras.getParcelable("openedList");
+
         // Initialize views
         editTextSearch = findViewById(R.id.et_search);
-        btnSearch = findViewById(R.id.btn_search);
         btnBack = findViewById(R.id.btn_back);
+        btnAddSelected = findViewById(R.id.btn_add_selected);
+        btnSearch = findViewById(R.id.btn_search);
         btnAddEntry = findViewById(R.id.btn_add_entry);
         listViewSearchResults = findViewById(R.id.listView_search_results);
+
+        //if there is no list open(i.e. we came from main activity instead of a user list)
+        //make btnAddSelected invisible and disabled
+        if (openedList == null)
+            btnAddSelected.setVisibility(View.INVISIBLE);
+        btnAddSelected.setEnabled(openedList != null);
 
         // Set click listener for the search button
         btnSearch.setOnClickListener(new View.OnClickListener() {
@@ -44,23 +62,57 @@ public class SearchItemActivity extends AppCompatActivity {
                     // For demonstration purposes, create a list of dummy search results
                     
                     // Search database
-                    GroceryItem[] result = GroceryDatabase.getInstance().searchItemsByName(searchQuery);
-                    
-                    // Display search results in a ListView (you can customize this part)
-                    try {
-                        displaySearchResults(listViewSearchResults, result);
-                    }
-                    catch (Exception NullPointerException) {
-                        editTextSearch.setError("null pointer reference");
-                    }
-                    
-                    displaySearchResults(listViewSearchResults, result);
+                    result = GroceryDatabase.getInstance().searchItemsByName(searchQuery);
+                    if (result == null)
+                        Toast.makeText(SearchItemActivity.this,
+                            "No results found",
+                            Toast.LENGTH_SHORT).show();
+                    displaySearchResults();
                 } else {
                     // Show an error message if search query is empty
                     editTextSearch.setError("Search query cannot be empty");
                 }
             }
         });
+
+        if (btnAddSelected.isEnabled()) {
+            btnAddSelected.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    boolean anySelected = false;
+                    boolean anyAdded = false;
+                    if (result == null) {
+                        Toast.makeText(SearchItemActivity.this,
+                            "No item selected",
+                            Toast.LENGTH_SHORT).show();
+                        return; //avoid null ref
+                    }
+                    for (int i = 0; i < result.size(); i++) {
+                        GroceryItem thisItem = result.get(i);
+                        if(thisItem.isSelected()) {
+                            anySelected = true;
+                            //add if openedList don't already have this item
+                            if (openedList.getItem(thisItem.getId()) == null) {
+                                anyAdded = true;
+                                thisItem.setSelected(false);
+                                openedList.addItem(thisItem);
+                            }
+                            else
+                                Toast.makeText(SearchItemActivity.this,
+                                    thisItem.getName() + " is already in " + openedList.getName(),
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    if (!anySelected)
+                        Toast.makeText(SearchItemActivity.this,
+                            "No item selected",
+                            Toast.LENGTH_SHORT).show();
+                    if (anyAdded)
+                        // change has been made, save!
+                        User.getInstance().saveUserData(getApplicationContext());
+                }
+            });
+        }
 
         // Set click listener for the back button
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -82,27 +134,14 @@ public class SearchItemActivity extends AppCompatActivity {
     }
 
     /**
-     * Displays the search <b>result</b> to <b>lView</b>
-     * @param lView
-     * @param result
+     * Displays the search <b>result</b> to <b>listViewSearchResults</b>
      */
-    private void displaySearchResults(ListView lView, GroceryItem[] result) {
-        if (result == null)
-            throw new NullPointerException();
-        String[] itemNames;
-        if (result.length == 0) {
-            itemNames = new String[1];
-            itemNames[0] = "No Results Found";
-        }
-        else {
-            itemNames = new String[result.length];
-            for (int i = 0; i < result.length; i++)
-                itemNames[i] = result[i].getName();
-        }
-        // Create an ArrayAdapter with the item names
-        ArrayAdapter<String> resultAdapter = new ArrayAdapter<String>(
-            SearchItemActivity.this, android.R.layout.simple_list_item_1, itemNames);
+    private void displaySearchResults() {
+        if (result == null || listViewSearchResults == null)
+            return;
+        // Create an GroceryItemAdapter
+        GroceryItemAdapter resultAdapter = new GroceryItemAdapter(SearchItemActivity.this, result);
         // Set the adapter for the ListView
-        lView.setAdapter(resultAdapter);
+        listViewSearchResults.setAdapter(resultAdapter);
     }
 }

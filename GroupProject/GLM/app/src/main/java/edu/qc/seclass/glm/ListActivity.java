@@ -36,8 +36,6 @@ public class ListActivity extends AppCompatActivity {
         setupListeners();
 
         //must be after initializeUI()
-        thisListItems = thisList.getItems();
-        displayItems();
         tvNameList.setText(thisList.getName());
         btnCheckAll.setText("Check All");
     }

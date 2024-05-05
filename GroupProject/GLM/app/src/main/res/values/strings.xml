@@ -33,7 +33,7 @@
     <!-- Search Item Page -->
     <string name="search_by_name">Search By Name</string>
     <string name="search">Search</string>
-    <string name="add_entry">Add New Item</string>
+    <string name="add_entry">Add New Database Entry</string>
 
     <!-- Add new entry Page -->
     <string name="new_entry">New Entry</string>

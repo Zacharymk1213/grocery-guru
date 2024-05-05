@@ -126,9 +126,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, SearchByTypeActivity.class));
             }
         });
-
-        //must be called after myLists is initialized
-        displayList();
     }
 
     //called automatically when user moved away from main activity
