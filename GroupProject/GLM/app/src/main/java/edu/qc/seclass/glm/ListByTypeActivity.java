@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -80,7 +81,7 @@ public class ListByTypeActivity extends AppCompatActivity {
                         // change has been made, save!
                         User.getInstance().saveUserData(getApplicationContext());
                     else
-                        Toast.makeText(SearchItemActivity.this,
+                        Toast.makeText(ListByTypeActivity.this,
                             "No item selected",
                             Toast.LENGTH_SHORT).show();
                     // refresh
