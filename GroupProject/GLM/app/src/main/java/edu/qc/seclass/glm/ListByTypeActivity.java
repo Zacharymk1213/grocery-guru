@@ -68,11 +68,21 @@ public class ListByTypeActivity extends AppCompatActivity {
             btnAddSelected.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    for (int i = 0; i < thisTypeItems.size(); i++)
-                        if(thisTypeItems.get(i).isSelected())
-                            openedList.addItem(thisTypeItems.get(i));
-                    // chnage has been made, save!
-                    User.getInstance().saveUserData(getApplicationContext());
+                    boolean anySelected = false;
+                    for (int i = 0; i < thisTypeItems.size(); i++) {
+                        GroceryItem thisItem = thisTypeItems.get(i);
+                        if(thisItem.isSelected()) {
+                            anySelected = true;
+                            openedList.addItem(thisItem);
+                        }
+                    }
+                    if (anySelected)
+                        // change has been made, save!
+                        User.getInstance().saveUserData(getApplicationContext());
+                    else
+                        Toast.makeText(SearchItemActivity.this,
+                            "No item selected",
+                            Toast.LENGTH_SHORT).show();
                     // refresh
                     displayItems();
                 }
