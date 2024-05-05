@@ -8,7 +8,11 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ListEntryActivity extends AppCompatActivity {
+
+    private GroceryList openedList;
     private GroceryItem thisItem;
+
+    //GUI components
     private Button btnBack, btnSave, btnDelete;
     private TextView tvName, tvType;
     private EditText editTextQuantity;
@@ -19,9 +23,11 @@ public class ListEntryActivity extends AppCompatActivity {
         setContentView(R.layout.list_entry);
         //get passed data
         Bundle extras = getIntent().getExtras();
-        if (extras != null)
-            thisItem = extras.getParcelable("groceryItem"); //key must match what was put in other activity
-
+        if (extras != null) {
+            //keys must match what was put in other activity
+            openedList = extras.getParcelable("openedList");
+            thisItem = extras.getParcelable("groceryItem");
+        }
         // Initialize the UI components
         btnBack = findViewById(R.id.btn_back);
         btnSave = findViewById(R.id.btn_save);
@@ -57,6 +63,15 @@ public class ListEntryActivity extends AppCompatActivity {
     }
 
     private void deleteItem() {
-        // TODO
+       openedList.deleteItem(thisItem.getId());
+    }
+
+    //called automatically when user moved away from this activity
+    //(i.e. homepage is not on the screen any more)
+    @Override
+    protected void onPause() {
+        super.onPause();
+        //save user data! User only!
+        User.getInstance().saveUserData(getApplicationContext());
     }
 }

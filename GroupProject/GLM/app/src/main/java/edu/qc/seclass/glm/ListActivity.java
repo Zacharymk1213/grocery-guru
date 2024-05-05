@@ -17,7 +17,8 @@ public class ListActivity extends AppCompatActivity {
     private boolean checkedAll = false;
 
     //GUI components
-    private Button btnBackList, btnSearchItemList, btnSearchTypeList, btnCheckAll;
+    private Button btnBackList, btnDelete, btnCheckAll,
+        btnSearchItemList, btnSearchTypeList;
     private TextView tvNameList;
     private ListView lvListItems;
 
@@ -42,9 +43,10 @@ public class ListActivity extends AppCompatActivity {
 
     private void initializeUI() {
         btnBackList = findViewById(R.id.btn_back_List);
+        btnDelete = findViewById(R.id.btn_delete);
+        btnCheckAll = findViewById(R.id.button_check);
         btnSearchItemList = findViewById(R.id.btn_search_item_List);
         btnSearchTypeList = findViewById(R.id.btn_search_type_List);
-        btnCheckAll  = findViewById(R.id.button_check);
         lvListItems = findViewById(R.id.list_of_items);
 
         tvNameList = findViewById(R.id.tv_name_List);
@@ -53,23 +55,13 @@ public class ListActivity extends AppCompatActivity {
 
     private void setupListeners() {
         btnBackList.setOnClickListener(v -> finish());
-
-        btnSearchItemList.setOnClickListener(new View.OnClickListener() {
+        btnDelete.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Navigate to Search Item activity
-                Intent intent = new Intent(ListActivity.this, SearchItemActivity.class);
-                intent.putExtra("openedList", thisList); // pass the list
-                startActivity(intent);
-            }
-        });
-        btnSearchTypeList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Navigate to Search Type activity
-                Intent intent = new Intent(ListActivity.this, SearchByTypeActivity.class);
-                intent.putExtra("openedList", thisList); // pass the list
-                startActivity(intent);
+                //remove list from user
+                User.getInstance().deleteList(thisList.getId());
+                //exit to main activity
+                finish();
             }
         });
         btnCheckAll.setOnClickListener(new View.OnClickListener() {
@@ -91,6 +83,27 @@ public class ListActivity extends AppCompatActivity {
                 displayItems();
             }
         });
+        
+        // add items by item
+        btnSearchItemList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to Search Item activity
+                Intent intent = new Intent(ListActivity.this, SearchItemActivity.class);
+                intent.putExtra("openedList", thisList); // pass the list
+                startActivity(intent);
+            }
+        });
+        // add items by type
+        btnSearchTypeList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to Search Type activity
+                Intent intent = new Intent(ListActivity.this, SearchByTypeActivity.class);
+                intent.putExtra("openedList", thisList); // pass the list
+                startActivity(intent);
+            }
+        });
 
         //listener for each item
         lvListItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -102,7 +115,8 @@ public class ListActivity extends AppCompatActivity {
                 Intent intent = new Intent(ListActivity.this, ListEntryActivity.class);
                 // pass data to Intent
                 // string key to be used in ListEntryActivity
-                intent.putExtra("groceryItem", clickedItem); //pass the bundle along
+                intent.putExtra("openedList", thisList); //pass this list
+                intent.putExtra("groceryItem", clickedItem); //pass the item
                 startActivity(intent);
             }
         });
