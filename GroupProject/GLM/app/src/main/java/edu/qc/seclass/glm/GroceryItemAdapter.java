@@ -1,8 +1,8 @@
 package edu.qc.seclass.glm;
 
 import android.content.Context;
-import androidx.annotation.NonNull; 
-import androidx.annotation.Nullable; 
+import androidx.annotation.NonNull;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +26,7 @@ public class GroceryItemAdapter extends ArrayAdapter {
 
         if (rowView == null)
             rowView = LayoutInflater.from(getContext()).inflate(
-                R.layout.list_item_layout, parent, false);
+                R.layout.grocery_item_view, parent, false);
             
         GroceryItem thisItem = (GroceryItem)getItem(position);
 
