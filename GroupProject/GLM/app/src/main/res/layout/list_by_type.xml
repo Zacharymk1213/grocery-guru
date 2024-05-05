@@ -5,36 +5,77 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btn_back_mocklist"
+    <TextView
+        android:id="@+id/tv_type_input"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="323dp"
-        android:text="Back"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/item_type"
+        android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_type_input"
-        android:layout_width="199dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="71dp"
-        android:text=" Type_input"
-        android:textSize="34sp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_type_input"
+        app:layout_constraintVertical_bias="0.0">
 
-    <ListView
-        android:layout_width="409dp"
-        android:layout_height="740dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="105dp" />
+        <Button
+            android:id="@+id/btn_back_mocklist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="16dp"
+            android:text="@string/back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.052"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <!-- only set visible if opened from a list -->
+        <Button
+            android:id="@+id/btn_add_selected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_selected"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_back_mocklist"
+            app:layout_constraintEnd_toStartOf="@+id/btn_select_all"
+            app:layout_constraintHorizontal_bias="0.833"
+            app:layout_constraintStart_toEndOf="@+id/btn_back_mocklist"
+            app:layout_constraintTop_toTopOf="@+id/btn_back_mocklist"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/btn_select_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/select_unselect"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_back_mocklist"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/btn_back_mocklist"
+            app:layout_constraintTop_toTopOf="@+id/btn_back_mocklist" />
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_back_mocklist" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

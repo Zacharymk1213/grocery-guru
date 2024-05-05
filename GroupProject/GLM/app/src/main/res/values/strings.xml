@@ -7,11 +7,18 @@
     <string name="save">Save</string>
     <string name="delete">Delete</string>
     <string name="confirm">Confirm</string>
+    <string name="add_selected">Add Selected</string>
+    <string name="check_uncheck">Check All</string>
+    <string name="select_unselect">Select All</string>
 
         <!-- input prompts -->
     <string name="enter_item_name">Enter Item Name</string>
     <string name="enter_item_type">Enter Item Type</string>
     <string name="number_zero">0</string>
+
+        <!-- text placeholder -->
+    <string name="item_name">insert_name</string>
+    <string name="item_type">insert_type</string>
 
     <!-- homepage -->
     <string name="grocery_guru">Grocery Guru</string>string>
@@ -22,7 +29,6 @@
 
     <!-- List Page -->
     <string name="list_name">insert_name</string>
-    <string name="check_uncheck">Check/Uncheck ALL</string>
 
     <!-- Search Item Page -->
     <string name="search_by_name">Search By Name</string>
@@ -32,7 +38,6 @@
     <!-- Add new entry Page -->
     <string name="new_entry">New Entry</string>
     <string name="is_new_type">Other:</string>
-
 
     <!-- Search Type Page -->
     <string name="search_by_type">Search By Type</string>
@@ -47,11 +52,9 @@
     <string name="bakery">Bakery</string>
 
     <!-- List Entry(Grocery Item) Page -->
-    <string name="item_name">insert_name</string>
     <string name="quantity">Quantity: </string>
 
     <string name="type_intro">"This item is a "</string>
-    <string name="item_type">insert_type</string>
     <string name="type_product">" product."</string>
 
 </resources>
