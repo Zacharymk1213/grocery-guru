@@ -31,7 +31,7 @@ public class ListEntryActivity extends AppCompatActivity {
         // Initialize the UI components
         btnBack = findViewById(R.id.btn_back);
         btnSave = findViewById(R.id.btn_save);
-        btnDelete = findViewById(R.id.btn_delete);
+        //btnDelete = findViewById(R.id.btn_delete);
         tvName = findViewById(R.id.tv_name);
         tvType = findViewById(R.id.tv_type);
         editTextQuantity = findViewById(R.id.editText_quantity);
@@ -47,10 +47,10 @@ public class ListEntryActivity extends AppCompatActivity {
     private void setupListeners() {
         btnBack.setOnClickListener(v -> finish());
 
-        btnDelete.setOnClickListener(v -> {
-            deleteItem();
-            finish();
-        });
+        //btnDelete.setOnClickListener(v -> {
+        //    deleteItem();
+        //    finish();
+        //});
 
         btnSave.setOnClickListener(v -> {
             saveItem();

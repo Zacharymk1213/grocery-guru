@@ -11,6 +11,10 @@ import android.widget.ListView;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+
 public class ListActivity extends AppCompatActivity {
     private GroceryList thisList;
     private ArrayList<GroceryItem> thisListItems;
@@ -18,7 +22,7 @@ public class ListActivity extends AppCompatActivity {
 
     //GUI components
     private EditText etNameList;
-    private Button btnBackList, btnDelete, btnCheckAll,
+    private Button btnBackList, btnDeleteChecked, btnCheckAll,
         btnSearchItemList, btnSearchTypeList;
     private ListView lvListItems;
 
@@ -38,14 +42,13 @@ public class ListActivity extends AppCompatActivity {
 
         //must be after initializeUI()
         etNameList.setText(thisList.getName());
-        btnDelete.setText("Delete List");
         btnCheckAll.setText("Check All");
     }
 
     private void initializeUI() {
         etNameList = findViewById(R.id.et_name_List);
         btnBackList = findViewById(R.id.btn_back_List);
-        btnDelete = findViewById(R.id.btn_delete);
+        btnDeleteChecked = findViewById(R.id.btn_delete_checked);
         btnCheckAll = findViewById(R.id.button_check);
         btnSearchItemList = findViewById(R.id.btn_search_item_List);
         btnSearchTypeList = findViewById(R.id.btn_search_type_List);
@@ -58,13 +61,29 @@ public class ListActivity extends AppCompatActivity {
             thisList.setName(etNameList.getText().toString());
             finish();
         });
-        btnDelete.setOnClickListener( new View.OnClickListener() {
+        btnDeleteChecked.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //remove list from user
-                User.getInstance().deleteList(thisList.getId());
-                //exit to main activity
-                finish();
+                AlertDialog.Builder alertDelete = new AlertDialog.Builder(ListActivity.this);
+                alertDelete.setTitle("Delete All Checked Items");
+                alertDelete.setMessage("Are you sure you want to delete these items?");
+                alertDelete.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        //important: must be from last to first since we are doing remove()
+                        for (int i = thisListItems.size()-1; i >= 0; i--)
+                        if (thisListItems.get(i).isSelected())
+                            thisListItems.remove(i);
+                        //refresh
+                        displayItems();
+                    }
+                });
+                alertDelete.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // close dialog
+                        dialog.cancel();
+                    }
+                });
+                alertDelete.show();
             }
         });
         btnCheckAll.setOnClickListener(new View.OnClickListener() {
@@ -147,7 +166,7 @@ public class ListActivity extends AppCompatActivity {
         if (thisListItems == null || lvListItems == null)
             return;
         // Create an GroceryItemAdapter
-        GroceryItemAdapter listsAdapter = new GroceryItemAdapter(ListActivity.this, thisListItems);
+        GroceryItemAdapter listsAdapter = new GroceryItemAdapter(ListActivity.this, thisListItems, thisList);
         // Set the adapter for the ListView
         lvListItems.setAdapter(listsAdapter);
     }
