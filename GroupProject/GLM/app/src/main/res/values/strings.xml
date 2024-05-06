@@ -25,7 +25,7 @@
     <string name="grocery_guru">Grocery Guru</string>string>
     <string name="my_lists">My Lists</string>string>
     <string name="create_new_list">Create List</string>string>
-    <string name="search_item">Search Item</string>string>
+    <string name="search_item">Browse Item</string>string>
     <string name="search_type">Browse Type</string>string>
 
     <!-- Create List Page -->
