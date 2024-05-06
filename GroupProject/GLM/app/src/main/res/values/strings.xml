@@ -5,8 +5,8 @@
         <!-- buttons -->
     <string name="back">Back</string>
     <string name="save">Save</string>
-    <string name="delete">Delete</string>
     <string name="confirm">Confirm</string>
+    <string name="delete_check">Delete Checked</string>
     <string name="add_selected">Add Selected</string>
     <string name="check_uncheck">Check All</string>
     <string name="select_unselect">Select All</string>
