@@ -1,8 +1,11 @@
 package edu.qc.seclass.glm;
 
+import android.view.KeyEvent;
+import android.view.View.OnKeyListener;
+
 import android.content.Context;
-import androidx.annotation.NonNull; 
-import androidx.annotation.Nullable; 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +13,11 @@ import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
+
+import android.content.DialogInterface;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 
 import java.util.ArrayList;
 
@@ -30,6 +38,7 @@ public class GroceryListAdapter extends ArrayAdapter {
             
         GroceryList thisList = (GroceryList)getItem(position);
 
+        //initialize views
         TextView tvName = rowView.findViewById(R.id.tv_grocery_list_name);
         tvName.setText(thisList.getName());
         //TextView tvId = rowView.findViewById(R.id.tv_grocery_list_id); //here for testing purposes
@@ -39,7 +48,9 @@ public class GroceryListAdapter extends ArrayAdapter {
             cbSelected.setChecked(true);
         else
             cbSelected.setChecked(false);
+        ImageButton ibtnDelete = rowView.findViewById(R.id.ibtn_grocery_list_delete);
 
+        //set listeners
         cbSelected.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -47,6 +58,29 @@ public class GroceryListAdapter extends ArrayAdapter {
                     thisList.setSelected(true);
                 else
                     thisList.setSelected(false);
+            }
+        });
+
+        Context context = getContext();
+        ibtnDelete.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                AlertDialog.Builder alertDelete = new AlertDialog.Builder(context);
+                alertDelete.setTitle("Delete Item");
+                alertDelete.setMessage("Are you sure you want to delete this"
+                    + thisList.getName() + "?");
+                alertDelete.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        User.getInstance().deleteList(thisList.getId()); // from the User
+                        remove(thisList); //from this ArrayAdapter
+                    }
+                });
+                alertDelete.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // close dialog
+                        dialog.cancel();
+                    }
+                });
+                alertDelete.show();
             }
         });
 
