@@ -34,8 +34,8 @@ public class GroceryItemAdapter extends ArrayAdapter {
         tvName.setText(thisItem.getName());
         TextView tvType = rowView.findViewById(R.id.tv_grocery_item_type);
         tvType.setText(thisItem.getType());
-        TextView tvId = rowView.findViewById(R.id.tv_grocery_item_id); //here for testing purposes
-        tvId.setText(""+thisItem.getId());
+        //TextView tvId = rowView.findViewById(R.id.tv_grocery_item_id); //here for testing purposes
+        //tvId.setText(""+thisItem.getId());
         CheckBox cbSelected = rowView.findViewById(R.id.grocery_item_checkbox);
         if (thisItem.isSelected())
             cbSelected.setChecked(true);

@@ -160,7 +160,12 @@ public class GroceryList implements Parcelable {
 
     public static final Parcelable.Creator<GroceryList> CREATOR = new Parcelable.Creator<GroceryList>() {
         public GroceryList createFromParcel(Parcel in) {
-            return new GroceryList(in);
+            int id = in.readInt();
+            GroceryList l = User.getInstance().getGroceryList(id);
+            if (l == null)
+                return new GroceryList(in);
+            else
+                return l;
         }
 
         public GroceryList[] newArray(int size) {
@@ -172,7 +177,7 @@ public class GroceryList implements Parcelable {
     private GroceryList(Parcel in) {
         id = in.readInt();
         name = in.readString();
-        list = User.getInstance().getGroceryList(id).getList();
+        list = new LinkedHashMap<>();
         isSelected = in.readBoolean();
     }
 }

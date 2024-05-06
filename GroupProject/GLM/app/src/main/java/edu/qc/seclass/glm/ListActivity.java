@@ -54,9 +54,8 @@ public class ListActivity extends AppCompatActivity {
 
     private void setupListeners() {
         btnBackList.setOnClickListener(v -> {
-            //save any name change to user's exact instance of list
-            GroceryList l = User.getInstance().getGroceryList(thisList.getId());
-            l.setName(etNameList.getText().toString());
+            //save any name change
+            thisList.setName(etNameList.getText().toString());
             finish();
         });
         btnDelete.setOnClickListener( new View.OnClickListener() {
