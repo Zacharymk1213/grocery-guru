@@ -43,15 +43,12 @@ public class GroceryItem implements Parcelable {
 
     public String getType() { return type; }
     public void setType(String t) { type = t; }
+    
+    public int getQuantity() { return quantity; }
+    public void setQuantity(int amount) { quantity = amount; }
 
     public boolean isSelected() { return isSelected; }
     public void setSelected(boolean tf) { isSelected = tf; }
-    
-    /**
-     * Set <b>quantity</b> to <b>amount</b> given
-     * @param amount to be changed
-     */
-    public void setQuantity(int amount) { quantity = amount; }
 
     /**
      * Set postive <b>amount</b> to increase, negative <b>amount</b> to decrease

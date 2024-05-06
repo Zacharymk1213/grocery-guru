@@ -41,6 +41,7 @@ public class ListEntryActivity extends AppCompatActivity {
         //set item textViews
         tvName.setText(thisItem.getName());
         tvType.setText(thisItem.getType().toLowerCase());
+        editTextQuantity.setText(""+thisItem.getQuantity());
     }
 
     private void setupListeners() {
@@ -59,7 +60,9 @@ public class ListEntryActivity extends AppCompatActivity {
 
     private void saveItem() {
         int quantity = Integer.parseInt(editTextQuantity.getText().toString().trim());
-        thisItem.setQuantity(quantity);
+        //save to the list's exact instance of item
+        GroceryItem i = openedList.getItem(thisItem.getId());
+        i.setQuantity(quantity);
     }
 
     private void deleteItem() {
