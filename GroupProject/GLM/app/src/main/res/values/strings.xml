@@ -12,6 +12,7 @@
     <string name="select_unselect">Select All</string>
 
         <!-- input prompts -->
+    <string name="enter_list_name">Enter List Name</string>
     <string name="enter_item_name">Enter Item Name</string>
     <string name="enter_item_type">Enter Item Type</string>
     <string name="number_zero">0</string>
@@ -26,6 +27,9 @@
     <string name="create_new_list">Create List</string>string>
     <string name="search_item">Search Item</string>string>
     <string name="search_type">Browse Type</string>string>
+
+    <!-- Create List Page -->
+    <string name="create_list">Create List</string>
 
     <!-- List Page -->
     <string name="list_name">insert_name</string>
