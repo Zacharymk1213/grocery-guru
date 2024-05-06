@@ -6,13 +6,17 @@
     android:layout_height="match_parent">
 
 
-    <TextView
-        android:id="@+id/tv_name_List"
+    <EditText
+        android:id="@+id/et_name_List"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/list_name"
         android:textSize="34sp"
+        android:gravity="center"
+        android:hint="@string/enter_list_name"
+        android:inputType="text"
+        android:background="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,7 +28,7 @@
         android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name_List">
+        app:layout_constraintTop_toBottomOf="@+id/et_name_List">
 
         <Button
             android:id="@+id/btn_back_List"
@@ -57,8 +61,8 @@
             android:layout_height="wrap_content"
             android:text="@string/delete"
             app:layout_constraintBottom_toBottomOf="@+id/btn_back_List"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/button_check"
+            app:layout_constraintStart_toEndOf="@+id/btn_back_List"
             app:layout_constraintTop_toTopOf="@+id/btn_back_List"
             app:layout_constraintVertical_bias="0.0" />
 

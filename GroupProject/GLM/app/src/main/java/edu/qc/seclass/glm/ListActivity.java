@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ListActivity extends AppCompatActivity {
@@ -17,9 +17,9 @@ public class ListActivity extends AppCompatActivity {
     private boolean checkedAll = false;
 
     //GUI components
+    private EditText etNameList;
     private Button btnBackList, btnDelete, btnCheckAll,
         btnSearchItemList, btnSearchTypeList;
-    private TextView tvNameList;
     private ListView lvListItems;
 
 
@@ -37,24 +37,28 @@ public class ListActivity extends AppCompatActivity {
         setupListeners();
 
         //must be after initializeUI()
-        tvNameList.setText(thisList.getName());
+        etNameList.setText(thisList.getName());
+        btnDelete.setText("Delete List");
         btnCheckAll.setText("Check All");
     }
 
     private void initializeUI() {
+        etNameList = findViewById(R.id.et_name_List);
         btnBackList = findViewById(R.id.btn_back_List);
         btnDelete = findViewById(R.id.btn_delete);
         btnCheckAll = findViewById(R.id.button_check);
         btnSearchItemList = findViewById(R.id.btn_search_item_List);
         btnSearchTypeList = findViewById(R.id.btn_search_type_List);
         lvListItems = findViewById(R.id.list_of_items);
-
-        tvNameList = findViewById(R.id.tv_name_List);
-
     }
 
     private void setupListeners() {
-        btnBackList.setOnClickListener(v -> finish());
+        btnBackList.setOnClickListener(v -> {
+            //save any name change to user's exact instance of list
+            GroceryList l = User.getInstance().getGroceryList(thisList.getId());
+            l.setName(etNameList.getText().toString());
+            finish();
+        });
         btnDelete.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
