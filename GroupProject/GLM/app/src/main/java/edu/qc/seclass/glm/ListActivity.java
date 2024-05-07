@@ -59,6 +59,8 @@ public class ListActivity extends AppCompatActivity {
         btnBackList.setOnClickListener(v -> {
             //save any name change
             thisList.setName(etNameList.getText().toString());
+            //save file
+            User.getInstance().saveUserData();
             finish();
         });
         btnDeleteChecked.setOnClickListener( new View.OnClickListener() {
@@ -75,6 +77,8 @@ public class ListActivity extends AppCompatActivity {
                             thisListItems.remove(i);
                         //refresh
                         displayItems();
+                        //save file
+                        User.getInstance().saveUserData();
                     }
                 });
                 alertDelete.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
@@ -103,6 +107,8 @@ public class ListActivity extends AppCompatActivity {
                 }
                 //refresh
                 displayItems();
+                //save file
+                User.getInstance().saveUserData();
             }
         });
         
@@ -150,7 +156,8 @@ public class ListActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         //save user data! User only!
-        User.getInstance().saveUserData(getApplicationContext());
+        //User.getInstance().saveUserData();
+        // ^we don't need this since everything is saved immediately after
     }
 
     //called automatically when user returns to this activity

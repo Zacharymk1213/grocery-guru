@@ -72,6 +72,8 @@ public class GroceryListAdapter extends ArrayAdapter {
                     public void onClick(DialogInterface dialog, int which) {
                         User.getInstance().deleteList(thisList.getId()); // from the User
                         remove(thisList); //from this ArrayAdapter
+                        //save file
+                        User.getInstance().saveUserData();
                     }
                 });
                 alertDelete.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {

@@ -28,6 +28,7 @@ import java.util.Set;
  * @author Jiafeng Lin
  */
 public class GroceryDatabase {
+    private Context appContext;
     private LinkedHashMap<Integer, GroceryItem> db;
     private static GroceryDatabase instance = null;
 
@@ -40,6 +41,14 @@ public class GroceryDatabase {
             instance = new GroceryDatabase();
         }
         return instance;
+    }
+
+    /**
+     * sets the context for save and load
+     * @param c
+     */
+    public void setContext(Context c) {
+        appContext = c;
     }
 
     /**
@@ -233,9 +242,9 @@ public class GroceryDatabase {
      * save all grocery item entries in database to item_database.json
      * @return 0 if save is successful
      */
-    public int saveDatabase(Context context) {
+    public int saveDatabase() {
         try (BufferedWriter out = new BufferedWriter(
-                new OutputStreamWriter(context.openFileOutput("item_database.json", 0))
+                new OutputStreamWriter(appContext.openFileOutput("item_database.json", 0))
         )) {
             // Create JSON object for user data
             JSONObject userDataJson = getJSONObject();
@@ -257,9 +266,9 @@ public class GroceryDatabase {
      * load all grocery item entries in database from item_database.json
      * @return 0 if load is successful
      */
-    public int loadDatabase(Context context) {
+    public int loadDatabase() {
         try (BufferedReader reader = new BufferedReader(
-                new InputStreamReader(context.openFileInput("item_database.json"))
+                new InputStreamReader(appContext.openFileInput("item_database.json"))
         )) {
             StringBuilder jsonData = new StringBuilder();
             String line;

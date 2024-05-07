@@ -110,6 +110,8 @@ public class GroceryItemAdapter extends ArrayAdapter {
                         public void onClick(DialogInterface dialog, int which) {
                             parentList.deleteItem(thisItem.getId());
                             remove(thisItem); //from this ArrayAdapter
+                            //save file
+                            User.getInstance().saveUserData();
                         }
                     });
                     alertDelete.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {

@@ -53,7 +53,8 @@ public class NewEntryActivity extends AppCompatActivity {
                 else {
                     GroceryDatabase db = GroceryDatabase.getInstance();
                     db.putItem(itemName, type);
-                    db.saveDatabase(getApplicationContext());
+                    // save file
+                    db.saveDatabase();
                     finish();
                 }
             }
@@ -89,7 +90,6 @@ public class NewEntryActivity extends AppCompatActivity {
      * get types from the database
      */
     private void getTypesInDatabase() {
-        //typesSet = ListOfType.loadTypesFromJSON(getApplicationContext());
-        typesSet = GroceryDatabase.getInstance().getTypes(); //avoid I/O as much as possible
+        typesSet = GroceryDatabase.getInstance().getTypes();
     }
 }

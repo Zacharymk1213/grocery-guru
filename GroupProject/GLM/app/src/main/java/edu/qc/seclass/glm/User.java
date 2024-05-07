@@ -26,6 +26,7 @@ import java.util.Set;
  * @author Jiafeng Lin
  */
 public class User {
+    private Context appContext;
     private String name;
     private  TreeMap<Integer, GroceryList> lists;
     private static User instance = null;
@@ -40,6 +41,14 @@ public class User {
           instance = new User();
        }
        return instance;
+    }
+
+    /**
+     * sets the context for save and load
+     * @param c
+     */
+    public void setContext(Context c) {
+        appContext = c;
     }
 
     //access methods
@@ -131,9 +140,9 @@ public class User {
      * save all user data, including their grocery lists, to user_data.json
      * @return 0 if save is successful
      */
-    public int saveUserData(Context context) {
+    public int saveUserData() {
         try (BufferedWriter out = new BufferedWriter(
-                new OutputStreamWriter(context.openFileOutput("user_data.json", 0))
+                new OutputStreamWriter(appContext.openFileOutput("user_data.json", 0))
                 )) {
             // Create JSON object for user data
             JSONObject userDataJson = getJSONObject();
@@ -155,9 +164,9 @@ public class User {
      * load all user data, including their grocery lists, from user_data.json
      * @return 0 if load is successful
      */
-    public int loadUserData(Context context) {
+    public int loadUserData() {
         try (BufferedReader reader = new BufferedReader(
-                new InputStreamReader(context.openFileInput("user_data.json"))
+                new InputStreamReader(appContext.openFileInput("user_data.json"))
                 )) {
             StringBuilder jsonData = new StringBuilder();
             String line;

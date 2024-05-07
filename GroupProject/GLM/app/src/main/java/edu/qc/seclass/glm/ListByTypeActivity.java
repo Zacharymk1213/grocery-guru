@@ -80,7 +80,7 @@ public class ListByTypeActivity extends AppCompatActivity {
                     }
                     if (anySelected) {
                         // change has been made, save!
-                        User.getInstance().saveUserData(getApplicationContext());
+                        User.getInstance().saveUserData();
                         Toast.makeText(ListByTypeActivity.this,
                             "Added Successfully",
                             Toast.LENGTH_SHORT).show();

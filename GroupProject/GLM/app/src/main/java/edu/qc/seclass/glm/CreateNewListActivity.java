@@ -35,7 +35,7 @@ public class CreateNewListActivity extends AppCompatActivity {
                     // Create a new grocery list with the stored context
                     User user = User.getInstance();
                     GroceryList newGroceryList = user.createList(listName);
-                    user.saveUserData(getApplicationContext());
+                    user.saveUserData();
 
                     //pass it back to MainActivity
                     Intent resultIntent = new Intent();

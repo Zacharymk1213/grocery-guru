@@ -32,7 +32,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (loadAllData(getApplicationContext()) != 0)
+        //initialize db and user, give them context once and for all
+        GroceryDatabase.getInstance().setContext(getApplicationContext());
+        User.getInstance().setContext(getApplicationContext());
+        
+        //load data, must load context into db and user first
+        if (loadAllData() != 0)
             // load failed, handle error
             Toast.makeText(this, "Error loading data", Toast.LENGTH_SHORT).show();
             
@@ -110,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         //user might've exited app, save data!
-        saveAllData(getApplicationContext());
+        saveAllData();
     }
 
     //called automatically when user returns to main activity
@@ -126,10 +131,10 @@ public class MainActivity extends AppCompatActivity {
      * user data and database should be stored in two separate files
      * @return 0 if load is successful
      */
-    private int loadAllData(Context context) {
+    private int loadAllData() {
         // Must load database before user data
-        int err = GroceryDatabase.getInstance().loadDatabase(context);
-        err += User.getInstance().loadUserData(context);
+        int err = GroceryDatabase.getInstance().loadDatabase();
+        err += User.getInstance().loadUserData();
         return err;
     }
 
@@ -138,9 +143,9 @@ public class MainActivity extends AppCompatActivity {
      * user data and database should be stored in two separate files
      * @return 0 if save is successful
      */
-    private int saveAllData(Context context) {
-        int err = GroceryDatabase.getInstance().saveDatabase(context);
-        err += User.getInstance().saveUserData(context);
+    private int saveAllData() {
+        int err = GroceryDatabase.getInstance().saveDatabase();
+        err += User.getInstance().saveUserData();
         return err;
     }
 

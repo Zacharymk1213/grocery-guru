@@ -56,14 +56,7 @@ public class ListEntryActivity extends AppCompatActivity {
         int quantity = Integer.parseInt(editTextQuantity.getText().toString().trim());
         //save to the list's exact instance of item
         openedList.getItem(thisItem.getId()).setQuantity(quantity);
-    }
-
-    //called automatically when user moved away from this activity
-    //(i.e. homepage is not on the screen any more)
-    @Override
-    protected void onPause() {
-        super.onPause();
         //save user data! User only!
-        User.getInstance().saveUserData(getApplicationContext());
+        User.getInstance().saveUserData();
     }
 }

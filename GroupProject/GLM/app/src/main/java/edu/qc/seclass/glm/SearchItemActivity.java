@@ -109,7 +109,7 @@ public class SearchItemActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                     if (anyAdded) {
                         // change has been made, save!
-                        User.getInstance().saveUserData(getApplicationContext());
+                        User.getInstance().saveUserData();
                         Toast.makeText(SearchItemActivity.this,
                             "Added Successfully",
                             Toast.LENGTH_SHORT).show();
