@@ -76,15 +76,6 @@ The use case diagram visually represents the interaction between the user (actor
     
 ### Use Case 8:
 
-| Use Case | Select Item |
-|----|----| 
-| **Requirements** | User is allowed to choose items in their grocery lists to perform the next operation, such as adding, and deleting. | 
-| **Pre-conditions** | There is a list of items displayed from a search operation or when viewing  a list. |
-| **Post-conditions** | The selected item is highlighted or marked in the system. |
-| **Scenarios** | **Normal:**<br>1. The user searches for items or views a list.<br>2. The user selects an item from the displayed results.<br>3. The system recognizes the selected item and provides other operations for the next step.<br>**Alternate:**<br>The user can deselect the items or select different items.<br>**Exceptional:**<br>1. The system encounters an issue while selecting the item.<br>2. The user is advised to retry the operation.<br>3. If the problem persists, the system advises the user to contact the support.<br>|
-
-### Use Case 9:
-
 | Use Case | Add Items |
 |----|----|  
 | **Requirements** | The user is allowed to directly add items to their chosen grocery list. | 
@@ -92,7 +83,7 @@ The use case diagram visually represents the interaction between the user (actor
 | **Post-conditions** | The new item is added to the chosen list. |
 | **Scenarios** | **Normal:**<br>1. The user searches the item in the database and then selects the item.<br>2. The user inputs the details of the new item and then clicks the add items option.<br>3. The system validates the new item and then adds it to the list.<br>**Alternate:**<br>If the user attempts to add an item that already exists on the list, the system prompts them to update the existing item’s quantity instead of adding a duplicate.<br>**Exceptional:**<br>1. The system encounters an issue while adding the item.<br>2. The user is advised to retry the operation.<br>3. If the problem persists, the system advises the user to contact the support.<br>| 
   
-### Use Case 10:
+### Use Case 9:
 
 | Use Case | Delete Item |
 |----|----|  
@@ -103,7 +94,7 @@ The use case diagram visually represents the interaction between the user (actor
   
 
   
-### Use Case 11:
+### Use Case 10:
 
 | Use Case | Change Quantity |
 |----|----| 
@@ -114,7 +105,7 @@ The use case diagram visually represents the interaction between the user (actor
 
 
 
-### Use Case 12:
+### Use Case 11:
 
 | Use Case | Save List |
 |----|----|  
