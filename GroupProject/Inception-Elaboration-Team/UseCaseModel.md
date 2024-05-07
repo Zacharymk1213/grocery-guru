@@ -83,17 +83,8 @@ The use case diagram visually represents the interaction between the user (actor
 | **Pre-conditions** | The database contains items categorized by various types. |
 | **Post-conditions** | A list of items that match the specific type is displayed on the dashboard for the user. |
 | **Scenarios** | **Normal:**<br>1. The user navigates to the search interface.<br>2. The user enters a type and clicks the search option.<br>3. The system retrieves all items matching the entered type.<br>4. The system displays the result on the dashboard.<br>**Alternate:**<br>If there are no items found, then the system informs the user and suggests the user add a new item to the database or check other types.<br>**Exceptional:**<br>1. The system encounters an error while attempting to retrieve items by type.<br>2. The user is advised to retry the operation.<br>3. If the problem persists, the system advises the user to contact the support.<br>| 
-  
+    
 ### Use Case 9:
-
-| Use Case | Add Selected To List |
-|----|----| 
-| **Requirements** | User must be allowed to add specific items they have previously selected to their grocery lists. | 
-| **Pre-conditions** | The User has an active grocery list and items have been selected. |
-| **Post-conditions** | The chosen items are added to the user's active grocery list. |
-| **Scenarios** | **Normal:**<br>1. The user selects items in the database.<br>2. The user clicks the add selected to list option.<br>3. The system processes the request and adds selected items to the user's active list.<br>**Exceptional:**<br>1. The system encounters an issue while adding the selected items to the list.<br>2. The user is advised to retry the operation.<br>3. If the problem persists, the system advises the user to contact the support.<br>|
-  
-### Use Case 10:
 
 | Use Case | Select Item |
 |----|----| 
@@ -102,7 +93,7 @@ The use case diagram visually represents the interaction between the user (actor
 | **Post-conditions** | The selected item is highlighted or marked in the system. |
 | **Scenarios** | **Normal:**<br>1. The user searches for items or views a list.<br>2. The user selects an item from the displayed results.<br>3. The system recognizes the selected item and provides other operations for the next step.<br>**Alternate:**<br>The user can deselect the items or select different items.<br>**Exceptional:**<br>1. The system encounters an issue while selecting the item.<br>2. The user is advised to retry the operation.<br>3. If the problem persists, the system advises the user to contact the support.<br>|
 
-### Use Case 11:
+### Use Case 10:
 
 | Use Case | Add Items |
 |----|----|  
@@ -111,7 +102,7 @@ The use case diagram visually represents the interaction between the user (actor
 | **Post-conditions** | The new item is added to the chosen list. |
 | **Scenarios** | **Normal:**<br>1. The user searches the item in the database and then selects the item.<br>2. The user inputs the details of the new item and then clicks the add items option.<br>3. The system validates the new item and then adds it to the list.<br>**Alternate:**<br>If the user attempts to add an item that already exists on the list, the system prompts them to update the existing item’s quantity instead of adding a duplicate.<br>**Exceptional:**<br>1. The system encounters an issue while adding the item.<br>2. The user is advised to retry the operation.<br>3. If the problem persists, the system advises the user to contact the support.<br>| 
   
-### Use Case 12:
+### Use Case 11:
 
 | Use Case | Delete Item |
 |----|----|  
@@ -122,7 +113,7 @@ The use case diagram visually represents the interaction between the user (actor
   
 
   
-### Use Case 13:
+### Use Case 12:
 
 | Use Case | Change Quantity |
 |----|----| 
@@ -133,7 +124,7 @@ The use case diagram visually represents the interaction between the user (actor
 
 
 
-### Use Case 14:
+### Use Case 13:
 
 | Use Case | Save List |
 |----|----|  
