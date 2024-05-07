@@ -160,34 +160,9 @@ The use case diagram visually represents the interaction between the user (actor
 | **Post-conditions** | The quantity of the specified item is updated on the user's list. |
 | **Scenarios** | **Normal:**<br>1. The user views the items on their list and selects the item they wish to change the quantity.<br>2. The user enters a new quantity and clicks the change quantity option.<br>3. The system verifies the new quantity and updates the item's quantity on the list.<br>**Exceptional:**<br>1. The system encounters an issue while updating the quantity.<br>2. The user is advised to retry the operation.<br>3. If the problem persists, the system advises the user to contact the support.<br>| 
 
+
+
 ### Use Case 17:
-
-| Use Case | Check Off |
-|----|----| 
-| **Requirements** | The User is allowed to mark items on their grocery list as purchased or completed. | 
-| **Pre-conditions** | The User has an active list containing items that have not yet been checked off. |
-| **Post-conditions** | The selected item is marked as purchased or completed on the list. |
-| **Scenarios** | **Normal:**<br>1. The user selects an item on their grocery list.<br>2. The user clicks the checkoff option to mark the selected item.<br>3. The system updates the item's status to check off.<br>**Exceptional:**<br>1. The system encounters an issue while trying to mark the item.<br>2. The user is advised to retry the operation.<br>3. If the problem persists, the system advises the user to contact the support.<br>|
-
-### Use Case 18:
-
-| Use Case | Clear Check Off |
-|----|----| 
-| **Requirements** | The User is allowed to remove the checkoff status from items on their grocery list. | 
-| **Pre-conditions** | The User has the active list that contains the marked items open. |
-| **Post-conditions** | The checkoff status is removed from the selected item. |
-| **Scenarios** | **Normal:**<br>1. The user opens the list that contains items marked as checkoff.<br>2. The user selects the marked items and invokes the clear checkoff method to remove the checkoff status.<br>3. The system updates the item's status.<br>**Exceptional:**<br>1. The system encounters an issue while trying to remove the checkoff status.<br>2. The user is advised to retry the operation.<br>3. If the problem persists, the system advises the user to contact the support.<br>| 
-
-### Use Case 19:
-
-| Use Case | Sort By Type |
-|----|----| 
-| **Requirements** | User is allowed to sort items on their grocery list by type. | 
-| **Pre-conditions** | The user has an active list open and it contains multiple items categorized by type. |
-| **Post-conditions** | The grocery list is reorganized so that items are grouped and displayed by their type. |
-| **Scenarios**| **Normal:**<br>1. The user opens a grocery list they wish to sort.<br>2. The user selects the sort by type option.<br>3. The system processes the list and rearranges the items.<br>**Exceptional:**<br>1. The system encounters an issue while trying to sort the list by type.<br>2. The user is advised to retry the operation.<br>3. If the problem persists, the system advises the user to contact the support.<br>|
-
-### Use Case 20:
 
 | Use Case | Save List |
 |----|----|  
