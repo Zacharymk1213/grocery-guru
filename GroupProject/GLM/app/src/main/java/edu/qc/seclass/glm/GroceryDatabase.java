@@ -93,6 +93,17 @@ public class GroceryDatabase {
         return copyItem(entry.getId());
     }
 
+    public void remove(int itemId) {
+        db.remove(itemId);
+    }
+
+    /**
+     * @return all the item entries in database
+     */
+    public ArrayList<GroceryItem> getAllItems() {
+        return new ArrayList<GroceryItem>(db.values());
+    }
+
     /**
      * Search <b>name</b> in database entries and return items of similar name
      * @param name
