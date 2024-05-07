@@ -29,7 +29,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //test
-        //GroceryDatabase db = GroceryDatabase.getInstance(); //enable these lines to reset app data
+        GroceryDatabase db = GroceryDatabase.getInstance();
+        initaldatabase.populate(db);
+        //enable these lines to reset app data
         //db.putItem(1, "Apple", "Fruit");
         //db.putItem(2, "Banana", "Fruit");
         //db.putItem(3, "Carrot", "Vegetable");
