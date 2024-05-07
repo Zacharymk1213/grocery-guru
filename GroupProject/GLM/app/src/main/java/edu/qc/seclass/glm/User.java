@@ -46,12 +46,16 @@ public class User {
     public String getName() { return name; }
     public void setName(String n) { name = n; }
 
+    /**
+     * @param listID
+     * @return the GroceryList of the given ID
+     */
     public GroceryList getGroceryList(int listID) {
         return lists.get(listID);
     }
     
     /*
-     * Returns all lists
+     * Returns all lists of user
      */
     public ArrayList<GroceryList> getLists() {
         return new ArrayList<GroceryList>(lists.values());
@@ -183,7 +187,7 @@ public class User {
                     JSONObject jItem = listItems.getJSONObject(items.next());
                     //this item better be in the database, or else something went wrong
                     GroceryItem gItem = database.copyItem(jItem.getInt("id"));
-                    gItem.updateQuantity(jItem.getInt("quantity"));
+                    gItem.setQuantity(jItem.getInt("quantity"));
                     gItem.setSelected(jItem.getBoolean("isSelected"));
                     gList.addItem(gItem);
                 }

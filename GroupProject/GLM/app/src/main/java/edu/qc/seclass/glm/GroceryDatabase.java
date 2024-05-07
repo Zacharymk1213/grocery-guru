@@ -43,6 +43,13 @@ public class GroceryDatabase {
     }
 
     /**
+     * @return true if the database has no entry
+     */
+    public boolean isEmpty() {
+        return db.size() == 0;
+    }
+
+    /**
      * Return a copied instance of item with <b>id</b>
      * @param itemID
      * @return
@@ -58,7 +65,6 @@ public class GroceryDatabase {
             return null;
         }
     }
-
 
     /**
      * Will only put a existing item into database without returning the object <p>

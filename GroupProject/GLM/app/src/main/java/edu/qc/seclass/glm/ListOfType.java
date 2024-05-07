@@ -29,6 +29,7 @@ public class ListOfType {
 
     //access methods
     public String getType() { return type; }
+    // setType is illegal, type should not change
 
     /**
      * @return all the items in list through an array
@@ -44,40 +45,5 @@ public class ListOfType {
      */
     public void addItem(GroceryItem item) {
         items.put(item.getId(), item);
-    }
-
-    /**
-     * Selects the grocery item of matching ID
-     *
-     * @param itemID
-     */
-    public void selectItem(int itemID) {
-        GroceryItem item = items.get(itemID);
-        if (item != null) {
-            item.setSelected(true);
-        }
-    }
-
-    /**
-     * Adds all selected items in this ListOfType to targetList
-     *
-     * @param targetList
-     */
-    public void addSelectedToList(GroceryList targetList) {
-        for (GroceryItem item : items.values()) {
-            if (item.isSelected()) {
-                targetList.addItem(item);
-            }
-        }
-    }
-
-    /**
-     * Adds the clicked item to targetList
-     *
-     * @param item
-     * @param targetList
-     */
-    public void addItemToList(GroceryItem item, GroceryList targetList) {
-        targetList.addItem(item);
     }
 }

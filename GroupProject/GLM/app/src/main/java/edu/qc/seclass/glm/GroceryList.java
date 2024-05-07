@@ -45,10 +45,10 @@ public class GroceryList implements Parcelable {
     public String getName() { return name; }
     public void setName(String n) { name = n; }
 
+    public LinkedHashMap<Integer, GroceryItem> getList() { return list; }
+
     public boolean isSelected() { return isSelected; }
     public void setSelected(boolean tf) { isSelected = tf; }
-
-    public LinkedHashMap<Integer, GroceryItem> getList() { return list; }
 
     /**
      * Return the item from grocery list if it exists
@@ -82,41 +82,6 @@ public class GroceryList implements Parcelable {
     public GroceryItem deleteItem(int itemID) {
         return list.remove(itemID);
     }
-    
-    /**
-     * Change the quantity of item of ID;
-     * postive <b>amount</b> to increase, negative <b>amount</b> to decrease
-     * @param itemID
-     * @param amount
-     */
-    public void changeQuantity(int itemID, int amount) {
-        getItem(itemID).updateQuantity(amount);
-    }
-
-    /**
-     * Mark the grocery item on list as checkedOff
-     * @param itemID
-     */
-    public void checkOff(int itemID) {
-        GroceryItem item = getItem(itemID);
-        if (item != null) {
-            item.setSelected(true);
-        }
-        // No toast message shown when the item is not found in the list
-    }
-
-    /**
-     * Iterates through the entire list, clear off their selection
-     */
-    public void clearCheckOff() {
-        Set<Integer> itemIDs = list.keySet();
-        for (int id : itemIDs)
-            list.get(id).setSelected(false);
-    }
-
-    public String toString() {
-        return "{" + id + ", " + name + ", " + isSelected + "}";
-    }
 
     /**
      * Returns a JSONObject containing list data such that <p>
@@ -143,7 +108,6 @@ public class GroceryList implements Parcelable {
         return listJson;
     }
 
-    
     //----------------Parcelable
 
     @Override

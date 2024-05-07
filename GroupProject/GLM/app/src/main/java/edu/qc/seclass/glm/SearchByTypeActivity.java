@@ -85,8 +85,7 @@ public class SearchByTypeActivity extends AppCompatActivity {
      * get types from the database
      */
     private void getTypesInDatabase() {
-        //typesSet = ListOfType.loadTypesFromJSON(getApplicationContext());
-        typesSet = GroceryDatabase.getInstance().getTypes(); //avoid I/O as much as possible
+        typesSet = GroceryDatabase.getInstance().getTypes();
     }
 }
 

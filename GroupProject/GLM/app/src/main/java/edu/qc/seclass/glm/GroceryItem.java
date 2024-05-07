@@ -51,24 +51,6 @@ public class GroceryItem implements Parcelable {
     public void setSelected(boolean tf) { isSelected = tf; }
 
     /**
-     * Set postive <b>amount</b> to increase, negative <b>amount</b> to decrease
-     * @param amount to be changed
-     */
-    public void updateQuantity(int amount) {
-        if (this != null) {
-            quantity += amount;
-        } else {
-            // Handle the case where the GroceryItem object is null
-            // For example, you can log an error message
-            System.err.println("Error: Attempted to update quantity on a null GroceryItem object");
-        }
-    }
-
-    public String toString() {
-        return "{" + id + ", " + name + ", " + quantity + "}";
-    }
-
-    /**
      * Returns a JSONObject containing item data such that <p>
      * "id" : id <p>
      * "name" : name <p>

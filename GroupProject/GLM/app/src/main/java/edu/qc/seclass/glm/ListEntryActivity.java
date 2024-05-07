@@ -13,7 +13,7 @@ public class ListEntryActivity extends AppCompatActivity {
     private GroceryItem thisItem;
 
     //GUI components
-    private Button btnBack, btnSave, btnDelete;
+    private Button btnBack, btnSave;
     private TextView tvName, tvType;
     private EditText editTextQuantity;
 
@@ -31,7 +31,6 @@ public class ListEntryActivity extends AppCompatActivity {
         // Initialize the UI components
         btnBack = findViewById(R.id.btn_back);
         btnSave = findViewById(R.id.btn_save);
-        //btnDelete = findViewById(R.id.btn_delete);
         tvName = findViewById(R.id.tv_name);
         tvType = findViewById(R.id.tv_type);
         editTextQuantity = findViewById(R.id.editText_quantity);
@@ -47,11 +46,6 @@ public class ListEntryActivity extends AppCompatActivity {
     private void setupListeners() {
         btnBack.setOnClickListener(v -> finish());
 
-        //btnDelete.setOnClickListener(v -> {
-        //    deleteItem();
-        //    finish();
-        //});
-
         btnSave.setOnClickListener(v -> {
             saveItem();
             finish();
@@ -61,12 +55,7 @@ public class ListEntryActivity extends AppCompatActivity {
     private void saveItem() {
         int quantity = Integer.parseInt(editTextQuantity.getText().toString().trim());
         //save to the list's exact instance of item
-        GroceryItem i = openedList.getItem(thisItem.getId());
-        i.setQuantity(quantity);
-    }
-
-    private void deleteItem() {
-       openedList.deleteItem(thisItem.getId());
+        openedList.getItem(thisItem.getId()).setQuantity(quantity);
     }
 
     //called automatically when user moved away from this activity

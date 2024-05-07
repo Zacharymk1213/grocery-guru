@@ -118,13 +118,6 @@ public class ListByTypeActivity extends AppCompatActivity {
 
     }
 
-    //called automatically when user moved away from this activity
-    //(i.e. homepage is not on the screen any more)
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
     //called automatically when user returns to this activity
     @Override
     protected void onResume() {

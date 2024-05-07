@@ -49,9 +49,6 @@ public class CreateNewListActivity extends AppCompatActivity {
             }
         });
 
-
-
-
         // Set click listener for the back button
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
