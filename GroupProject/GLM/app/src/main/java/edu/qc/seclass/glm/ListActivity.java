@@ -72,9 +72,13 @@ public class ListActivity extends AppCompatActivity {
                 alertDelete.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         //important: must be from last to first since we are doing remove()
-                        for (int i = thisListItems.size()-1; i >= 0; i--)
-                        if (thisListItems.get(i).isSelected())
-                            thisListItems.remove(i);
+                        for (int i = thisListItems.size()-1; i >= 0; i--) {
+                            GroceryItem thisItem = thisListItems.get(i);
+                            if (thisItem.isSelected()) {
+                                thisListItems.remove(i);
+                                thisList.deleteItem(thisItem.getId());
+                            }
+                        }
                         //refresh
                         displayItems();
                         //save file
