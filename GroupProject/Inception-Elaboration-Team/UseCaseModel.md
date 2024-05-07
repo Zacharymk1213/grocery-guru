@@ -51,7 +51,7 @@ The use case diagram visually represents the interaction between the user (actor
 
 | Use Case | Rename List|
 |----|----| 
-| **Requirements** | Allow users to change the name of any list they have created. The rename feature should ensure the list's name remains unique. | 
+| **Requirements** | Allow users to change the name of any list they have created. | 
 | **Pre-conditions** | User can access their existing lists and have one list selected to perform the next action. |
 | **Post-conditions** | The list's name is updated to a new name. |
 | **Scenarios** | **Normal:**<br>1. The user selects the list they wish to change the name with.<br>2. The user clicks the rename list option.<br>3. The user inputs a new unique name.<br>4. The system checks the uniqueness of the new name.<br>5. The system updates the list's name and confirms the change to the user.<br>**Alternate:**<br>1. If the new name is already exited, the system prompts the user to enter a different name.<br>2. The user inputs another name and the system retries the same process.<br>**Exceptional:**<br>1. The system encounters an issue when attempting to update the list's name.<br>2. The system displays an error message and suggests the user try again.<br>3. If the error still exists, the user is advised to contact customer support for further assistance.<br>|
