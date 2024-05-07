@@ -1,0 +1,46 @@
+GLM User Manual
+
+Authors: Lijie Wan, Jiafeng Lin
+
+Introduction
+    This manual provides instructions on how to use the GLM application to make grocery shopping easier and more organized.
+
+Getting Started
+    To begin using GLM, you need to have a list, which you can create from the homepage.
+
+Homepage Overview
+    The homepage provides quick access to all your lists and the option to create new ones.
+    From the homepage, you can browse and manage the database of all your grocery items; you may also search for an item in the database or browse the database by type.
+
+Viewing a List
+    To access a list, simply click on the list from the homepage.
+    To return to home, click the "Back" button to return to the homepage.
+
+Creating a New List
+    To create a new list, click the "Create New List" button on the homepage, enter a name for your new list, and then click the "Create List" button to create the list.
+
+Deleting a List
+    To delete an item, click on the "Delete/Trash" button next to each list on the homepage. You can also mass delete all selected lists.
+
+Managing Your Lists
+    To rename a list, simply tap the name of the list on the list page to rename it;
+    To delete items, click the "Delete/Trash" button next to each item. You can also mass delete all checked items.
+    To add items, you can browse items or browse type to add items from the database.
+
+Searching for Items by Name 
+    To search, input the item name in the search bar, then click "Search" to search.
+    Results will show items of similar names from the database.
+    To add an item, directly select the items you want to add from the search result then click "Add Selected."
+
+Searching for Items by type 
+    To browse a type, click a type in the list to browse all items in that type.
+    To add an item, select the items you want to add from the search result then click "Add Selected."
+
+Checking Off Items
+    To mark an item as purchased, click the checkbox in front of the item.
+
+Clearing Check-Off Marks
+    To clear all checked-off marks in a list, click the "check/uncheck all" button.
+
+Modifying Item Quantities
+    To change the quantity of an item, click on the item, enter a new quantity and click "Save."
