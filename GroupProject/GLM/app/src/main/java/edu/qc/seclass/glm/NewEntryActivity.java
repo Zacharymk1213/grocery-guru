@@ -10,6 +10,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+
 import java.util.ArrayList;
 import java.util.Set;
 
@@ -44,14 +48,32 @@ public class NewEntryActivity extends AppCompatActivity {
                     type = typeOther;
                 if (typeOther.isEmpty())
                     type = typeSelected;
+
                 //try add entry
-                
-                if (itemName.isEmpty())
+                if (itemName.isEmpty()) {
                     editTextName.setError("Item name cannot be empty");
-                else if (type.isEmpty())
-                    Toast.makeText(NewEntryActivity.this, "Type not selected nor given", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (type.isEmpty()) {
+                    Toast.makeText(NewEntryActivity.this, "Type not selected nor given",
+                        Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                GroceryDatabase db = GroceryDatabase.getInstance();
+                if (db.hasNameType(itemName, type)) {
+                    AlertDialog.Builder alertHelp = new AlertDialog.Builder(NewEntryActivity.this);
+                    alertHelp.setTitle("Oops!");
+                    alertHelp.setMessage("There appears to already be an item entry of "
+                        + "the same name and type!");
+                    alertHelp.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // close dialog
+                            dialog.dismiss();
+                        }
+                    });
+                    alertHelp.show();
+                }
                 else {
-                    GroceryDatabase db = GroceryDatabase.getInstance();
                     db.putItem(itemName, type);
                     // save file
                     db.saveDatabase();

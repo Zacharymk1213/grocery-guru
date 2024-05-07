@@ -52,13 +52,6 @@ public class GroceryDatabase {
     }
 
     /**
-     * @return true if the database has no entry
-     */
-    public boolean isEmpty() {
-        return db.size() == 0;
-    }
-
-    /**
      * Return a copied instance of item with <b>id</b>
      * @param itemID
      * @return
@@ -221,6 +214,33 @@ public class GroceryDatabase {
             if (db.get(id).getType().equals(type))
                 typeList.addItem(copyItem(id));
         return typeList;
+    }
+
+    /**
+     * Returns true if database already contains an entry <p>
+     * with same name and type, regardless of case
+     * @param name
+     * @param type
+     * @return boolean
+     */
+    public boolean hasNameType(String name, String type) {
+        name = name.toLowerCase();
+        type = type.toLowerCase();
+        Set<Integer> itemIDs = db.keySet();
+        for (int id : itemIDs) {
+            GroceryItem thisItem = db.get(id);
+            if (thisItem.getName().toLowerCase().equals(name)
+                && thisItem.getType().toLowerCase().equals(type))
+                return true;
+        }
+        return false;
+    }
+
+    /**
+     * @return true if the database has no entry
+     */
+    public boolean isEmpty() {
+        return db.size() == 0;
     }
 
     /**
