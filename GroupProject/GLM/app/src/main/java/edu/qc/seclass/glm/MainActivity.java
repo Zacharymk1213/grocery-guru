@@ -23,11 +23,13 @@ import android.app.AlertDialog.Builder;
 public class MainActivity extends AppCompatActivity {
 
     private ArrayList<GroceryList> userLists;
+    private boolean selectedAll = false;
 
     //GUI components
     private ListView myLists;
     private ImageButton ibtnAppManual;
-    private Button btnCreateNewList, btnSearchItem, btnSearchType;
+    private Button btnDatabase, btnDeleteSelected, btnSelectAll,
+        btnCreateNewList, btnSearchItem, btnSearchType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
         ibtnAppManual = findViewById(R.id.ibtn_app_manual);
         
         // Find the buttons by their IDs
+        btnDatabase = findViewById(R.id.btn_database);
+        btnDeleteSelected = findViewById(R.id.btn_delete_selected);
+        btnSelectAll = findViewById(R.id.btn_select_all);
         btnCreateNewList = findViewById(R.id.btn_create_new_list);
         btnSearchItem = findViewById(R.id.btn_search_item);
         btnSearchType = findViewById(R.id.btn_search_type);
@@ -76,12 +81,71 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Set click listeners for the buttons
+        btnDatabase.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Open the ManageDatabaseActivity
+                startActivity(new Intent(MainActivity.this, ManageDatabaseActivity.class));
+            }
+        });
+        btnDeleteSelected.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder alertDelete = new AlertDialog.Builder(MainActivity.this);
+                alertDelete.setTitle("Delete All Selected Lists");
+                alertDelete.setMessage("Are you sure you want to delete these lists?");
+                alertDelete.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        User user = User.getInstance();
+                        //important: must be from last to first since we are doing remove()
+                        for (int i = userLists.size()-1; i >= 0; i--) {
+                            GroceryList thisList = userLists.get(i);
+                            if (thisList.isSelected()) {
+                                userLists.remove(i);
+                                user.deleteList(thisList.getId());
+                            }
+                        }
+                        //refresh
+                        displayList();
+                        //save file
+                        user.saveUserData();
+                    }
+                });
+                alertDelete.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // close dialog
+                        dialog.cancel();
+                    }
+                });
+                alertDelete.show();
+            }
+        });
+        btnSelectAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (selectedAll) { //uncheck everything
+                    for (int i = 0; i < userLists.size(); i++)
+                        userLists.get(i).setSelected(false);
+                    btnSelectAll.setText("Select All");
+                    selectedAll = false;
+                }
+                else { //check everything
+                    for (int i = 0; i < userLists.size(); i++)
+                        userLists.get(i).setSelected(true);
+                    btnSelectAll.setText("Unselect All");
+                    selectedAll = true;
+                }
+                //refresh
+                displayList();
+                //save file
+                User.getInstance().saveUserData();
+            }
+        });
         btnCreateNewList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Open the Create New List activity
-                Intent intent = new Intent(MainActivity.this, CreateNewListActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(MainActivity.this, CreateNewListActivity.class));
             }
         });
         btnSearchItem.setOnClickListener(new View.OnClickListener() {
@@ -116,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
                     displayList();
                 }
             });
-            alertHelp.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+            alertHelp.setNegativeButton("No thanks", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     // close dialog
                     dialog.dismiss();
