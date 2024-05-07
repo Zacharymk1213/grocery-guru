@@ -21,6 +21,15 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
+    <ImageButton
+        android:id="@+id/ibtn_app_manual"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_title"
+        app:layout_constraintStart_toEndOf="@+id/textView_title"
+        app:layout_constraintTop_toTopOf="@+id/textView_title"
+        app:srcCompat="@android:drawable/ic_menu_info_details" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLists"
         android:layout_width="match_parent"
@@ -34,12 +43,13 @@
 
         <TextView
             android:id="@+id/myListsText"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:gravity="center"
+            android:layout_marginStart="16dp"
             android:text="@string/my_lists"
             android:textSize="26sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import android.content.DialogInterface;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     //GUI components
     private ListView myLists;
+    private ImageButton ibtnAppManual;
     private Button btnCreateNewList, btnSearchItem, btnSearchType;
 
     @Override
@@ -39,10 +41,12 @@ public class MainActivity extends AppCompatActivity {
         //load data, must load context into db and user first
         if (loadAllData() != 0)
             // load failed, handle error
-            Toast.makeText(this, "Error loading data", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Error loading data, first time?", Toast.LENGTH_SHORT).show();
             
         // Get list items
         myLists = findViewById(R.id.my_lists);
+
+        ibtnAppManual = findViewById(R.id.ibtn_app_manual);
         
         // Find the buttons by their IDs
         btnCreateNewList = findViewById(R.id.btn_create_new_list);
@@ -61,6 +65,13 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("groceryList", clickedList); //pass the bundle along
 
                 startActivity(intent);
+            }
+        });
+
+        ibtnAppManual.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Open the AppManual activity
+                startActivity(new Intent(MainActivity.this, AppManualActivity.class));
             }
         });
 
@@ -90,19 +101,25 @@ public class MainActivity extends AppCompatActivity {
 
         // first time entering app
         if (GroceryDatabase.getInstance().isEmpty() && User.getInstance().getName().equals("")) {
-            AlertDialog.Builder alertHelp = new AlertDialog.Builder(this);
+            AlertDialog.Builder alertHelp = new AlertDialog.Builder(MainActivity.this);
             alertHelp.setTitle("Hey There!");
             alertHelp.setMessage("Welcome to GroceryGuru, this app will help you keep track of all "
                 + "the groceries you'll need to buy! Would you like a new list and some basic "
                 + "grocery items to get started?");
             alertHelp.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
+                    AppHelper.populate(GroceryDatabase.getInstance());
+                    // create a default grocery list
+                    User user = User.getInstance();
+                    user.createList("New Market Groceries");
+                    user.saveUserData();
+                    displayList();
                 }
             });
             alertHelp.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     // close dialog
-                    dialog.cancel();
+                    dialog.dismiss();
                 }
             });
             alertHelp.show();

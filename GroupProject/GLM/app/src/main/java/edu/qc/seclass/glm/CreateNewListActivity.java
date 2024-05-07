@@ -2,7 +2,6 @@ package edu.qc.seclass.glm;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,13 +33,8 @@ public class CreateNewListActivity extends AppCompatActivity {
                 if (!listName.isEmpty()) {
                     // Create a new grocery list with the stored context
                     User user = User.getInstance();
-                    GroceryList newGroceryList = user.createList(listName);
+                    user.createList(listName);
                     user.saveUserData();
-
-                    //pass it back to MainActivity
-                    Intent resultIntent = new Intent();
-                    resultIntent.putExtra("newGroceryList", (Parcelable) newGroceryList);
-                    setResult(RESULT_OK, resultIntent);
                     finish();
                 } else {
                     // Show an error message if list name is empty

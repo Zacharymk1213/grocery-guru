@@ -61,4 +61,7 @@
     <string name="type_intro">"This item is a "</string>
     <string name="type_product">" product."</string>
 
+    <string name="manual_title">App Manual</string>
+    <string name="manual_body">text</string>
+
 </resources>
