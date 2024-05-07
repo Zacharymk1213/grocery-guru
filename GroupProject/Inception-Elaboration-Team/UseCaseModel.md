@@ -76,17 +76,7 @@ The use case diagram visually represents the interaction between the user (actor
 | **Post-conditions** | The database is updated with new items. |
 | **Scenarios** | **Normal:**<br>1. The user navigates to the database dashboard.<br>2. The user selects the option to create a new database entry.<br>3. The user enters the required information needed for the new item.<br>4. The system checks the information.<br>5. The system adds the new item to the database.<br>**Exceptional:**<br>1. If the information the user enters is not complete or incorrect, the system displays an error message and requests the correct information.<br>2. If there is a system or database error during the process, the system prompts the user to try again.<br>|
 
-
 ### Use Case 8:
-
-| Use Case | Search Type |
-|----|----| 
-| **Requirements** | User should be able to search items based on their type in the database. | 
-| **Pre-conditions** | The database has items categorized by type and the user can access the database. |
-| **Post-conditions** | The list of items under the type that the user wishes to search is displayed on the dashboard. |
-| **Scenarios** | **Normal:**<br>1. The user accesses the search feature in the database.<br>2. The user selects a type from a list.<br>3. The system retrieves all items matching the entered type.<br>4. The system displays the result on the dashboard.<br>**Alternate:**<br>If no items match the search type, then the system informs the user and suggests user similar type items or options to add the new item to the database.<br>**Exceptional:**<br>1. If the system fails to retrieve items due to an error, then an error message will show to the user.<br>2. If the error still exists after retiring,  the system suggests the user contact support.<br>|
-
-### Use Case 9:
 
 | Use Case | Search Name |
 |----|----| 
@@ -95,7 +85,7 @@ The use case diagram visually represents the interaction between the user (actor
 | **Post-conditions** | Search results match the search name. |
 | **Scenarios** | **Normal:**<br>1. The user accesses the item search interface in the database.<br>2. The user enters the name of the item and clicks the search type option.<br>3. The system processes the query.<br>4. The system displays the items that match the input name or partial name to the dashboard.<br>**Alternate:**<br>If no items match the search name, then the system informs the user and suggests user add the new item to the database.<br>**Exceptional:**<br>1. The operation encounters an error due to system issues and the system prompts the user to try again later.<br>2. If the problem persists, the system advises the user to contact the support.<br>|
   
-### Use Case 10:
+### Use Case 9:
 
 | Use Case | Look Up Item |
 |----|----| 
@@ -104,7 +94,7 @@ The use case diagram visually represents the interaction between the user (actor
 | **Post-conditions** | The system displays the items that match the search criteria. |
 | **Scenarios** | **Normal:**<br>1. The user navigates to the search interface.<br>2. The user enters the information.<br>3. The system searches the database for items that match the information that the user enters.<br>4. The system displays the results.<br>**Alternate:**<br>If no results were returned, then the system informs the user and suggests user to try again. If still no result is found, then the system suggests user add the new item to the database.<br>**Exceptional:**<br>1. The operation encounters an error due to system issues and the system prompts the user to try again later.<br>2. If the problem persists, the system advises the user to contact the support.<br>|
 
-### Use Case 11:
+### Use Case 10:
 
 | Use Case | Get Items Of Type |
 |----|----| 
@@ -113,7 +103,7 @@ The use case diagram visually represents the interaction between the user (actor
 | **Post-conditions** | A list of items that match the specific type is displayed on the dashboard for the user. |
 | **Scenarios** | **Normal:**<br>1. The user navigates to the search interface.<br>2. The user enters a type and clicks the search option.<br>3. The system retrieves all items matching the entered type.<br>4. The system displays the result on the dashboard.<br>**Alternate:**<br>If there are no items found, then the system informs the user and suggests the user add a new item to the database or check other types.<br>**Exceptional:**<br>1. The system encounters an error while attempting to retrieve items by type.<br>2. The user is advised to retry the operation.<br>3. If the problem persists, the system advises the user to contact the support.<br>| 
   
-### Use Case 12:
+### Use Case 11:
 
 | Use Case | Add Selected To List |
 |----|----| 
@@ -122,7 +112,7 @@ The use case diagram visually represents the interaction between the user (actor
 | **Post-conditions** | The chosen items are added to the user's active grocery list. |
 | **Scenarios** | **Normal:**<br>1. The user selects items in the database.<br>2. The user clicks the add selected to list option.<br>3. The system processes the request and adds selected items to the user's active list.<br>**Exceptional:**<br>1. The system encounters an issue while adding the selected items to the list.<br>2. The user is advised to retry the operation.<br>3. If the problem persists, the system advises the user to contact the support.<br>|
   
-### Use Case 13:
+### Use Case 12:
 
 | Use Case | Select Item |
 |----|----| 
@@ -131,7 +121,7 @@ The use case diagram visually represents the interaction between the user (actor
 | **Post-conditions** | The selected item is highlighted or marked in the system. |
 | **Scenarios** | **Normal:**<br>1. The user searches for items or views a list.<br>2. The user selects an item from the displayed results.<br>3. The system recognizes the selected item and provides other operations for the next step.<br>**Alternate:**<br>The user can deselect the items or select different items.<br>**Exceptional:**<br>1. The system encounters an issue while selecting the item.<br>2. The user is advised to retry the operation.<br>3. If the problem persists, the system advises the user to contact the support.<br>|
 
-### Use Case 14:
+### Use Case 13:
 
 | Use Case | Add Items |
 |----|----|  
@@ -140,7 +130,7 @@ The use case diagram visually represents the interaction between the user (actor
 | **Post-conditions** | The new item is added to the chosen list. |
 | **Scenarios** | **Normal:**<br>1. The user searches the item in the database and then selects the item.<br>2. The user inputs the details of the new item and then clicks the add items option.<br>3. The system validates the new item and then adds it to the list.<br>**Alternate:**<br>If the user attempts to add an item that already exists on the list, the system prompts them to update the existing item’s quantity instead of adding a duplicate.<br>**Exceptional:**<br>1. The system encounters an issue while adding the item.<br>2. The user is advised to retry the operation.<br>3. If the problem persists, the system advises the user to contact the support.<br>| 
   
-### Use Case 15:
+### Use Case 14:
 
 | Use Case | Delete Item |
 |----|----|  
@@ -151,7 +141,7 @@ The use case diagram visually represents the interaction between the user (actor
   
 
   
-### Use Case 16:
+### Use Case 15:
 
 | Use Case | Change Quantity |
 |----|----| 
@@ -162,7 +152,7 @@ The use case diagram visually represents the interaction between the user (actor
 
 
 
-### Use Case 17:
+### Use Case 16:
 
 | Use Case | Save List |
 |----|----|  
