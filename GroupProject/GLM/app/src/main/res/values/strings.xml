@@ -7,6 +7,7 @@
     <string name="save">Save</string>
     <string name="confirm">Confirm</string>
     <string name="delete_check">Delete Checked</string>
+    <string name="delete_selected">Delete Selected</string>
     <string name="add_selected">Add Selected</string>
     <string name="check_uncheck">Check All</string>
     <string name="select_unselect">Select All</string>
@@ -61,6 +62,10 @@
     <string name="type_intro">"This item is a "</string>
     <string name="type_product">" product."</string>
 
+    <!-- Manage Database Page -->
+    <string name="database">Database</string>
+
+    <!-- Manual Page -->
     <string name="manual_title">App Manual</string>
     <string name="manual_body">text</string>
 
