@@ -1,8 +1,12 @@
 package edu.qc.seclass.glm;
 
-public class initaldatabase  {
+public class AppHelper {
 
-    static void populate(GroceryDatabase db){
+    /**
+     * Adds to the database a starting set of items
+     * @param db
+     */
+    public static void populate(GroceryDatabase db){
         db.putItem("Apple", "Fruit");
         db.putItem("Banana", "Fruit");
         db.putItem("Carrot", "Vegetable");
@@ -70,5 +74,4 @@ public class initaldatabase  {
         db.putItem("Turnip", "Vegetable");
         db.putItem("Olive", "Fruit");
     }
-
 }
