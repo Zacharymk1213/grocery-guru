@@ -15,6 +15,10 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.Toast;
 
+import android.content.DialogInterface;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+
 public class MainActivity extends AppCompatActivity {
 
     private ArrayList<GroceryList> userLists;
@@ -28,37 +32,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //test
-        //GroceryDatabase db = GroceryDatabase.getInstance(); //enable these lines to reset app data
-        //db.putItem(1, "Apple", "Fruit");
-        //db.putItem(2, "Banana", "Fruit");
-        //db.putItem(3, "Carrot", "Vegetable");
-        //db.putItem(4, "Broccoli", "Vegetable");
-        //db.putItem(5, "Milk", "Dairy");
-        //User owner = User.getInstance(); //enable
-        //GroceryList l1 = new GroceryList(1, "Test List 1");
-        //l1.addItem(db.copyItem(1));
-        //l1.addItem(db.copyItem(2));
-        //GroceryList l2 = new GroceryList(2, "Mylist 2");
-        //l1.addItem(db.copyItem(5));
-        //l1.addItem(db.copyItem(3));
-        //owner.addList(l1);
-        //owner.addList(l2);
-        //if (saveAllData(getApplicationContext()) == 0) //enable
-        //    Toast.makeText(this, "Saved!", Toast.LENGTH_SHORT).show(); //enable
-        //else //enable
-        //    Toast.makeText(this, "Error saving data", Toast.LENGTH_SHORT).show(); //enable
-        //end
-
-        //first, load from local drive and previous data into program
-        //user data and database should be on different save_file
-
-        // Load user data
-        // important: check loaded before calling loadAllData()
         if (loadAllData(getApplicationContext()) != 0)
             // load failed, handle error
             Toast.makeText(this, "Error loading data", Toast.LENGTH_SHORT).show();
-
+            
         // Get list items
         myLists = findViewById(R.id.my_lists);
         
@@ -105,6 +82,26 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, SearchByTypeActivity.class));
             }
         });
+
+        // first time entering app
+        if (GroceryDatabase.getInstance().isEmpty() && User.getInstance().getName().equals("")) {
+            AlertDialog.Builder alertHelp = new AlertDialog.Builder(this);
+            alertHelp.setTitle("Hey There!");
+            alertHelp.setMessage("Welcome to GroceryGuru, this app will help you keep track of all "
+                + "the groceries you'll need to buy! Would you like a new list and some basic "
+                + "grocery items to get started?");
+            alertHelp.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                }
+            });
+            alertHelp.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    // close dialog
+                    dialog.cancel();
+                }
+            });
+            alertHelp.show();
+        }
     }
 
     //called automatically when user moved away from main activity
