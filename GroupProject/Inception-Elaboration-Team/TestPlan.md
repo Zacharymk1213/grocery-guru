@@ -8,20 +8,7 @@
 
 ### 1.1 Overall strategy
 
-
-### Unit Testing
-Unit testing will be performed by Zachary Kleiman as the individual developers work on their respective components. This involves testing individual functions and methods to ensure they perform as expected. We will use a unit testing framework appropriate for our programming language. In this case Junit.
-
-### Integration Testing
-Once individual components have been unit tested, we will perform integration testing to ensure that the components work together correctly. This will be done by Zachary Kleiman who'll run integration tests. We will use mock objects and stubs as needed to isolate the components being tested.
-
-### System Testing
-System testing will be performed by Zachary Kleiman. This involves testing the entire system to ensure that it meets the specified requirements. This includes functional testing to verify that the system does what it's supposed to do, as well as non-functional testing to check performance, usability, security, etc.
-
-### Regression Testing
-Regression testing will be performed after each major update to ensure that existing functionality has not been broken. This will be done by Zachary, using manual testing.
-
-All testing activities will be tracked using a test management tool (in this case a table in this Github file), which will allow us to track which tests have been run, their results, and any bugs that have been found. This will ensure that all necessary testing is performed and that any issues are addressed promptly.
+All manner of testing (unit, integration, system and regression) will be performed manually by Zachary Kleiman. This will be done using Android Studio's emulator. All testing activities will be tracked using a test management tool (in this case a table in this Github file), which will allow us to track which tests have been run, their results, and any bugs that have been found. This will ensure that all necessary testing is performed and that any issues are addressed promptly.
 
 
 ### 1.2 Test Selection
@@ -59,8 +46,7 @@ Bugs and Enhancement requests will be tracked  using Github's issue tracking sys
 Test will be done manually using the Android Studio emulator.
 ## 2 Test Cases
 
-Tests should be run roughly sequentially. If one test fails to check several other tests will likely fail so it makes sense to fix that bug before continuing. 
-Fill in all possible bugs I can think of as this develops
+Tests should be run roughly sequentially.
 
 | Use Case   | Test  | What to input                                                                                                                            | Expected output                                                                                                                    | Pre-conditions             | Results |
 |------------|-------|------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|----------------------------|---------|
