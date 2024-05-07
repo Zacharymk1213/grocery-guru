@@ -92,6 +92,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/type_intro"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -100,6 +101,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/item_type"
+                android:textSize="20sp"
                 app:layout_constraintStart_toEndOf="@+id/tv_type_intro"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -108,6 +110,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/type_product"
+                android:textSize="20sp"
                 app:layout_constraintStart_toEndOf="@+id/tv_type"
                 app:layout_constraintTop_toTopOf="parent" />
 

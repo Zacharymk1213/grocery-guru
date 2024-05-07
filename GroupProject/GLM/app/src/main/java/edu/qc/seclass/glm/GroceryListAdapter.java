@@ -66,7 +66,7 @@ public class GroceryListAdapter extends ArrayAdapter {
             public void onClick(View v) {
                 AlertDialog.Builder alertDelete = new AlertDialog.Builder(context);
                 alertDelete.setTitle("Delete Item");
-                alertDelete.setMessage("Are you sure you want to delete this"
+                alertDelete.setMessage("Are you sure you want to delete this "
                     + thisList.getName() + "?");
                 alertDelete.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
