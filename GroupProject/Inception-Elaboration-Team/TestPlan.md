@@ -8,7 +8,7 @@
 
 ### 1.1 Overall strategy
 
-All manner of testing (unit, integration, system and regression) will be performed manually by Zachary Kleiman. This will be done using Android Studio's emulator. All testing activities will be tracked using a test management tool (in this case a table in this Github file), which will allow us to track which tests have been run, their results, and any bugs that have been found. This will ensure that all necessary testing is performed and that any issues are addressed promptly.
+All manner of testing (unit, integration, system and regression) will be performed manually by Zachary Kleiman. This will be done using Android Studio's emulator. All testing activities will be tracked using a test management tool (in this case a table in this Github file), which will allow us to track which tests have been run, and whether they succeed. This will ensure that all necessary testing is performed and that any issues are addressed promptly.
 
 
 ### 1.2 Test Selection
