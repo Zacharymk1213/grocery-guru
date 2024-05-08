@@ -59,13 +59,13 @@ A application that is well received and meets and hopefully excels past all requ
 
 | Role                               | Assigned to               |
 |------------------------------------|---------------------------|
-| Junit Tester                       | Zachary Kleiman           |
+|  Tester                       | Zachary Kleiman           |
 | Initial programmer (backend)       | Jiafeng Lin                |
 | Assistant programmer (debugging)   | Zachary Kleiman           |
 | GUI Implementer (frontend)         | Jiafeng Lin                 |
 |GUI Designer                        |        Jiafeng Lin                   |
 | UML Designer                       | Lijie Wan, LingJie Shi ,Jatin K. Marwaha      |
 | Documentation writer               |  Zachary Kleiman, Jatin k. Marwaha       |
-| Use case                           | Lijie Wan                    |
+| Use case                           | Lijie Wan, Zachary Kleiman                    |
 | Project Manager                     | Jatin K. Marwaha |
 
