@@ -46,7 +46,7 @@ A application that is well received and meets and hopefully excels past all requ
 - Zachary Kleiman
 
 ### Roles
-1. Junit Tester - designs and runs Junit tests for all code written
+1. Tester - Tests the app as being developed manually in Android Studio using the test plan
 2. Initial programmer - Provides the code for backend functions
 3. Assistant programmer - Will assist the Inital Programmer in developing backend functions
 4. GUI Implementer - Implements the GUI as specified by the GUI mock-ups
