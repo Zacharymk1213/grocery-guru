@@ -1,6 +1,6 @@
 # Use Case Model
 
-**Author**: \<Lijie Wan\>
+**Author**: \<Lijie Wan\, \Zachary Kleiman\>
 
 ## 1 Use Case Diagram
 
