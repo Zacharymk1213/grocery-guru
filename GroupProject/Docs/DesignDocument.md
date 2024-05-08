@@ -43,7 +43,7 @@ This application will be targeted at API Level 31 of Android. We are therefore t
 
 ### 3.1 Class Diagram
 
-![](Diagrams/Team2%20UML%20Design.jpeg)
+![](Diagrams/Team2%20UML%20Design.png)
 
 ### 3.2 Other Diagrams
 #### State Diagram 
