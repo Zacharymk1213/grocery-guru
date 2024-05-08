@@ -14,22 +14,22 @@ All manner of testing (unit, integration, system and regression) will be perform
 ### 1.2 Test Selection
 
 
--Try all possible forms of input for any text receiving mechanism to ensure that all forms of input are handled
+-Try all possible forms of input for any text receiving mechanism (that is allowed to be inputted into that field) to ensure that all forms of input are handled.
 
 -Test all features that will be in the app
 
--Tests are ordered with reference to the usecasemodel as of 536d5368a3852d77d5fad4735a0e6aee1cf7c6f7
+-Tests are ordered with reference to the UseCaseModel.
 
 ### 1.3 Adequacy Criterion
 
 
 Coverage: Each use case should have at least one corresponding test case. This ensures that all functionality is tested.
 
-Boundary Conditions: Test cases should cover both the typical usage scenarios and edge cases. This includes testing with minimum, maximum, just below and just above the limit inputs, and with invalid or unexpected inputs.
+Boundary Conditions: Test cases should cover both the typical usage scenarios and edge cases. 
 
 Uniqueness: Test cases should not be redundant. Each test case should verify a different aspect of the system.
 
-Effectiveness: Test cases should be able to detect potential errors. This can be measured by injecting known faults into the system and verifying that the test cases can catch them.
+Effectiveness: Test cases should be able to detect potential errors.
 
 Maintainability: Test cases should be written in a way that they are easy to update when the system changes.
 
@@ -39,11 +39,7 @@ Independence: Each test case should be independent of others. The result of one 
 
 Traceability: Each test case should be traceable to its corresponding requirement or use case.
 
-
-### 1.4 Bug Tracking
-
-Bugs and Enhancement requests will be tracked  using Github's issue tracking system.
-### 1.5 Technology
+### 1.4 Technology
 
 Test will be done manually using the Android Studio emulator.
 ## 2 Test Cases
