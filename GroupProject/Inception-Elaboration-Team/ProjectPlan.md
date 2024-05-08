@@ -46,7 +46,7 @@ A application that is well received and meets and hopefully excels past all requ
 - Zachary Kleiman
 
 ### Roles
-1. Tester - Tests the app as being developed manually in Android Studio using the test plan
+1. Tester - designs and runs tests for all code written
 2. Initial programmer - Provides the code for backend functions
 3. Assistant programmer - Will assist the Inital Programmer in developing backend functions
 4. GUI Implementer - Implements the GUI as specified by the GUI mock-ups
@@ -59,11 +59,11 @@ A application that is well received and meets and hopefully excels past all requ
 
 | Role                               | Assigned to               |
 |------------------------------------|---------------------------|
-|  Tester                       | Zachary Kleiman           |
+| Tester                       | Zachary Kleiman           |
 | Initial programmer (backend)       | Jiafeng Lin                |
-| Assistant programmer (debugging)   | Zachary Kleiman           |
+| Assistant programmer (debugging)   | Zachary Kleiman ,Jatin K. Marwaha           |
 | GUI Implementer (frontend)         | Jiafeng Lin                 |
-|GUI Designer                        |        Jiafeng Lin                   |
+|GUI Designer                        |        Jiafeng Lin ,Lijie Wan,Jatin K. Marwaha                  |
 | UML Designer                       | Lijie Wan, LingJie Shi ,Jatin K. Marwaha      |
 | Documentation writer               |  Zachary Kleiman, Jatin k. Marwaha       |
 | Use case                           | Lijie Wan, Zachary Kleiman                    |
