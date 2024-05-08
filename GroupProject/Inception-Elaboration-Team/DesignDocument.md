@@ -33,7 +33,7 @@ This application will be targeted at API Level 31 of Android. We are therefore t
 
 ### 2.1 Component Diagram
 
-![](Diagrams/Team2%20Component%20Diagram.png)
+![](Diagrams/Team2%20Component%20Diagram.jpg)
 
 ### 2.2 Deployment Diagram
 
