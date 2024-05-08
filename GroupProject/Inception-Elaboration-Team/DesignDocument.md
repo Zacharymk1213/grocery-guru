@@ -2,7 +2,7 @@
 
 
 
-**Author**: Zachary Kleiman, Jatin K. Marwaha, Jiafeng Lin 
+**Author**: Zachary Kleiman, Jatin K. Marwaha, Jiafeng Lin, LingJie Shi
 
 ## 1 Design Considerations
 
