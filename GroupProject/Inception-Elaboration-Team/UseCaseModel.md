@@ -17,13 +17,13 @@ The use case diagram visually represents the interaction between the user (actor
 | **Requirements** | Allow the user to create a new named list within the system for organizing and tracking items.|
 | **Pre-conditions** | N/A |
 | **Post-conditions** | A new list with a specified name is created and appears within the user's account. The list is empty and ready for items to be added. |
-| **Scenarios** | **Normal:**<br>1. User selects the option to create a new list.<br>2. The user enters a name for the list in the system.<br>3. The system checks that the name is unique.<br>4. The system creates the list for the user.<br>**Alternate:**<br>1. The user enters an existing name. <br>2. The system prompts the user to enter a different name.<br>3. The user gives a new name and the system creates the list.<br>**Exceptional:** <br>1. The user receives an error message.<br>2. The system encounters an issue while creating the list.<br>|
+| **Scenarios** | **Normal:** <br>1. User selects the option to create a new list.<br>2. The user enters a name for the list in the system.<br>3. The system creates the list for the user.<br> **Exceptional:** <br>1. The user receives an error message.<br>2. The system encounters an issue while creating the list.<br>|
 
 ### Use Case 2:
 
 | Use Case | Delete List|
 |----|----| 
-| **Requirements** | Allow the user to permanently remove an existing list in their account. This action can contain a confirmation step to prevent accidental deletions.| 
+| **Requirements** | Allow the user to permanently remove an existing list. This action can contain a confirmation step to prevent accidental deletions.| 
 | **Pre-conditions** | N/A |
 | **Post-conditions** | The selected list is removed from the user's account and the system's storage. All the data in the list is no longer accessible.|
 | **Scenarios**| **Normal:**<br>1. The user accesses the lists area and views all existing lists.<br>2. The user selects the list they intend to delete.<br>3. The system prompts the user to confirm the deletion to prevent accidental data loss.<br>4. The system removes the list.<br>**Alternate:**<br>1. The user cancels the deletion after the confirmation prompt.<br>2. The system cancels the deletion and retains the list without changes.<br>**Exceptional:**<br>1. The user confirms deletion, but the system encounters an error.<br>2. The system displays an error message.<br>3. The user is prompted to try again later or contact customer support for assistance.<br>|
@@ -35,7 +35,7 @@ The use case diagram visually represents the interaction between the user (actor
 | **Requirements** | User must have the ability to open and review contents including items and details of any lists they have created. | 
 | **Pre-conditions** | The User has created at least one list created and has one list selected. |
 | **Post-conditions** | The selected list has been opened and the user can view all the items and details. |
-| **Scenarios** | **Normal:**<br>1. The user navigates to their collection of lists and selects one.<br>2. The user clicks the open list option.<br>3. The system displays all the content of the list.<br>**Alternate:**<br>The user does not open the list after selecting it and returns to the list collection.<br>**Exceptional:**<br>1. The user clicks the open list option, but the system encounters a loading error.<br>2. The system displays an error message to inform the user to try to open it again.<br>3. If the error still exists, the user is advised to contact support.<br>|
+| **Scenarios** | **Normal:**<br>1. The user navigates to their collection of lists and selects one.<br>2. The system displays all the content of the list.<br>**Exceptional:**<br>1. The user clicks on a list, but the system encounters a loading error.<br>2. The system displays an error message to inform the user to try to open it again.<br>3. If the error still exists, the user is advised to contact support.<br>|
   
 ### Use Case 4:
 
@@ -44,7 +44,7 @@ The use case diagram visually represents the interaction between the user (actor
 | **Requirements** | Allow users to change the name of any list they have created. | 
 | **Pre-conditions** | User can access their existing lists and have one list selected to perform the next action. |
 | **Post-conditions** | The list's name is updated to a new name. |
-| **Scenarios** | **Normal:**<br>1. The user selects the list they wish to change the name with.<br>2. The user clicks the rename list option.<br>3. The user inputs a new unique name.<br>4. The system checks the uniqueness of the new name.<br>5. The system updates the list's name and confirms the change to the user.<br>**Exceptional:**<br>1. The system encounters an issue when attempting to update the list's name.<br>2. The system displays an error message and suggests the user try again.<br>3. If the error still exists, the user is advised to contact customer support for further assistance.<br>|
+| **Scenarios** | **Normal:** <br> 1. The user selects the list they wish to change the name with.<br>2. The list is opened by the system. <br> 3. The user clicks on the name of the list.<br>4. The user inputs a new unique name.<br>5. The system updates the list's name.<br> **Exceptional:** <br>1. The system encounters an issue when attempting to update the list's name.<br>2. The system displays an error message and suggests the user try again.<br>3. If the error still exists, the user is advised to contact customer support for further assistance.<br>|
 
 ### Use Case 5:
 
@@ -62,7 +62,7 @@ The use case diagram visually represents the interaction between the user (actor
 | **Requirements** | User should be able to search items by their name in the database. | 
 | **Pre-conditions** | Items in the database have unique names and the user can access the database. |
 | **Post-conditions** | Search results match the search name. |
-| **Scenarios** | **Normal:**<br>1. The user accesses the item search interface in the database.<br>2. The user enters the name of the item and clicks the search type option.<br>3. The system processes the query.<br>4. The system displays the items that match the input name or partial name to the dashboard.<br>**Alternate:**<br>If no items match the search name, then the system informs the user and suggests user add the new item to the database.<br>**Exceptional:**<br>1. The operation encounters an error due to system issues and the system prompts the user to try again later.<br>2. If the problem persists, the system advises the user to contact the support.<br>|
+| **Scenarios** | **Normal:**<br>1. The user clicks on the Browse Item button from the Home Screen.<br>2. The user enters the name of the item and clicks the search  option.<br>3. The system processes the query.<br>4. The system displays the items that match the input name or partial name to the dashboard.<br>**Alternate:**<br>If no items match the search name, then the system displays nothing.<br>**Exceptional:**<br>1. The operation encounters an error due to system issues and the system prompts the user to try again later.<br>2. If the problem persists, the system advises the user to contact the support.<br>|
 
 
 ### Use Case 7:
@@ -72,7 +72,7 @@ The use case diagram visually represents the interaction between the user (actor
 | **Requirements** | The system must allow users to retrieve a list of items from the database that are categorized under a type to their grocery lists. | 
 | **Pre-conditions** | The database contains items categorized by various types. |
 | **Post-conditions** | A list of items that match the specific type is displayed on the dashboard for the user. |
-| **Scenarios** | **Normal:**<br>1. The user navigates to the search interface.<br>2. The user enters a type and clicks the search option.<br>3. The system retrieves all items matching the entered type.<br>4. The system displays the result on the dashboard.<br>**Alternate:**<br>If there are no items found, then the system informs the user and suggests the user add a new item to the database or check other types.<br>**Exceptional:**<br>1. The system encounters an error while attempting to retrieve items by type.<br>2. The user is advised to retry the operation.<br>3. If the problem persists, the system advises the user to contact the support.<br>| 
+| **Scenarios** | **Normal:**<br>1. The user clicks on the Browse Type button from the Home Screen.<br>2. The user selects a type.<br>3. The system retrieves all items matching the entered type.<br>4. The system displays the result on the dashboard.<br>**Alternate:**<br>If there are no item-types found, then the system retrieves nothing and displays nothing.<br>**Exceptional:**<br>1. The system encounters an error while attempting to retrieve items by type.<br>2. The user is advised to retry the operation.<br>3. If the problem persists, the system advises the user to contact the support.<br>| 
     
 ### Use Case 8:
 
@@ -110,7 +110,7 @@ The use case diagram visually represents the interaction between the user (actor
 | **Requirements** | User is allowed to sort items on their grocery list by type. | 
 | **Pre-conditions** | The user has an active list open and it contains multiple items categorized by type. |
 | **Post-conditions** | The grocery list is reorganized so that items are grouped and displayed by their type. |
-| **Scenarios**| **Normal:**<br>1. The user opens a grocery list they wish to sort.<br>2. The user selects the sort by type option.<br>3. The system processes the list and rearranges the items.<br>**Exceptional:**<br>1. The system encounters an issue while trying to sort the list by type.<br>2. The user is advised to retry the operation.<br>3. If the problem persists, the system advises the user to contact the support.<br>|
+| **Scenarios**| **Normal:**<br>1. The user opens a grocery list they wish to sort.<br>2. The user selects the Browse Type Button from within the list.<br>3. The system processes the list and displays the items sorted by type from within the Browse Type Screen where the user can select a type to see the items picked therefrom.<br>**Exceptional:**<br>1. The system encounters an issue while trying to sort the list by type.<br>2. The user is advised to retry the operation.<br>3. If the problem persists, the system advises the user to contact the support.<br>|
 
 
 ### Use Case 12:
