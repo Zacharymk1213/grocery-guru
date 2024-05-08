@@ -52,9 +52,10 @@
         <TextView
             android:id="@+id/tv_manual_body"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1.0"
-            android:text="@string/manual_body" />
+            android:text="@string/manual_body"
+            android:textSize="20sp" />
 
 
     </ScrollView>

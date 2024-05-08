@@ -8,28 +8,28 @@
 
 ### 1.1 Overall strategy
 
-All manner of testing (unit, integration, system and regression) will be performed manually by Zachary Kleiman. This will be done using Android Studio's emulator. All testing activities will be tracked using a test management tool (in this case a table in this Github file), which will allow us to track which tests have been run, and whether they succeed. This will ensure that all necessary testing is performed and that any issues are addressed promptly.
+All manner of testing (unit, integration, system and regression) will be performed manually by Zachary Kleiman. This will be done using Android Studio's emulator. All testing activities will be tracked using a test management tool (in this case a table in this Github file), which will allow us to track which tests have been run, their results, and any bugs that have been found. This will ensure that all necessary testing is performed and that any issues are addressed promptly.
 
 
 ### 1.2 Test Selection
 
 
--Try all possible forms of input for any text receiving mechanism (that is allowed to be inputted into that field) to ensure that all forms of input are handled.
+-Try all possible forms of input for any text receiving mechanism to ensure that all forms of input are handled
 
 -Test all features that will be in the app
 
--Tests are ordered with reference to the UseCaseModel.
+-Tests are ordered with reference to the usecasemodel as of 536d5368a3852d77d5fad4735a0e6aee1cf7c6f7
 
 ### 1.3 Adequacy Criterion
 
 
 Coverage: Each use case should have at least one corresponding test case. This ensures that all functionality is tested.
 
-Boundary Conditions: Test cases should cover both the typical usage scenarios and edge cases. 
+Boundary Conditions: Test cases should cover both the typical usage scenarios and edge cases. This includes testing with minimum, maximum, just below and just above the limit inputs, and with invalid or unexpected inputs.
 
 Uniqueness: Test cases should not be redundant. Each test case should verify a different aspect of the system.
 
-Effectiveness: Test cases should be able to detect potential errors.
+Effectiveness: Test cases should be able to detect potential errors. This can be measured by injecting known faults into the system and verifying that the test cases can catch them.
 
 Maintainability: Test cases should be written in a way that they are easy to update when the system changes.
 
@@ -39,7 +39,11 @@ Independence: Each test case should be independent of others. The result of one 
 
 Traceability: Each test case should be traceable to its corresponding requirement or use case.
 
-### 1.4 Technology
+
+### 1.4 Bug Tracking
+
+Bugs and Enhancement requests will be tracked  using Github's issue tracking system.
+### 1.5 Technology
 
 Test will be done manually using the Android Studio emulator.
 ## 2 Test Cases
@@ -68,4 +72,4 @@ Tests should be run roughly sequentially.
 |     9       | 9.1  | Go to the Home Screen, select a list and try to delete an item from the list                                                       | the item is deleted from the list                                                                                                 | the grocery lists exist and an item is present in the selected list   | ✅       |
 |     10      | 10.1  | Go to the Home Screen, select an item and try modifying its quantity in the grocery list                                                       | The quantity of the item is updated                      | the item exists in the list| ✅       |
 |     11      | 11.1  | Go to the Home Screen, Click on a list that has items from multiple types in it and click on Browse Type from there and ensure that only the items added to the list display when one click on the types                                                      | Only the items added to the list display when one clicks on the types                                                                                               | A list with items from multiple types exists| ✅       |
-|     12      | 12.1  | Close and reopen the app                                                                                                                  | Changes persist upon closing and reopening the app.                                                                               | N/A       | ✅       |
+|     12      | 12.1  | Close and reopen the app                                                                                                                  | Changes persist upon closing and reopening the app.                                                                               | All prior tests pass       | ✅       |
