@@ -63,6 +63,7 @@ public class GroceryList implements Parcelable {
      * @return all the items in list through an array
      */
     public ArrayList<GroceryItem> getItems() {
+        sortListByType();
         return new ArrayList<GroceryItem>(list.values());
     }
 
@@ -81,6 +82,23 @@ public class GroceryList implements Parcelable {
      */
     public GroceryItem deleteItem(int itemID) {
         return list.remove(itemID);
+    }
+
+    /**
+     * sorts the grocery list by typing as appears in database
+     */
+    public void sortListByType() {
+        LinkedHashMap<Integer, GroceryItem> result = new LinkedHashMap<>();
+        Set<String> typesSet = GroceryDatabase.getInstance().getTypes();
+        Set<Integer> itemIDs = list.keySet();
+        for (String type : typesSet)
+            for (int id : itemIDs) {
+                GroceryItem thisItem = list.get(id);
+                if (thisItem.getType().equals(type))
+                    result.put(id, thisItem); //move to the back of new list
+            }
+
+        list = result;
     }
 
     /**
@@ -119,7 +137,7 @@ public class GroceryList implements Parcelable {
     public void writeToParcel(Parcel out, int flags) {
         out.writeInt(id);
         out.writeString(name);
-        out.writeBoolean(isSelected);
+        //out.writeBoolean(isSelected);
     }
 
     public static final Parcelable.Creator<GroceryList> CREATOR = new Parcelable.Creator<GroceryList>() {
@@ -142,6 +160,6 @@ public class GroceryList implements Parcelable {
         id = in.readInt();
         name = in.readString();
         list = new LinkedHashMap<>();
-        isSelected = in.readBoolean();
+        isSelected = false;
     }
 }
