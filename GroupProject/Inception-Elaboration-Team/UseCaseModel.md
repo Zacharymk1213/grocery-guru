@@ -110,7 +110,7 @@ The use case diagram visually represents the interaction between the user (actor
 | **Requirements** | User is allowed to sort items on their grocery list by type. | 
 | **Pre-conditions** | The user has an active list open and it contains multiple items categorized by type. |
 | **Post-conditions** | The grocery list is reorganized so that items are grouped and displayed by their type. |
-| **Scenarios**| **Normal:**<br>1. The user opens a grocery list they wish to sort.<br>2. The user selects the Browse Type Button from within the list.<br>3. The system processes the list and displays the items sorted by type from within the Browse Type Screen where the user can select a type to see the items picked therefrom.<br>**Exceptional:**<br>1. The system encounters an issue while trying to sort the list by type.<br>2. The user is advised to retry the operation.<br>3. If the problem persists, the system advises the user to contact the support.<br>|
+| **Scenarios**| **Normal:**<br>1. The user opens a grocery list they wish to sort.<br>2. The System sorts the items on the list by Type.<br>3.The items are displayed organized by type.<br>**Exceptional:**<br>1. The system encounters an issue while trying to sort the list by type.<br>2. The user is advised to retry the operation.<br>3. If the problem persists, the system advises the user to contact the support.<br>|
 
 
 ### Use Case 12:
