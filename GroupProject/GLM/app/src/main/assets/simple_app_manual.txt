@@ -1,6 +1,3 @@
-GLM User Manual
-
-Authors: Lijie Wan, Jiafeng Lin
 
 Introduction
     This manual provides instructions on how to use the GLM application to make grocery shopping easier and more organized.
