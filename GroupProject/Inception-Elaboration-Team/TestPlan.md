@@ -15,8 +15,10 @@ All manner of testing (unit, integration, system and regression) will be perform
 
 
 -Try all possible forms of input for any text receiving mechanism to ensure that all forms of input are handled
+
 -Test all features that will be in the app
--Tests are ordered with reference to the usecasemodel as of 0cfbd59c958244598b05d9bfc7ba54de64ea76d8
+
+-Tests are ordered with reference to the usecasemodel as of 536d5368a3852d77d5fad4735a0e6aee1cf7c6f7
 
 ### 1.3 Adequacy Criterion
 
